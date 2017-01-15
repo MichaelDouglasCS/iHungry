@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61AC752A1E2C264A00E13F92 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75271E2C264A00E13F92 /* RoundedView.swift */; };
+		61AC752B1E2C264A00E13F92 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75281E2C264A00E13F92 /* RoundedButton.swift */; };
+		61AC752C1E2C264A00E13F92 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75291E2C264A00E13F92 /* RoundedTextField.swift */; };
 		61F5DF6E1E2BED6D002F18B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F5DF6D1E2BED6D002F18B0 /* AppDelegate.swift */; };
 		61F5DF701E2BED6D002F18B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F5DF6F1E2BED6D002F18B0 /* ViewController.swift */; };
 		61F5DF731E2BED6D002F18B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61F5DF711E2BED6D002F18B0 /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		61AC75271E2C264A00E13F92 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		61AC75281E2C264A00E13F92 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		61AC75291E2C264A00E13F92 /* RoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		61F5DF6A1E2BED6D002F18B0 /* iHungry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHungry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F5DF6D1E2BED6D002F18B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61F5DF6F1E2BED6D002F18B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 		617A9C881E2BF15D00448986 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				61AC75271E2C264A00E13F92 /* RoundedView.swift */,
+				61AC75281E2C264A00E13F92 /* RoundedButton.swift */,
+				61AC75291E2C264A00E13F92 /* RoundedTextField.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -385,6 +394,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61AC752A1E2C264A00E13F92 /* RoundedView.swift in Sources */,
+				61AC752C1E2C264A00E13F92 /* RoundedTextField.swift in Sources */,
+				61AC752B1E2C264A00E13F92 /* RoundedButton.swift in Sources */,
 				61F5DF701E2BED6D002F18B0 /* ViewController.swift in Sources */,
 				61F5DF761E2BED6D002F18B0 /* iHungry.xcdatamodeld in Sources */,
 				61F5DF6E1E2BED6D002F18B0 /* AppDelegate.swift in Sources */,
