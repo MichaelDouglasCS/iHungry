@@ -49,7 +49,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="FEF-K0-PbY" id="RDK-9a-LG1"/>
                                         </connections>
@@ -63,7 +63,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Sign In" backgroundImage="signIn"/>
-                                        <state key="selected" backgroundImage="header bg"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="28"/>
@@ -74,7 +73,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="signIn:" destination="FEF-K0-PbY" eventType="touchUpInside" id="ngl-c3-Gwi"/>
-                                            <action selector="teste:" destination="FEF-K0-PbY" eventType="touchDown" id="1AI-iO-9am"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dtz-jq-hrK" userLabel="userTextField">
@@ -101,7 +99,6 @@
                     <connections>
                         <outlet property="passwordTextField" destination="NMK-Xx-uu3" id="jXJ-PQ-OuO"/>
                         <outlet property="scrollView" destination="O45-Fn-0xa" id="6ds-Ea-ixl"/>
-                        <outlet property="signInButton" destination="3AJ-df-H4P" id="OPC-IM-nKO"/>
                         <outlet property="userTextField" destination="dtz-jq-hrK" id="Qg4-tf-aNl"/>
                     </connections>
                 </viewController>
