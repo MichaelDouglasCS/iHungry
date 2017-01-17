@@ -11,7 +11,7 @@
 		61AC752B1E2C264A00E13F92 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75281E2C264A00E13F92 /* RoundedButton.swift */; };
 		61AC752C1E2C264A00E13F92 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75291E2C264A00E13F92 /* RoundedTextField.swift */; };
 		61F5DF6E1E2BED6D002F18B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F5DF6D1E2BED6D002F18B0 /* AppDelegate.swift */; };
-		61F5DF701E2BED6D002F18B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F5DF6F1E2BED6D002F18B0 /* ViewController.swift */; };
+		61F5DF701E2BED6D002F18B0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F5DF6F1E2BED6D002F18B0 /* LoginViewController.swift */; };
 		61F5DF731E2BED6D002F18B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61F5DF711E2BED6D002F18B0 /* Main.storyboard */; };
 		61F5DF761E2BED6D002F18B0 /* iHungry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61F5DF741E2BED6D002F18B0 /* iHungry.xcdatamodeld */; };
 		61F5DF781E2BED6D002F18B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61F5DF771E2BED6D002F18B0 /* Assets.xcassets */; };
@@ -43,7 +43,7 @@
 		61AC75291E2C264A00E13F92 /* RoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		61F5DF6A1E2BED6D002F18B0 /* iHungry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHungry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F5DF6D1E2BED6D002F18B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		61F5DF6F1E2BED6D002F18B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		61F5DF6F1E2BED6D002F18B0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		61F5DF721E2BED6D002F18B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61F5DF751E2BED6D002F18B0 /* iHungry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iHungry.xcdatamodel; sourceTree = "<group>"; };
 		61F5DF771E2BED6D002F18B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		617A9C861E2BF14F00448986 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				61F5DF6F1E2BED6D002F18B0 /* ViewController.swift */,
+				61F5DF6F1E2BED6D002F18B0 /* LoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -397,7 +397,7 @@
 				61AC752A1E2C264A00E13F92 /* RoundedView.swift in Sources */,
 				61AC752C1E2C264A00E13F92 /* RoundedTextField.swift in Sources */,
 				61AC752B1E2C264A00E13F92 /* RoundedButton.swift in Sources */,
-				61F5DF701E2BED6D002F18B0 /* ViewController.swift in Sources */,
+				61F5DF701E2BED6D002F18B0 /* LoginViewController.swift in Sources */,
 				61F5DF761E2BED6D002F18B0 /* iHungry.xcdatamodeld in Sources */,
 				61F5DF6E1E2BED6D002F18B0 /* AppDelegate.swift in Sources */,
 			);
