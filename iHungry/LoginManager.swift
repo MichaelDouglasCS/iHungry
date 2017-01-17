@@ -1,12 +1,12 @@
 //
-//  LoginViewController.swift
+//  LoginManager.swift
 //  iHungry
 //
-//  Created by Michael Douglas on 15/01/17.
+//  Created by Michael Douglas on 17/01/17.
 //  Copyright © 2017 Michael Douglas. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 //**************************************************************************************************
 //
@@ -26,59 +26,36 @@ import UIKit
 //
 //**************************************************************************************************
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginManager {
 
 //*************************************************
 // MARK: - Properties
 //*************************************************
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var userTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    
 //*************************************************
-// MARK: - Override Public Methods
+// MARK: - Public Methods
 //*************************************************
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-
+    class func authenticate(user: String, password: String) {
+        
     }
-    
+
 //*************************************************
 // MARK: - Constructors
 //*************************************************
-    
+
 //*************************************************
 // MARK: - Private Methods
 //*************************************************
-    
+
 //*************************************************
 // MARK: - Internal Methods
 //*************************************************
-    
-    @IBAction func signIn(_ button: RoundedButton) {
-        print("TouchUp")
-    }
-    
-//*************************************************
-// MARK: - Self Public Methods
-//*************************************************
 
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if (textField == userTextField || textField == passwordTextField) {
-            scrollView.setContentOffset(CGPoint.init(x: 0, y: 100), animated: true)
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+//**************************************************************************************************
+//
+// MARK: - Extension -
+//
+//**************************************************************************************************
     
 }
