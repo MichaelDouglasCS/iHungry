@@ -61,9 +61,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AJ-df-H4P" customClass="RoundedButton" customModule="iHungry" customModuleProvider="target">
                                         <rect key="frame" x="24" y="552" width="326" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.96078431369999995" green="0.3803921569" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Sign In"/>
+                                        <state key="normal" title="Sign In" backgroundImage="signIn"/>
+                                        <state key="selected" backgroundImage="header bg"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="28"/>
@@ -74,6 +74,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="signIn:" destination="FEF-K0-PbY" eventType="touchUpInside" id="ngl-c3-Gwi"/>
+                                            <action selector="teste:" destination="FEF-K0-PbY" eventType="touchDown" id="1AI-iO-9am"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dtz-jq-hrK" userLabel="userTextField">
@@ -100,6 +101,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="NMK-Xx-uu3" id="jXJ-PQ-OuO"/>
                         <outlet property="scrollView" destination="O45-Fn-0xa" id="6ds-Ea-ixl"/>
+                        <outlet property="signInButton" destination="3AJ-df-H4P" id="OPC-IM-nKO"/>
                         <outlet property="userTextField" destination="dtz-jq-hrK" id="Qg4-tf-aNl"/>
                     </connections>
                 </viewController>
@@ -113,6 +115,7 @@
         <image name="icone" width="110" height="108"/>
         <image name="line" width="357" height="3"/>
         <image name="password" width="22" height="23"/>
+        <image name="signIn" width="326" height="56"/>
         <image name="username" width="24" height="23"/>
     </resources>
 </document>

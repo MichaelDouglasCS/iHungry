@@ -35,6 +35,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signInButton: RoundedButton!
     
 //*************************************************
 // MARK: - Override Public Methods
@@ -43,6 +44,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        
 
     }
     
@@ -59,9 +62,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //*************************************************
     
     @IBAction func signIn(_ sender: RoundedButton) {
-        
+        print("Tapped")
+    }
+    
+    @IBAction func teste(_ sender: RoundedButton) {
+        print("Tapped Off")
     }
 
+    
     
 //*************************************************
 // MARK: - Self Public Methods
