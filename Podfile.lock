@@ -12,13 +12,16 @@ PODS:
   - OHHTTPStubs/NSURLSession (5.2.3):
     - OHHTTPStubs/Core
   - OHHTTPStubs/OHPathHelpers (5.2.3)
+  - OHHTTPStubs/Swift (5.2.3):
+    - OHHTTPStubs/Core
 
 DEPENDENCIES:
   - OHHTTPStubs
+  - OHHTTPStubs/Swift
 
 SPEC CHECKSUMS:
   OHHTTPStubs: e238cd5b66d8efa51c861db45895de8fe079f4a7
 
-PODFILE CHECKSUM: 0e9fea0aa3071ca07cbe8f7475c5b98ee7965f76
+PODFILE CHECKSUM: bb277e4f7d56e7ad07b356fe8f326c877b6ac4c6
 
 COCOAPODS: 1.1.1

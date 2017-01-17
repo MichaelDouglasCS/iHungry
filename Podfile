@@ -7,6 +7,7 @@ target 'iHungry' do
 
   # Pods for iHungry
   pod 'OHHTTPStubs'
+  pod 'OHHTTPStubs/Swift'
 
   target 'iHungryTests' do
     inherit! :search_paths

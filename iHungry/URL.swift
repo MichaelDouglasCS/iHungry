@@ -33,6 +33,20 @@ public class URL {
     // MARK: - Enum
     //*************************************************
     
+    let stub = OHHTTPStubs()
+    
+    func teste() {
+        // Swift
+        stub(isHost("mywebservice.com")) { request in
+            // Stub it with our "wsresponse.json" stub file
+            return OHHTTPStubsResponse(
+                fileAtPath: OHPathForFile("wsresponse.json", type(of: self))!,
+                statusCode: 200,
+                headers: ["Content-Type":"application/json"]
+            )
+        }
+    }
+    
     enum BaseURL: String {
         case MockServer = "https://private-anon-b6b620dfc0-ibmfc.apiary-mock.com"
     }
