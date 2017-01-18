@@ -60,11 +60,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //*************************************************
     
     @IBAction func signIn(_ button: RoundedButton) {
-        let teste = URLs()
         
-        print(teste)
-        URLs()
-        NetworkManager.request()
+        let request = NetworkManager()
+        
+        request.request(urlRequest: URLs.authenticationURL(), parameters: ["user": "name"]) {
+            response in
+            print(response)
+        }
     }
     
 //*************************************************

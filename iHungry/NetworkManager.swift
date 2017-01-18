@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import OHHTTPStubs
 
 //**************************************************************************************************
 //
@@ -20,6 +21,8 @@ import Foundation
 //
 //**************************************************************************************************
 
+typealias JSONDictionary = (([String:Any]) -> Void)
+
 //**************************************************************************************************
 //
 // MARK: - Class -
@@ -27,31 +30,6 @@ import Foundation
 //**************************************************************************************************
 
 class NetworkManager {
-    
-    
-    
-    class func request() {
-        
-        let url = URL(string: "https://private-anon-b6b620dfc0-ibmfc.apiary-mock.com/login")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        request.httpBody = "{\n  \"username\": \"\",\n  \"password\": \"\"\n}".data(using: .utf8)
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let response = response, let data = data {
-                print(response)
-                print(String(data: data, encoding: .utf8)!)
-            } else {
-                print(error!)
-            }
-        }
-        
-        task.resume()
-        
-    }
-    
     
 //*************************************************
 // MARK: - Properties
@@ -61,6 +39,17 @@ class NetworkManager {
 // MARK: - Constructors
 //*************************************************
     
+    init() {
+        stub(condition: isHost("ihungry.com")) { request in
+            // Stub it with our "auth.json" stub file
+            return OHHTTPStubsResponse(
+                fileAtPath: OHPathForFile("auth.json", type(of: self))!,
+                statusCode: 200,
+                headers: ["Content-Type":"application/json"]
+            )
+        }
+    }
+    
 //*************************************************
 // MARK: - Private Methods
 //*************************************************
@@ -68,6 +57,39 @@ class NetworkManager {
 //*************************************************
 // MARK: - Internal Methods
 //*************************************************
+    
+    func request(urlRequest: String, parameters: [String: String], responseJSON: JSONDictionary) {
+        //Configuring request
+        let url = URL(string: urlRequest)!
+        var requestURL = URLRequest(url: url)
+        requestURL.httpMethod = "GET"
+        requestURL.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        //Executing Request
+        let task = URLSession.shared.dataTask(with: requestURL) { data, response, error in
+            
+            guard let httpResponse = response as? HTTPURLResponse, let receivedData = data
+                else{
+                    print("Error: Not a valid HTTP Response")
+                    return
+            }
+            
+            switch(httpResponse.statusCode) {
+            case 200:
+                       
+                
+                print(String(data: receivedData, encoding: .utf8)!)
+                break
+                
+            default:
+                
+                break
+            }
+            
+        }
+        
+        task.resume()
+        
+    }
 
 //*************************************************
 // MARK: - Self Public Methods

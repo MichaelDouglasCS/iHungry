@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import OHHTTPStubs
 
 //**************************************************************************************************
 //
@@ -34,7 +33,7 @@ public class URLs {
     //*************************************************
     
     enum BaseURL: String {
-        case MockServer = "https://private-anon-b6b620dfc0-ibmfc.apiary-mock.com"
+        case MockServer = "https://"
     }
     
     //*************************************************
@@ -46,17 +45,6 @@ public class URLs {
     //*************************************************
     // MARK: - Constructors
     //*************************************************
-    
-    init() {
-        stub(condition: isHost("mywebservice.com")) { request in
-            // Stub it with our "auth.json" stub file
-            return OHHTTPStubsResponse(
-                fileAtPath: OHPathForFile("auth.json", type(of: self))!,
-                statusCode: 200,
-                headers: ["Content-Type":"application/json"]
-            )
-        }
-    }
     
     //*************************************************
     // MARK: - Private Methods
@@ -71,7 +59,7 @@ public class URLs {
     }
     
     public class func authenticationURL() -> String {
-        return URLs.BaseURL.MockServer.rawValue + "/login"
+        return URLs.BaseURL.MockServer.rawValue + "ihungry.com"
     }
     
     public class func getAllGames() -> String {
