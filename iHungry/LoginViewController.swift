@@ -66,9 +66,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             switch(authStatus) {
             case .SUCCESS:
                 DispatchQueue.main.async {
-                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                    let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
-                    self.present(homeView, animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "homeViewSegue", sender: nil)
+//                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//                    let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeNavigationViewController")
+//                    self.present(homeView, animated: true, completion: nil)
                 }
                 break
             case .FAILED:
