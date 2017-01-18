@@ -60,18 +60,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //*************************************************
     
     @IBAction func signIn(_ button: RoundedButton) {
-        
         LoginManager.authenticate(user: self.userTextField.text!, password: self.passwordTextField.text!) { authStatus in
-            if authStatus == .SUCCESS {
+            switch(authStatus) {
+            case .SUCCESS:
                 DispatchQueue.main.async {
                     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                     let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
                     self.present(homeView, animated: true, completion: nil)
                 }
-            } else {
+                break
+            case .FAILED:
                 DispatchQueue.main.async {
                     self.failedAuthAlert()
                 }
+                break
             }
         }
     }
