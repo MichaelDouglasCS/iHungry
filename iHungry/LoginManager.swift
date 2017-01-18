@@ -37,8 +37,22 @@ class LoginManager {
 // MARK: - Public Methods
 //*************************************************
     
-    class func authenticate(user: String, password: String) {
-        
+    class func authenticate(user: String, password: String, auth: @escaping ((ResponseMethod)->Void)) {
+        let network = NetworkManager()
+        network.request(urlRequest: URLs.authenticationURL()) { responseJSON in
+            if let jsonAuth = responseJSON["auth"] as? NSDictionary,
+                let passCredentials = jsonAuth["passwordCredentials"] as? NSDictionary {
+                if ((user == passCredentials["username"] as? String) &&
+                    ((password == passCredentials["password"] as? String))) {
+                    auth(.SUCCESS)
+                } else {
+                    auth(.FAILED)
+                }
+            } else {
+                auth(.FAILED)
+            }
+            
+        }
     }
 
 //*************************************************

@@ -21,7 +21,8 @@ import OHHTTPStubs
 //
 //**************************************************************************************************
 
-typealias JSONDictionary = (([String:Any]) -> Void)
+typealias JSONDictionaryCompletion = (([String:Any]) -> Void)
+typealias JSON = ([String:Any])
 
 //**************************************************************************************************
 //
@@ -58,7 +59,7 @@ class NetworkManager {
 // MARK: - Internal Methods
 //*************************************************
     
-    func request(urlRequest: String, parameters: [String: String], responseJSON: JSONDictionary) {
+    func request(urlRequest: String, responseJSON: @escaping JSONDictionaryCompletion) {
         //Configuring request
         let url = URL(string: urlRequest)!
         var requestURL = URLRequest(url: url)
@@ -66,29 +67,27 @@ class NetworkManager {
         requestURL.addValue("application/json", forHTTPHeaderField: "Content-Type")
         //Executing Request
         let task = URLSession.shared.dataTask(with: requestURL) { data, response, error in
-            
             guard let httpResponse = response as? HTTPURLResponse, let receivedData = data
-                else{
+                else {
                     print("Error: Not a valid HTTP Response")
                     return
             }
-            
             switch(httpResponse.statusCode) {
             case 200:
-                       
-                
-                print(String(data: receivedData, encoding: .utf8)!)
+                do {
+                    let parsedJSON = try JSONSerialization.jsonObject(with: receivedData, options: []) as! JSON
+                    //Completion of JSON Parsed
+                    responseJSON(parsedJSON)
+                } catch let errorParse as NSError {
+                    print(errorParse)
+                }
                 break
-                
             default:
-                
+                print("Error: \(error)")
                 break
             }
-            
         }
-        
         task.resume()
-        
     }
 
 //*************************************************
