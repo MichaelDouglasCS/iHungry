@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="HPT-FZ-it1">
             <objects>
-                <viewController id="FEF-K0-PbY" customClass="LoginViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="FEF-K0-PbY" customClass="LoginViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZeQ-op-TMU"/>
                         <viewControllerLayoutGuide type="bottom" id="v1h-8K-p2m"/>
@@ -109,7 +109,7 @@
         <!--Home View Controller-->
         <scene sceneID="hkv-O6-MWR">
             <objects>
-                <viewController id="XQU-7b-oGm" customClass="HomeViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="XQU-7b-oGm" customClass="HomeViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nNN-fD-tLT"/>
                         <viewControllerLayoutGuide type="bottom" id="6hQ-ar-tbc"/>

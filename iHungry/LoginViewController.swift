@@ -62,13 +62,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signIn(_ button: RoundedButton) {
         
         LoginManager.authenticate(user: self.userTextField.text!, password: self.passwordTextField.text!) { authStatus in
-            print(authStatus)
+            if authStatus == .SUCCESS {
+                DispatchQueue.main.async {
+                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
+                    self.present(homeView, animated: true, completion: nil)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.failedAuthAlert()
+                }
+            }
         }
     }
     
 //*************************************************
 // MARK: - Self Public Methods
 //*************************************************
+    
+    func failedAuthAlert() {
+        let alert = UIAlertController(title: "Authentication Failed", message: "Are you sure entered the right username and password?", preferredStyle: .alert)
+        let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+        alert.addAction(tryAgainAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField == userTextField || textField == passwordTextField) {
