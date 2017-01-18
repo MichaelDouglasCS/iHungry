@@ -1,5 +1,5 @@
 //
-//  URL.swift
+//  URLs.swift
 //  iHungry
 //
 //  Created by Michael Douglas on 17/01/17.
@@ -27,25 +27,11 @@ import OHHTTPStubs
 //
 //**************************************************************************************************
 
-public class URL {
+public class URLs {
     
     //*************************************************
     // MARK: - Enum
     //*************************************************
-    
-    let stub = OHHTTPStubs()
-    
-    func teste() {
-        // Swift
-        stub(isHost("mywebservice.com")) { request in
-            // Stub it with our "wsresponse.json" stub file
-            return OHHTTPStubsResponse(
-                fileAtPath: OHPathForFile("wsresponse.json", type(of: self))!,
-                statusCode: 200,
-                headers: ["Content-Type":"application/json"]
-            )
-        }
-    }
     
     enum BaseURL: String {
         case MockServer = "https://private-anon-b6b620dfc0-ibmfc.apiary-mock.com"
@@ -61,6 +47,17 @@ public class URL {
     // MARK: - Constructors
     //*************************************************
     
+    init() {
+        stub(condition: isHost("mywebservice.com")) { request in
+            // Stub it with our "auth.json" stub file
+            return OHHTTPStubsResponse(
+                fileAtPath: OHPathForFile("auth.json", type(of: self))!,
+                statusCode: 200,
+                headers: ["Content-Type":"application/json"]
+            )
+        }
+    }
+    
     //*************************************************
     // MARK: - Private Methods
     //*************************************************
@@ -74,15 +71,15 @@ public class URL {
     }
     
     public class func authenticationURL() -> String {
-        return URL.BaseURL.MockServer.rawValue + "/login"
+        return URLs.BaseURL.MockServer.rawValue + "/login"
     }
     
     public class func getAllGames() -> String {
-        return URL.BaseURL.MockServer.rawValue + "/games"
+        return URLs.BaseURL.MockServer.rawValue + "/games"
     }
     
     public class func getAllStrikers() -> String {
-        return URL.BaseURL.MockServer.rawValue + "/strikers"
+        return URLs.BaseURL.MockServer.rawValue + "/strikers"
     }
     
 }

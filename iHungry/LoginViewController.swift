@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OHHTTPStubs
 
 //**************************************************************************************************
 //
@@ -59,7 +60,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //*************************************************
     
     @IBAction func signIn(_ button: RoundedButton) {
-        print("TouchUp")
+        let teste = URLs()
+        
+        print(teste)
+        URLs()
+        NetworkManager.request()
     }
     
 //*************************************************
