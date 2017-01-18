@@ -59,15 +59,11 @@ public class URLs {
     }
     
     public class func authenticationURL() -> String {
-        return URLs.BaseURL.MockServer.rawValue + "ihungry.com"
+        return URLs.BaseURL.MockServer.rawValue + "ihungry.com/auth"
     }
     
-    public class func getAllGames() -> String {
-        return URLs.BaseURL.MockServer.rawValue + "/games"
-    }
-    
-    public class func getAllStrikers() -> String {
-        return URLs.BaseURL.MockServer.rawValue + "/strikers"
+    public class func getMenu() -> String {
+        return URLs.BaseURL.MockServer.rawValue + "ihungry.com/menu"
     }
     
 }

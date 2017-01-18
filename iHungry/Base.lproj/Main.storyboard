@@ -101,7 +101,7 @@
                         <outlet property="scrollView" destination="O45-Fn-0xa" id="6ds-Ea-ixl"/>
                         <outlet property="signInButton" destination="3AJ-df-H4P" id="8oI-NF-ljY"/>
                         <outlet property="userTextField" destination="dtz-jq-hrK" id="Qg4-tf-aNl"/>
-                        <segue destination="LIz-v4-Tir" kind="custom" identifier="homeViewSegue" customClass="CustomHomeViewSegue" customModule="iHungry" id="bkj-IS-414"/>
+                        <segue destination="LIz-v4-Tir" kind="custom" identifier="homeViewSegue" customClass="CustomSegue" customModule="iHungry" id="bkj-IS-414"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jz-v3-w4c" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1,5 +1,5 @@
 //
-//  CustomHomeViewSegue.swift
+//  CustomSegue.swift
 //  iHungry
 //
 //  Created by Michael Douglas on 18/01/17.
@@ -26,7 +26,7 @@ import UIKit
 //
 //**************************************************************************************************
 
-class CustomHomeViewSegue: UIStoryboardSegue {
+class CustomSegue: UIStoryboardSegue {
     
 //*************************************************
 // MARK: - Override Public Methods
