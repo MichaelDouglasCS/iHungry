@@ -36,6 +36,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
+
     
 //*************************************************
 // MARK: - Override Public Methods
@@ -44,7 +46,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        
+        self.signInButton.isEnabled = false
     }
     
 //*************************************************
@@ -82,13 +84,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 // MARK: - Self Public Methods
 //*************************************************
     
-    func failedAuthAlert() {
-        let alert = UIAlertController(title: "Authentication Failed", message: "Are you sure entered the right username and password?", preferredStyle: .alert)
-        let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
-        alert.addAction(tryAgainAction)
-        self.present(alert, animated: true, completion: nil)
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        if textField == self.userTextField {
+            if ((!textFill.isEmpty) && (!(self.passwordTextField.text?.isEmpty)!)){
+                signInButton.isEnabled = true
+            } else {
+                signInButton.isEnabled = false
+            }
+        }
+        else if textField == self.passwordTextField {
+            if ((!textFill.isEmpty) && (!(self.userTextField.text?.isEmpty)!)){
+                signInButton.isEnabled = true
+            } else {
+                signInButton.isEnabled = false
+            }
+        }
+        return true
     }
-
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField == userTextField || textField == passwordTextField) {
             scrollView.setContentOffset(CGPoint.init(x: 0, y: 100), animated: true)
@@ -102,6 +116,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+//*************************************************
+// MARK: - Self Alerts
+//*************************************************
+    
+    func failedAuthAlert() {
+        let alert = UIAlertController(title: "Authentication Failed", message: "Are you sure entered the right username and password?", preferredStyle: .alert)
+        let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+        alert.addAction(tryAgainAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

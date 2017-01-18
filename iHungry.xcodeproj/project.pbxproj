@@ -11,6 +11,7 @@
 		3E983318A07B098F7C733A9C /* Pods_iHungry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FDD2A5E783905EB52DCAEE /* Pods_iHungry.framework */; };
 		52F12DCF3FCF4E133354E380 /* Pods_iHungryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A101800B97881493C2445B /* Pods_iHungryTests.framework */; };
 		61221B641E2EC59400268502 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61221B631E2EC59400268502 /* HomeViewController.swift */; };
+		6122BE801E2FCAEC000B6DF6 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6122BE7F1E2FCAEC000B6DF6 /* HomeNavigationViewController.swift */; };
 		612F095C1E2EDEF60008750D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612F095B1E2EDEF60008750D /* NetworkManager.swift */; };
 		6181A52A1E2DBC200093CBBA /* InterfaceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6181A5291E2DBC200093CBBA /* InterfaceExtensions.swift */; };
 		61AC752A1E2C264A00E13F92 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75271E2C264A00E13F92 /* RoundedView.swift */; };
@@ -51,6 +52,7 @@
 		28A101800B97881493C2445B /* Pods_iHungryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iHungryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9E5D33CAFE4EF238629FB5 /* Pods-iHungryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHungryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iHungryTests/Pods-iHungryTests.release.xcconfig"; sourceTree = "<group>"; };
 		61221B631E2EC59400268502 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6122BE7F1E2FCAEC000B6DF6 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
 		612F095B1E2EDEF60008750D /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		6181A5291E2DBC200093CBBA /* InterfaceExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceExtensions.swift; sourceTree = "<group>"; };
 		61AC75271E2C264A00E13F92 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				61F5DF6F1E2BED6D002F18B0 /* LoginViewController.swift */,
 				61221B631E2EC59400268502 /* HomeViewController.swift */,
+				6122BE7F1E2FCAEC000B6DF6 /* HomeNavigationViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				61F5DF701E2BED6D002F18B0 /* LoginViewController.swift in Sources */,
 				61E077371E2ED17C00EFDF39 /* URLs.swift in Sources */,
 				61E077351E2ED06800EFDF39 /* LoginManager.swift in Sources */,
+				6122BE801E2FCAEC000B6DF6 /* HomeNavigationViewController.swift in Sources */,
 				61F5DF761E2BED6D002F18B0 /* iHungry.xcdatamodeld in Sources */,
 				61F5DF6E1E2BED6D002F18B0 /* AppDelegate.swift in Sources */,
 				6181A52A1E2DBC200093CBBA /* InterfaceExtensions.swift in Sources */,

@@ -24,8 +24,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O45-Fn-0xa" userLabel="Main Scroll View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="header bg" translatesAutoresizingMaskIntoConstraints="NO" id="TEh-Kg-edf" userLabel="HeaderView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="257.5"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="header login bg" translatesAutoresizingMaskIntoConstraints="NO" id="TEh-Kg-edf" userLabel="HeaderView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="258"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone" translatesAutoresizingMaskIntoConstraints="NO" id="LuX-Be-VlR">
@@ -99,6 +99,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="NMK-Xx-uu3" id="jXJ-PQ-OuO"/>
                         <outlet property="scrollView" destination="O45-Fn-0xa" id="6ds-Ea-ixl"/>
+                        <outlet property="signInButton" destination="3AJ-df-H4P" id="8oI-NF-ljY"/>
                         <outlet property="userTextField" destination="dtz-jq-hrK" id="Qg4-tf-aNl"/>
                     </connections>
                 </viewController>
@@ -117,18 +118,24 @@
                     <view key="view" contentMode="scaleToFill" id="Ge7-Xb-1J9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="header home bg" translatesAutoresizingMaskIntoConstraints="NO" id="ytk-bh-Bq1" userLabel="Home Background">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="0y9-lU-8fv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dd0-gU-KMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1886" y="-158"/>
+            <point key="canvasLocation" x="1885.5999999999999" y="-158.77061469265368"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Home Navigation View Controller-->
         <scene sceneID="ODr-sE-Tfq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LIz-v4-Tir" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LIz-v4-Tir" customClass="HomeNavigationViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yhE-Yv-PGO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -145,7 +152,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="header bg" width="375" height="258"/>
+        <image name="header home bg" width="375" height="256"/>
+        <image name="header login bg" width="375" height="258"/>
         <image name="icone" width="110" height="108"/>
         <image name="line" width="357" height="3"/>
         <image name="password" width="22" height="23"/>
