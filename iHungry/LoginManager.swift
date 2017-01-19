@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import KeychainSwift
 
 //**************************************************************************************************
 //
@@ -21,6 +21,9 @@ import Foundation
 //
 //**************************************************************************************************
 
+private let keychain = KeychainSwift()
+private let keyTokenName = "token"
+
 //**************************************************************************************************
 //
 // MARK: - Class -
@@ -33,6 +36,20 @@ class LoginManager {
 // MARK: - Properties
 //*************************************************
     
+    static var token: String? {
+        get { return keychain.get(keyTokenName) }
+    }
+    
+    static var isLogged: Bool {
+        get {
+            if keychain.get(keyTokenName) != nil {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+    
 //*************************************************
 // MARK: - Public Methods
 //*************************************************
@@ -44,15 +61,25 @@ class LoginManager {
                 let passCredentials = jsonAuth["passwordCredentials"] as? NSDictionary {
                 if ((user == passCredentials["username"] as? String) &&
                     ((password == passCredentials["password"] as? String))) {
-                    auth(.SUCCESS)
+                    if let token = passCredentials["token"] as? String {
+                        keychain.set(token, forKey: keyTokenName)
+                        auth(.SUCCESS)
+                    } else {
+                        print("Error: Could not get token")
+                        auth(.FAILED)
+                    }
+                    
                 } else {
                     auth(.FAILED)
                 }
             } else {
                 auth(.FAILED)
             }
-            
         }
+    }
+    
+    class func logout() {
+        keychain.delete(keyTokenName)
     }
 
 //*************************************************
