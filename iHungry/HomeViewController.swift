@@ -43,7 +43,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarTransparent()
-        // Do any additional setup after loading the view.
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let loginView = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
+        self.present(loginView, animated: false, completion: nil)
     }
     
 //*************************************************
@@ -63,4 +66,9 @@ class HomeViewController: UIViewController {
 //*************************************************
 // MARK: - Self Public Methods
 //*************************************************
+    @IBAction func openMenu(_ sender: UIBarButtonItem) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let loginView = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
+        self.present(loginView, animated: true, completion: nil)
+    }
 }

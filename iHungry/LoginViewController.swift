@@ -66,10 +66,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             switch(authStatus) {
             case .SUCCESS:
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "homeViewSegue", sender: nil)
-//                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//                    let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeNavigationViewController")
-//                    self.present(homeView, animated: true, completion: nil)
+                    //QUAL A UTILIZADE DO COMPLETION DO DISMISS?*******
+                    self.dismiss(animated: true, completion: nil)
                 }
                 break
             case .FAILED:
@@ -130,4 +128,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+}
+
+//**************************************************************************************************
+//
+// MARK: - Extension - Keyboard
+//
+//**************************************************************************************************
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

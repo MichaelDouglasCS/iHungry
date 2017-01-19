@@ -13,9 +13,7 @@
 		61221B641E2EC59400268502 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61221B631E2EC59400268502 /* HomeViewController.swift */; };
 		6122BE801E2FCAEC000B6DF6 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6122BE7F1E2FCAEC000B6DF6 /* HomeNavigationViewController.swift */; };
 		6122BE831E2FD627000B6DF6 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6122BE821E2FD627000B6DF6 /* OrderManager.swift */; };
-		6122BE871E2FE74F000B6DF6 /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6122BE861E2FE74F000B6DF6 /* CustomSegue.swift */; };
 		612F095C1E2EDEF60008750D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612F095B1E2EDEF60008750D /* NetworkManager.swift */; };
-		6181A52A1E2DBC200093CBBA /* InterfaceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6181A5291E2DBC200093CBBA /* InterfaceExtensions.swift */; };
 		61AC752A1E2C264A00E13F92 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75271E2C264A00E13F92 /* RoundedView.swift */; };
 		61AC752B1E2C264A00E13F92 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75281E2C264A00E13F92 /* RoundedButton.swift */; };
 		61AC752C1E2C264A00E13F92 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75291E2C264A00E13F92 /* RoundedTextField.swift */; };
@@ -57,9 +55,7 @@
 		61221B631E2EC59400268502 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6122BE7F1E2FCAEC000B6DF6 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
 		6122BE821E2FD627000B6DF6 /* OrderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
-		6122BE861E2FE74F000B6DF6 /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		612F095B1E2EDEF60008750D /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		6181A5291E2DBC200093CBBA /* InterfaceExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceExtensions.swift; sourceTree = "<group>"; };
 		61AC75271E2C264A00E13F92 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		61AC75281E2C264A00E13F92 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		61AC75291E2C264A00E13F92 /* RoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
@@ -144,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				61F5DF6F1E2BED6D002F18B0 /* LoginViewController.swift */,
-				6122BE861E2FE74F000B6DF6 /* CustomSegue.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -246,7 +241,6 @@
 				61AC75271E2C264A00E13F92 /* RoundedView.swift */,
 				61AC75281E2C264A00E13F92 /* RoundedButton.swift */,
 				61AC75291E2C264A00E13F92 /* RoundedTextField.swift */,
-				6181A5291E2DBC200093CBBA /* InterfaceExtensions.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -676,9 +670,7 @@
 				61E077351E2ED06800EFDF39 /* LoginManager.swift in Sources */,
 				6122BE801E2FCAEC000B6DF6 /* HomeNavigationViewController.swift in Sources */,
 				61F5DF761E2BED6D002F18B0 /* iHungry.xcdatamodeld in Sources */,
-				6122BE871E2FE74F000B6DF6 /* CustomSegue.swift in Sources */,
 				61F5DF6E1E2BED6D002F18B0 /* AppDelegate.swift in Sources */,
-				6181A52A1E2DBC200093CBBA /* InterfaceExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

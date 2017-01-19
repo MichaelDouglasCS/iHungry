@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FEF-K0-PbY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LIz-v4-Tir">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -101,12 +101,11 @@
                         <outlet property="scrollView" destination="O45-Fn-0xa" id="6ds-Ea-ixl"/>
                         <outlet property="signInButton" destination="3AJ-df-H4P" id="8oI-NF-ljY"/>
                         <outlet property="userTextField" destination="dtz-jq-hrK" id="Qg4-tf-aNl"/>
-                        <segue destination="LIz-v4-Tir" kind="custom" identifier="homeViewSegue" customClass="CustomSegue" customModule="iHungry" id="bkj-IS-414"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jz-v3-w4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="690" y="-159"/>
+            <point key="canvasLocation" x="671" y="-161"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="hkv-O6-MWR">
@@ -156,25 +155,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="0y9-lU-8fv">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="x0K-UF-cPO">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OZ1-od-Jqd" userLabel="MenuButton">
-                                <rect key="frame" x="16" y="4" width="35" height="35.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="menu"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="aE9-oa-0bW" userLabel="Menu Bar Button">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="openMenu:" destination="XQU-7b-oGm" id="oOl-uM-fvF"/>
+                            </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="mdn-fo-Usl">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gvz-RK-bvq" userLabel="SearchButton">
-                                <rect key="frame" x="325" y="5" width="34" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="search"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" image="search" id="3ME-df-GGz" userLabel="Search Bar Button">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dd0-gU-KMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1885.5999999999999" y="-158.77061469265368"/>
+            <point key="canvasLocation" x="2316" y="-161"/>
         </scene>
         <!--Home Navigation View Controller-->
         <scene sceneID="ODr-sE-Tfq">
@@ -196,7 +190,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCZ-kV-Jv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="-919"/>
+            <point key="canvasLocation" x="1478" y="-161"/>
         </scene>
     </scenes>
     <resources>
