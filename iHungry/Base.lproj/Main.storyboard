@@ -170,10 +170,10 @@
             </objects>
             <point key="canvasLocation" x="2316" y="-161"/>
         </scene>
-        <!--Home Navigation View Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="ODr-sE-Tfq">
             <objects>
-                <navigationController storyboardIdentifier="HomeNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="LIz-v4-Tir" customClass="HomeNavigationViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="LIz-v4-Tir" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yhE-Yv-PGO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

@@ -43,18 +43,20 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarTransparent()
-        
-        if !LoginManager.isLogged {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let loginView = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
-        self.present(loginView, animated: false, completion: nil)
-        }
-        
+        self.userIsLogged()
     }
     
 //*************************************************
 // MARK: - Private Methods
 //*************************************************
+    
+    private func userIsLogged() {
+        if !LoginManager.isLogged {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let loginView = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
+            self.present(loginView, animated: false, completion: nil)
+        }
+    }
     
 //*************************************************
 // MARK: - Internal Methods
