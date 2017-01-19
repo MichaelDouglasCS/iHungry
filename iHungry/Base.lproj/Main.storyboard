@@ -127,11 +127,18 @@
                                 <rect key="frame" x="274" y="180.5" width="59" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="btn_add"/>
+                                <connections>
+                                    <segue destination="yPO-ce-oVw" kind="show" id="O6t-zZ-G7T"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4JY-DF-jWC" userLabel="OrderTableView">
                                 <rect key="frame" x="0.0" y="264" width="375" height="403"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XQU-7b-oGm" id="JXj-mB-sJb"/>
+                                    <outlet property="delegate" destination="XQU-7b-oGm" id="MIH-CQ-Htl"/>
+                                </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Line" translatesAutoresizingMaskIntoConstraints="NO" id="dCf-n6-ptp">
                                 <rect key="frame" x="101" y="256" width="198" height="162"/>
@@ -165,10 +172,54 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="myOrdersTableView" destination="4JY-DF-jWC" id="sPr-R9-ILt"/>
+                        <outlet property="noOrderLabelDescription" destination="LyM-bX-Xgo" id="zWX-P9-uiq"/>
+                        <outlet property="noOrderLableTitle" destination="AMr-t1-8rd" id="JN1-7D-och"/>
+                        <outlet property="noOrderLine" destination="dCf-n6-ptp" id="o2J-vs-Q0C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dd0-gU-KMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2316" y="-161"/>
+        </scene>
+        <!--Order View Controller-->
+        <scene sceneID="Vkj-uT-9xd">
+            <objects>
+                <viewController id="yPO-ce-oVw" customClass="OrderViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yxv-65-0DS"/>
+                        <viewControllerLayoutGuide type="bottom" id="LNT-Jl-Vfe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XHT-7n-Eys" userLabel="BackgroundView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uBI-NO-N8m">
+                                <rect key="frame" x="46" y="78" width="282" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tN-do-1rt">
+                                <rect key="frame" x="168" y="162" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Teste"/>
+                                <connections>
+                                    <action selector="saveOrder:" destination="yPO-ce-oVw" eventType="touchUpInside" id="db8-az-kiQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95999999999999996" green="0.38163934430000002" blue="0.0" alpha="0.28788527397260272" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="uBI-NO-N8m" id="3RP-2H-a8h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nko-ws-bNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3032.8000000000002" y="-161.46926536731635"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ODr-sE-Tfq">
