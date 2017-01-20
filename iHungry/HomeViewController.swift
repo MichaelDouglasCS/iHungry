@@ -27,21 +27,20 @@ import UIKit
 //**************************************************************************************************
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+//*************************************************
+// MARK: - IBOutlets
+//*************************************************
+    
+    @IBOutlet weak var myOrdersTableView: UITableView!
+    @IBOutlet weak var noOrdersView: UIView!
     
 //*************************************************
 // MARK: - Properties
 //*************************************************
     
-    @IBOutlet weak var myOrdersTableView: UITableView!
-    @IBOutlet weak var noOrderLine: UIImageView!
-    @IBOutlet weak var noOrderLableTitle: UILabel!
-    @IBOutlet weak var noOrderLabelDescription: UILabel!
-    
-    var orders = [OrderVO]()
-    
-//*************************************************
-// MARK: - Constructors
-//*************************************************
+    //Variable that storages the Orders that appears in TableView
+    private var orders = [OrderVO]()
     
 //*************************************************
 // MARK: - Override Public Methods
@@ -49,21 +48,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Set NavigationBarTransparent
         self.setNavigationBarTransparent()
+        //Verify if the user has been already logged in
         self.userIsLogged()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        //Update the Table View with MyOrders
         self.orders = OrderManager.getAllOrders()
         
+        //Verify if ordes is empty to hidden noOrdersView
         if !(orders.isEmpty) {
-            self.hideNoOrdersDescription(isHidden: true)
+            self.myOrdersTableView.isHidden = false
+            self.noOrdersView.isHidden = true
         } else {
-            self.hideNoOrdersDescription(isHidden: false)
+            self.myOrdersTableView.isHidden = true
+            self.noOrdersView.isHidden = false
         }
         
+        //ReloadData from My Orders Table View
         myOrdersTableView.reloadData()
         
     }
@@ -71,7 +75,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //*************************************************
 // MARK: - Private Methods
 //*************************************************
-    //Verify if the user already logged in
+    
+    //Verify if the user has been already logged in
     private func userIsLogged() {
         if !LoginManager.isLogged {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -84,21 +89,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 // MARK: - Internal Methods
 //*************************************************
     
-    func hideNoOrdersDescription(isHidden: Bool) {
-        if isHidden == true {
-            self.myOrdersTableView.isHidden = false
-            self.noOrderLine.isHidden = true
-            self.noOrderLableTitle.isHidden = true
-            self.noOrderLabelDescription.isHidden = true
-        } else {
-            self.myOrdersTableView.isHidden = true
-            self.noOrderLine.isHidden = false
-            self.noOrderLableTitle.isHidden = false
-            self.noOrderLabelDescription.isHidden = false
-        }
-    }
-    
-    func setNavigationBarTransparent() {
+    private func setNavigationBarTransparent() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -108,11 +99,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 // MARK: - Scroll View Methods
 //*************************************************
         
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.orders.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
         
@@ -123,25 +114,25 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
+    internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let order = orders[indexPath.row]
-            OrderManager.deleteOrder(orderVO: order)
-            self.orders = try OrderManager.getAllOrders()
+            let orderCell = orders[indexPath.row]
+            OrderManager.deleteOrder(orderVO: orderCell)
+            self.orders = OrderManager.getAllOrders()
         }
-        
         myOrdersTableView.reloadData()
-        
+        //Verify if ordes is empty to hidden noOrdersView
         if !(orders.isEmpty) {
-            self.hideNoOrdersDescription(isHidden: true)
+            self.myOrdersTableView.isHidden = false
+            self.noOrdersView.isHidden = true
         } else {
-            self.hideNoOrdersDescription(isHidden: false)
+            self.myOrdersTableView.isHidden = true
+            self.noOrdersView.isHidden = false
         }
     }
     
 //*************************************************
-// MARK: - Self Public Methods
+// MARK: - IBActions
 //*************************************************
     @IBAction func openMenu(_ sender: UIBarButtonItem) {
         LoginManager.logout()

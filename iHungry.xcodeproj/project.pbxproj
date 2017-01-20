@@ -10,6 +10,7 @@
 		2D11420DED589D2F582D1DC6 /* Pods_iHungryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AAA52C4BBC3ED32D6BE2AF /* Pods_iHungryUITests.framework */; };
 		3E983318A07B098F7C733A9C /* Pods_iHungry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FDD2A5E783905EB52DCAEE /* Pods_iHungry.framework */; };
 		52F12DCF3FCF4E133354E380 /* Pods_iHungryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A101800B97881493C2445B /* Pods_iHungryTests.framework */; };
+		610FBA8A1E3259AD00F8D859 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FBA891E3259AD00F8D859 /* CustomTableViewCell.swift */; };
 		61221B641E2EC59400268502 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61221B631E2EC59400268502 /* HomeViewController.swift */; };
 		6122BE831E2FD627000B6DF6 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6122BE821E2FD627000B6DF6 /* OrderManager.swift */; };
 		612F095C1E2EDEF60008750D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612F095B1E2EDEF60008750D /* NetworkManager.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		28A101800B97881493C2445B /* Pods_iHungryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iHungryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9E5D33CAFE4EF238629FB5 /* Pods-iHungryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHungryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iHungryTests/Pods-iHungryTests.release.xcconfig"; sourceTree = "<group>"; };
+		610FBA891E3259AD00F8D859 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		61221B631E2EC59400268502 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6122BE821E2FD627000B6DF6 /* OrderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
 		612F095B1E2EDEF60008750D /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				61221B631E2EC59400268502 /* HomeViewController.swift */,
+				610FBA891E3259AD00F8D859 /* CustomTableViewCell.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 			files = (
 				612F095C1E2EDEF60008750D /* NetworkManager.swift in Sources */,
 				61E077391E2ED1CC00EFDF39 /* NetworkHelpers.swift in Sources */,
+				610FBA8A1E3259AD00F8D859 /* CustomTableViewCell.swift in Sources */,
 				61F3967F1E3007F40074AA47 /* OrderVO.swift in Sources */,
 				616733CF1E3123D20092E3EA /* CoreDataManager.swift in Sources */,
 				61C0EBE91E30542B004643B1 /* OrderViewController.swift in Sources */,

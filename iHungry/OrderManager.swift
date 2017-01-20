@@ -28,60 +28,52 @@ import CoreData
 //**************************************************************************************************
 
 class OrderManager {
-
-//*************************************************
-// MARK: - Properties
-//*************************************************
-
-//*************************************************
-// MARK: - Constructors
-//*************************************************
-
+    
 //*************************************************
 // MARK: - Public Methods
 //*************************************************
     
+    // MARK - Insert Order
     class func insertOrder(orderVO: OrderVO) {
-        
-        var id = Int()
-        
         do {
             if let ordersArray = try CoreDataManager.context.fetch(Order.fetchRequest()) as? [Order] {
-                if ordersArray.isEmpty != true {
-                    id = ((Int((ordersArray.last?.id)!)!) + 1)
-                } else {
-                    id = 0
+                var id: Int {
+                    get{
+                        if ordersArray.isEmpty != true {
+                            return ((Int((ordersArray.last?.id)!)!) + 1)
+                        } else {
+                            return 0
+                        }
+                    }
                 }
+                let order = Order(context: CoreDataManager.context)
+                
+                order.id = String(id)
+                order.name = orderVO.name
+                
+                CoreDataManager.saveContext()
             }
         } catch {
-            print("Error: Could not posible insertOrder")
+            print("Error: Could not posible Insert Order")
         }
-        
-        let order = Order(context: CoreDataManager.context)
-        
-        order.id = String(id)
-        order.name = orderVO.name
-        
-        CoreDataManager.saveContext()
-        
     }
     
+    // MARK - Get All Orders
     class func getAllOrders() -> [OrderVO] {
-
-        var orderVO = [OrderVO]()
-        
+        var resultOrders = [OrderVO]()
         do {
-            if let ordersArray = try CoreDataManager.context.fetch(Order.fetchRequest()) as? [Order] {
-                for order in ordersArray {
-                    orderVO.append(OrderVO(order: order.getDictionary()))
+            if let ordersFetched = try CoreDataManager.context.fetch(Order.fetchRequest()) as? [Order] {
+                for order in ordersFetched {
+                    resultOrders.append(OrderVO(order: order.getDictionary()))
                 }
             }
         } catch {
-            print("Erro: Not was posible getAllOrders")
+            print("Erro: Not was posible Get All Orders")
         }
-        return  orderVO
+        return  resultOrders
     }
     
+    // MARK - Delete Order
     class func deleteOrder(orderVO: OrderVO) {
         do {
             if let ordersArray = try CoreDataManager.context.fetch(Order.fetchRequest()) as? [Order] {
@@ -92,28 +84,19 @@ class OrderManager {
                 }
             }
         } catch {
-            print("Erro: Not was posible DeleteOrders")
+            print("Erro: Not was posible Delete Orders")
         }
     }
-
-//*************************************************
-// MARK: - Internal Methods
-//*************************************************
-
-//*************************************************
-// MARK: - Self Public Methods
-//*************************************************
-
 }
 
 //**************************************************************************************************
 //
-// MARK: - Extension - Dictionary
+// MARK: - Extension - NSManagedObject
 //
 //**************************************************************************************************
 
 extension NSManagedObject {
-    
+    //Convert NSManagedObject into Dictionary
     func getDictionary() -> [String : Any] {
         var dictionary = [String : Any]()
         for key in self.entity.attributesByName.keys {
@@ -122,5 +105,4 @@ extension NSManagedObject {
         }
         return dictionary
     }
-    
 }
