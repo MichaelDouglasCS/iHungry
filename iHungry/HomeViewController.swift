@@ -105,11 +105,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
+        let cell = Bundle.main.loadNibNamed("HomeCustomTableViewCell", owner: self, options: nil)?.first as! HomeCustomTableViewCell
         
         let orderCell = self.orders[indexPath.row]
         
-        cell.textLabel?.text = orderCell.name
+        cell.orderName?.text = orderCell.name
         
         return cell
     }
