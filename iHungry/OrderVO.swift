@@ -1,5 +1,5 @@
 //
-//  Order.swift
+//  OrderVO.swift
 //  iHungry
 //
 //  Created by Michael Douglas on 18/01/17.
@@ -20,21 +20,35 @@ import Foundation
 //
 //**************************************************************************************************
 
+typealias OrderDictionary = [String : Any]
+
 //**************************************************************************************************
 //
 // MARK: - Class -
 //
 //**************************************************************************************************
 
-class Order {
+struct OrderVO {
 
 //*************************************************
 // MARK: - Properties
 //*************************************************
+    
+    var id: String?
+    var name: String?
 
 //*************************************************
 // MARK: - Constructors
 //*************************************************
+    
+    init() {
+        
+    }
+    
+    init(order: OrderDictionary) {
+        self.id = order["id"] as! String?
+        self.name = order["name"] as! String?
+    }
 
 //*************************************************
 // MARK: - Private Methods
@@ -44,7 +58,7 @@ class Order {
 // MARK: - Internal Methods
 //*************************************************
     
-    func getAll() -> [Order] {
+    func getAll() -> [OrderVO] {
         return []
     }
     

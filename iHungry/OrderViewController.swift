@@ -48,11 +48,11 @@ class OrderViewController: UIViewController {
     
     @IBAction func saveOrder(_ sender: UIButton) {
         
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let order = OrderDB(context: context)
+        var order = OrderVO()
+        
         order.name = textField.text!
         
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        OrderManager.insertOrder(orderVO: order)
         
         navigationController?.popViewController(animated: true)
         

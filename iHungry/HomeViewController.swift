@@ -31,13 +31,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //*************************************************
 // MARK: - Properties
 //*************************************************
-    @IBOutlet weak var myOrdersTableView: UITableView!
     
+    @IBOutlet weak var myOrdersTableView: UITableView!
     @IBOutlet weak var noOrderLine: UIImageView!
     @IBOutlet weak var noOrderLableTitle: UILabel!
     @IBOutlet weak var noOrderLabelDescription: UILabel!
     
-    var orders: [OrderDB] = []
+    var orders = [OrderVO]()
     
 //*************************************************
 // MARK: - Constructors
@@ -55,7 +55,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.getData()
+        
+        self.orders = OrderManager.getAllOrders()
         
         if !(orders.isEmpty) {
             self.hideNoOrdersDescription(isHidden: true)
@@ -64,12 +65,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         myOrdersTableView.reloadData()
+        
     }
     
 //*************************************************
 // MARK: - Private Methods
 //*************************************************
-    
+    //Verify if the user already logged in
     private func userIsLogged() {
         if !LoginManager.isLogged {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -105,45 +107,30 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //*************************************************
 // MARK: - Scroll View Methods
 //*************************************************
-    
-    func getData() {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        do {
-        orders = try context.fetch(OrderDB.fetchRequest())
-        } catch {
-            print("Deu ruim")
-        }
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orders.count
+        return self.orders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = UITableViewCell()
         
-        let order = orders[indexPath.row]
+        let orderCell = self.orders[indexPath.row]
         
-        cell.textLabel?.text = order.name
+        cell.textLabel?.text = orderCell.name
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         if editingStyle == .delete {
             let order = orders[indexPath.row]
-            context.delete(order)
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            
-            do {
-                orders = try context.fetch(OrderDB.fetchRequest())
-            } catch {
-                print("Deu ruim")
-            }
+            OrderManager.deleteOrder(orderVO: order)
+            self.orders = try OrderManager.getAllOrders()
         }
+        
         myOrdersTableView.reloadData()
         
         if !(orders.isEmpty) {
