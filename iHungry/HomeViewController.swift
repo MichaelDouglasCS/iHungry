@@ -52,6 +52,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.setNavigationBarTransparent()
         //Verify if the user has been already logged in
         self.userIsLogged()
+        //Remove UITableViewCell separator for empty cells
+        self.myOrdersTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     override func viewWillAppear(_ animated: Bool) {
