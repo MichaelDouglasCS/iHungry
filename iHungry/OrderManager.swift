@@ -46,6 +46,7 @@ class OrderManager {
                         }
                     }
                 }
+                
                 let order = Order(context: CoreDataManager.context)
                 
                 order.id = String(id)
