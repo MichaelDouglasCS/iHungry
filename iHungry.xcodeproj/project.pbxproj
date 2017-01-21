@@ -17,6 +17,8 @@
 		619A4A291E3297DC007045DA /* HomeCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A4A271E3297DC007045DA /* HomeCustomTableViewCell.swift */; };
 		619A4A2A1E3297DC007045DA /* HomeCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619A4A281E3297DC007045DA /* HomeCustomTableViewCell.xib */; };
 		619A4A2C1E329DB5007045DA /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A4A2B1E329DB5007045DA /* RoundedImageView.swift */; };
+		61A2916A1E32EAB200464095 /* MenuCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A291681E32EAB200464095 /* MenuCustomTableViewCell.swift */; };
+		61A2916B1E32EAB200464095 /* MenuCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61A291691E32EAB200464095 /* MenuCustomTableViewCell.xib */; };
 		61AC752A1E2C264A00E13F92 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75271E2C264A00E13F92 /* RoundedView.swift */; };
 		61AC752B1E2C264A00E13F92 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75281E2C264A00E13F92 /* RoundedButton.swift */; };
 		61AC752C1E2C264A00E13F92 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75291E2C264A00E13F92 /* RoundedTextField.swift */; };
@@ -63,6 +65,8 @@
 		619A4A271E3297DC007045DA /* HomeCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCustomTableViewCell.swift; sourceTree = "<group>"; };
 		619A4A281E3297DC007045DA /* HomeCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCustomTableViewCell.xib; sourceTree = "<group>"; };
 		619A4A2B1E329DB5007045DA /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		61A291681E32EAB200464095 /* MenuCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCustomTableViewCell.swift; sourceTree = "<group>"; };
+		61A291691E32EAB200464095 /* MenuCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCustomTableViewCell.xib; sourceTree = "<group>"; };
 		61AC75271E2C264A00E13F92 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		61AC75281E2C264A00E13F92 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		61AC75291E2C264A00E13F92 /* RoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				61F5DF771E2BED6D002F18B0 /* Assets.xcassets */,
 				61F5DF711E2BED6D002F18B0 /* Main.storyboard */,
 				619A4A281E3297DC007045DA /* HomeCustomTableViewCell.xib */,
+				61A291691E32EAB200464095 /* MenuCustomTableViewCell.xib */,
 				61F5DF791E2BED6D002F18B0 /* LaunchScreen.storyboard */,
 			);
 			name = Interfaces;
@@ -329,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				61C0EBE81E30542B004643B1 /* MenuViewController.swift */,
+				61A291681E32EAB200464095 /* MenuCustomTableViewCell.swift */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -514,6 +520,7 @@
 				61F5DF7B1E2BED6D002F18B0 /* LaunchScreen.storyboard in Resources */,
 				61F5DF781E2BED6D002F18B0 /* Assets.xcassets in Resources */,
 				61F5DF731E2BED6D002F18B0 /* Main.storyboard in Resources */,
+				61A2916B1E32EAB200464095 /* MenuCustomTableViewCell.xib in Resources */,
 				619A4A2A1E3297DC007045DA /* HomeCustomTableViewCell.xib in Resources */,
 				61E0773C1E2ED60400EFDF39 /* auth.json in Resources */,
 			);
@@ -689,6 +696,7 @@
 				6122BE831E2FD627000B6DF6 /* OrderManager.swift in Sources */,
 				619A4A2C1E329DB5007045DA /* RoundedImageView.swift in Sources */,
 				61AC752B1E2C264A00E13F92 /* RoundedButton.swift in Sources */,
+				61A2916A1E32EAB200464095 /* MenuCustomTableViewCell.swift in Sources */,
 				61221B641E2EC59400268502 /* HomeViewController.swift in Sources */,
 				61F5DF701E2BED6D002F18B0 /* LoginViewController.swift in Sources */,
 				61E077371E2ED17C00EFDF39 /* URLs.swift in Sources */,
