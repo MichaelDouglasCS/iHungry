@@ -1,5 +1,5 @@
 //
-//  OrderViewController.swift
+//  MenuViewController.swift
 //  iHungry
 //
 //  Created by Michael Douglas on 18/01/17.
@@ -26,12 +26,12 @@ import UIKit
 //
 //**************************************************************************************************
 
-class OrderViewController: UIViewController {
+class MenuViewController: UIViewController {
     
 //*************************************************
 // MARK: - Properties
 //*************************************************
-    @IBOutlet weak var textField: UITextField!
+    
 //*************************************************
 // MARK: - Override Public Methods
 //*************************************************
@@ -45,18 +45,6 @@ class OrderViewController: UIViewController {
 //*************************************************
 // MARK: - Self Public Methods
 //*************************************************
-    
-    @IBAction func saveOrder(_ sender: UIButton) {
-        
-        var order = OrderVO()
-        
-        order.name = textField.text!
-        
-        OrderManager.insertOrder(orderVO: order)
-        
-        navigationController?.popViewController(animated: true)
-        
-    }
     
 //*************************************************
 // MARK: - Constructors
