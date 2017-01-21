@@ -34,14 +34,14 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsC-Wk-rcV" userLabel="FoodName">
-                        <rect key="frame" x="103" y="18" width="93" height="22"/>
+                        <rect key="frame" x="103" y="18" width="152" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 100,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyo-79-88k" userLabel="FoodPrice">
-                        <rect key="frame" x="103" y="47" width="73" height="22"/>
+                        <rect key="frame" x="103" y="47" width="152" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                         <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,6 +66,11 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="foodImage" destination="wmw-Iz-wcs" id="o5s-rb-Ir7"/>
+                <outlet property="foodName" destination="tsC-Wk-rcV" id="QPD-Th-ZSU"/>
+                <outlet property="foodPrice" destination="nyo-79-88k" id="CJ1-KV-Fju"/>
+            </connections>
             <point key="canvasLocation" x="33.5" y="54"/>
         </tableViewCell>
     </objects>

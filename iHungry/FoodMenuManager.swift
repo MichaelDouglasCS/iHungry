@@ -37,10 +37,15 @@ class FoodMenuManager {
 //*************************************************
     
     class func getMenu(foods: @escaping (([FoodVO]) -> Void)) {
+        var foodArray = [FoodVO]()
         let network = NetworkManager()
         network.request(urlRequest: URLs.menuURL()) { responseJSON in
-            if let jsonMenu = responseJSON["food-menu"] as? NSDictionary {
-                foods([FoodVO]())
+            if let jsonMenu = responseJSON["food-menu"] as? NSDictionary,
+                let jsonFoods = jsonMenu["foods"] as? [NSDictionary]{
+                for food in jsonFoods {
+                    foodArray.append(FoodVO(food: food as! FoodDictionary))
+                }
+                foods(foodArray)
             }
         }
     }

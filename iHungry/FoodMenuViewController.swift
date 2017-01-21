@@ -60,15 +60,17 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
 //*************************************************
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return self.foods.count
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("FoodMenuCustomTableViewCell", owner: self, options: nil)?.first as! FoodMenuCustomTableViewCell
         
-//        let orderCell = self.orders[indexPath.row]
-//        
-//        cell.orderName?.text = orderCell.name
+        let orderCell = self.foods[indexPath.row]
+        
+        cell.foodImage?.image = UIImage(named: orderCell.image!)
+        cell.foodName?.text = orderCell.name
+        cell.foodPrice?.text = String(describing: orderCell.price)
         
         return cell
     }

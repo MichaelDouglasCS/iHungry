@@ -21,8 +21,8 @@ import OHHTTPStubs
 //
 //**************************************************************************************************
 
-typealias JSONDictionaryCompletion = (([String:Any]) -> Void)
-typealias JSON = ([String:Any])
+typealias JSONDictionaryCompletion = (([String : Any]) -> Void)
+typealias JSON = ([String : Any])
 
 //**************************************************************************************************
 //
@@ -83,6 +83,7 @@ class NetworkManager {
                 do {
                     let parsedJSON = try JSONSerialization.jsonObject(with: receivedData, options: []) as! JSON
                     //Completion of JSON Parsed
+                    print(parsedJSON)
                     responseJSON(parsedJSON)
                 } catch let errorParse as NSError {
                     print(errorParse)
