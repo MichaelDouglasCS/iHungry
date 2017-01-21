@@ -1,5 +1,5 @@
 //
-//  MenuCustomTableViewCell.swift
+//  FoodMenuCustomTableViewCell.swift
 //  iHungry
 //
 //  Created by Michael Douglas on 20/01/17.
@@ -26,7 +26,7 @@ import UIKit
 //
 //**************************************************************************************************
 
-class MenuCustomTableViewCell: UITableViewCell {
+class FoodMenuCustomTableViewCell: UITableViewCell {
     
 //*************************************************
 // MARK: - IBOutlets

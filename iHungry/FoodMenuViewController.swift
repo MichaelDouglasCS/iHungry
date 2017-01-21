@@ -1,5 +1,5 @@
 //
-//  MenuViewController.swift
+//  FoodMenuViewController.swift
 //  iHungry
 //
 //  Created by Michael Douglas on 18/01/17.
@@ -26,11 +26,13 @@ import UIKit
 //
 //**************************************************************************************************
 
-class MenuViewController: UIViewController {
+class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
 //*************************************************
-// MARK: - Properties
+// MARK: - IBOutlet
 //*************************************************
+    
+    @IBOutlet weak var foodMenuTableView: UITableView!
     
 //*************************************************
 // MARK: - Override Public Methods
@@ -38,13 +40,27 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        //Remove UITableViewCell separator for empty cells
+        self.foodMenuTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
 //*************************************************
-// MARK: - Self Public Methods
+// MARK: - Table View Methods
 //*************************************************
+    
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = Bundle.main.loadNibNamed("FoodMenuCustomTableViewCell", owner: self, options: nil)?.first as! FoodMenuCustomTableViewCell
+        
+//        let orderCell = self.orders[indexPath.row]
+//        
+//        cell.orderName?.text = orderCell.name
+        
+        return cell
+    }
     
 //*************************************************
 // MARK: - Constructors
@@ -55,8 +71,14 @@ class MenuViewController: UIViewController {
 //*************************************************
     
 //*************************************************
-// MARK: - Internal Methods
+// MARK: - IBAction
 //*************************************************
+    
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+        if let navControlle = self.navigationController {
+            navControlle.popViewController(animated: true)
+        }
+    }
     
 }
 

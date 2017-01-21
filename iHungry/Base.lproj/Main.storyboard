@@ -194,10 +194,10 @@
             </objects>
             <point key="canvasLocation" x="1534" y="545"/>
         </scene>
-        <!--Order View Controller-->
+        <!--Food Menu View Controller-->
         <scene sceneID="Vkj-uT-9xd">
             <objects>
-                <viewController id="yPO-ce-oVw" customClass="OrderViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yPO-ce-oVw" customClass="FoodMenuViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yxv-65-0DS"/>
                         <viewControllerLayoutGuide type="bottom" id="LNT-Jl-Vfe"/>
@@ -210,15 +210,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KeI-li-aog" userLabel="MenuTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="90" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="KeI-li-aog" userLabel="MenuTableView">
                                 <rect key="frame" x="0.0" y="255" width="375" height="343"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="cfV-FJ-MTW" userLabel="footer">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="yPO-ce-oVw" id="Zgh-Ap-4wX"/>
+                                    <outlet property="delegate" destination="yPO-ce-oVw" id="TSf-c1-wCM"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsH-pE-MoU" userLabel="ButtonNextView">
                                 <rect key="frame" x="0.0" y="596" width="375" height="71"/>
@@ -241,8 +246,14 @@
                     <navigationItem key="navigationItem" id="HA2-ra-XWW">
                         <barButtonItem key="leftBarButtonItem" image="Cancel" id="oGI-JG-De4">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelButton:" destination="yPO-ce-oVw" id="B8Y-Fy-kkG"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="foodMenuTableView" destination="KeI-li-aog" id="1xZ-BL-xwT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nko-ws-bNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -98,7 +98,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
 //*************************************************
-// MARK: - Scroll View Methods
+// MARK: - Table View Methods
 //*************************************************
         
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
