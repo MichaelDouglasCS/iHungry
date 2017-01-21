@@ -206,7 +206,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="header home bg" translatesAutoresizingMaskIntoConstraints="NO" id="Idg-pJ-nOV" userLabel="Menu Background">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food menu header bg" translatesAutoresizingMaskIntoConstraints="NO" id="Idg-pJ-nOV" userLabel="Menu Background">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -283,10 +283,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Cancel" width="48" height="14"/>
+        <image name="Cancel" width="54" height="15"/>
         <image name="Line" width="198" height="162"/>
         <image name="btn_add" width="65" height="65"/>
         <image name="buttonNext" width="335" height="54"/>
+        <image name="food menu header bg" width="375" height="262"/>
         <image name="header home bg" width="375" height="256"/>
         <image name="header login bg" width="375" height="258"/>
         <image name="icone" width="110" height="108"/>
