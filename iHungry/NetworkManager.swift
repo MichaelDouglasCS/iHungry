@@ -41,7 +41,8 @@ class NetworkManager {
 //*************************************************
     
     init() {
-        stub(condition: isHost("ihungry.com")) { request in
+        //Authentication Stub
+        stub(condition: isHost("ihungry.com") && isPath("/auth")) { request in
             // Stub it with our "auth.json" stub file
             return OHHTTPStubsResponse(
                 fileAtPath: OHPathForFile("auth.json", type(of: self))!,
@@ -49,11 +50,16 @@ class NetworkManager {
                 headers: ["Content-Type":"application/json"]
             )
         }
+        //Food Menu Stub
+        stub(condition: isHost("ihungry.com") && isPath("/menu")) { request in
+            // Stub it with our "auth.json" stub file
+            return OHHTTPStubsResponse(
+                fileAtPath: OHPathForFile("foodMenu.json", type(of: self))!,
+                statusCode: 200,
+                headers: ["Content-Type":"application/json"]
+            )
+        }
     }
-    
-//*************************************************
-// MARK: - Private Methods
-//*************************************************
     
 //*************************************************
 // MARK: - Internal Methods

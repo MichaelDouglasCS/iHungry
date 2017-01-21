@@ -1,5 +1,5 @@
 //
-//  FoodMenuVO.swift
+//  FoodVO.swift
 //  iHungry
 //
 //  Created by Michael Douglas on 21/01/17.
@@ -20,7 +20,7 @@ import Foundation
 //
 //**************************************************************************************************
 
-typealias FoodMenuDictionary = ([String : Any])
+typealias FoodDictionary = ([String : Any])
 
 //**************************************************************************************************
 //
@@ -28,7 +28,7 @@ typealias FoodMenuDictionary = ([String : Any])
 //
 //**************************************************************************************************
 
-class FoodMenuVO {
+struct FoodVO {
 
 //*************************************************
 // MARK: - Properties
@@ -47,7 +47,7 @@ class FoodMenuVO {
         
     }
     
-    init(food: FoodMenuDictionary) {
+    init(food: FoodDictionary) {
         self.category = food["category"] as! String?
         self.name = food["name"] as! String?
         self.price = food["price"] as! String?

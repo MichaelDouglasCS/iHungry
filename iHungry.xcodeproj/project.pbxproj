@@ -27,7 +27,7 @@
 		61E077371E2ED17C00EFDF39 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E077361E2ED17C00EFDF39 /* URLs.swift */; };
 		61E077391E2ED1CC00EFDF39 /* NetworkHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E077381E2ED1CC00EFDF39 /* NetworkHelpers.swift */; };
 		61E0773C1E2ED60400EFDF39 /* auth.json in Resources */ = {isa = PBXBuildFile; fileRef = 61E0773B1E2ED60400EFDF39 /* auth.json */; };
-		61E0799C1E33094F005C7B05 /* FoodMenuVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0799B1E33094F005C7B05 /* FoodMenuVO.swift */; };
+		61E0799C1E33094F005C7B05 /* FoodVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0799B1E33094F005C7B05 /* FoodVO.swift */; };
 		61E0799E1E330ED8005C7B05 /* foodMenu.json in Resources */ = {isa = PBXBuildFile; fileRef = 61E0799D1E330ED8005C7B05 /* foodMenu.json */; };
 		61E079A01E33170B005C7B05 /* FoodMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0799F1E33170B005C7B05 /* FoodMenuManager.swift */; };
 		61F3967F1E3007F40074AA47 /* OrderVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F3967E1E3007F40074AA47 /* OrderVO.swift */; };
@@ -78,7 +78,7 @@
 		61E077361E2ED17C00EFDF39 /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		61E077381E2ED1CC00EFDF39 /* NetworkHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelpers.swift; sourceTree = "<group>"; };
 		61E0773B1E2ED60400EFDF39 /* auth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth.json; sourceTree = "<group>"; };
-		61E0799B1E33094F005C7B05 /* FoodMenuVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodMenuVO.swift; sourceTree = "<group>"; };
+		61E0799B1E33094F005C7B05 /* FoodVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodVO.swift; sourceTree = "<group>"; };
 		61E0799D1E330ED8005C7B05 /* foodMenu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = foodMenu.json; sourceTree = "<group>"; };
 		61E0799F1E33170B005C7B05 /* FoodMenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodMenuManager.swift; sourceTree = "<group>"; };
 		61F3967E1E3007F40074AA47 /* OrderVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderVO.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				61F3967E1E3007F40074AA47 /* OrderVO.swift */,
-				61E0799B1E33094F005C7B05 /* FoodMenuVO.swift */,
+				61E0799B1E33094F005C7B05 /* FoodVO.swift */,
 			);
 			name = ModelVO;
 			sourceTree = "<group>";
@@ -706,7 +706,7 @@
 				612F095C1E2EDEF60008750D /* NetworkManager.swift in Sources */,
 				61E077391E2ED1CC00EFDF39 /* NetworkHelpers.swift in Sources */,
 				619A4A291E3297DC007045DA /* HomeCustomTableViewCell.swift in Sources */,
-				61E0799C1E33094F005C7B05 /* FoodMenuVO.swift in Sources */,
+				61E0799C1E33094F005C7B05 /* FoodVO.swift in Sources */,
 				61F3967F1E3007F40074AA47 /* OrderVO.swift in Sources */,
 				616733CF1E3123D20092E3EA /* CoreDataManager.swift in Sources */,
 				61C0EBE91E30542B004643B1 /* FoodMenuViewController.swift in Sources */,

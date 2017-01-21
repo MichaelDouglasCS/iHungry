@@ -33,8 +33,19 @@ class FoodMenuManager {
 //*************************************************
 
 //*************************************************
-// MARK: - Constructors
+// MARK: - Public Methods
 //*************************************************
+    
+    class func getMenu() -> [FoodVO] {
+        let network = NetworkManager()
+        network.request(urlRequest: URLs.menuURL()) { responseJSON in
+            if let jsonMenu = responseJSON["food-menu"] as? NSDictionary {
+                print(jsonMenu)
+            }
+        }
+        
+        return [FoodVO]()
+    }
 
 //*************************************************
 // MARK: - Private Methods

@@ -35,6 +35,13 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var foodMenuTableView: UITableView!
     
 //*************************************************
+// MARK: - Properties
+//*************************************************
+    
+    //Variable that storages the Foods that appears in TableView
+    var foods = [FoodVO]()
+    
+//*************************************************
 // MARK: - Override Public Methods
 //*************************************************
     
@@ -42,6 +49,10 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         //Remove UITableViewCell separator for empty cells
         self.foodMenuTableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
     }
     
 //*************************************************

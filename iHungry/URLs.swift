@@ -33,7 +33,7 @@ public class URLs {
     //*************************************************
     
     enum BaseURL: String {
-        case MockServer = "https://"
+        case MockServer = "https://ihungry.com"
     }
     
     //*************************************************
@@ -59,11 +59,11 @@ public class URLs {
     }
     
     public class func authenticationURL() -> String {
-        return URLs.BaseURL.MockServer.rawValue + "ihungry.com/auth"
+        return URLs.BaseURL.MockServer.rawValue + "/auth"
     }
     
-    public class func getMenu() -> String {
-        return URLs.BaseURL.MockServer.rawValue + "ihungry.com/menu"
+    public class func menuURL() -> String {
+        return URLs.BaseURL.MockServer.rawValue + "/menu"
     }
     
 }
