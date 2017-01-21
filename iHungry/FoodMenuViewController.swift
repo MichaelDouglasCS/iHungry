@@ -52,7 +52,7 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        print(self.foods)
     }
     
 //*************************************************

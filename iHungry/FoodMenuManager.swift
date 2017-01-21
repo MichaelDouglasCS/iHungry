@@ -36,15 +36,13 @@ class FoodMenuManager {
 // MARK: - Public Methods
 //*************************************************
     
-    class func getMenu() -> [FoodVO] {
+    class func getMenu(foods: @escaping (([FoodVO]) -> Void)) {
         let network = NetworkManager()
         network.request(urlRequest: URLs.menuURL()) { responseJSON in
             if let jsonMenu = responseJSON["food-menu"] as? NSDictionary {
-                print(jsonMenu)
+                foods([FoodVO]())
             }
         }
-        
-        return [FoodVO]()
     }
 
 //*************************************************

@@ -136,6 +136,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //*************************************************
 // MARK: - IBActions
 //*************************************************
+    
+    @IBAction func addOrder(_ sender: UIButton) {
+        FoodMenuManager.getMenu() { foods in
+            let foodMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "FoodMenuViewController") as! FoodMenuViewController
+            foodMenuVC.foods = foods
+            DispatchQueue.main.async {
+                if let navControlle = self.navigationController {
+                    navControlle.pushViewController(foodMenuVC, animated: true)
+                }
+            }
+        }
+    }
+    
     @IBAction func openMenu(_ sender: UIBarButtonItem) {
         LoginManager.logout()
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
