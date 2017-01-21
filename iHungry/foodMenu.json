@@ -1,0 +1,67 @@
+{
+    "food-menu": {
+        "category": {
+            "foods": [
+                     {
+                     "name": "Frango Grelhado",
+                     "price": 20,
+                     "image": "prato1"
+                     },
+                     {
+                     "name": "Costelinha",
+                     "price": 27.90,
+                     "image": "prato2"
+                     },
+                     {
+                     "name": "Strogonoff de Frango Tradicional",
+                     "price": 35,
+                     "image": "prato3"
+                     },
+                     {
+                     "name": "Picanha e Fritas",
+                     "price": 45.50,
+                     "image": "prato4"
+                     },
+                     {
+                     "name": "Camarão",
+                     "price": 58,
+                     "image": "prato5"
+                     }
+                     ],
+            "drinks": [
+                      {
+                      "name": "Coca Cola",
+                      "price": 8,
+                      "image": "coca"
+                      },
+                      {
+                      "name": "Fanta Laranja",
+                      "price": 7,
+                      "image": "fanta"
+                      },
+                      {
+                      "name": "Suco de Laranja Natural",
+                      "price": 10,
+                      "image": "suco1"
+                      },
+                      {
+                      "name": "Suco Detox",
+                      "price": 15,
+                      "image": "suco2"
+                      }
+                      ],
+            "desserts": [
+                        {
+                        "name": "Sorvete de Baunilha",
+                        "price": 14.20,
+                        "image": "sobremesa1"
+                        },
+                        {
+                        "name": "Sorvete de Morango",
+                        "price": 11.50,
+                        "image": "sobremesa2"
+                        }
+                        ]
+        }
+    }
+}

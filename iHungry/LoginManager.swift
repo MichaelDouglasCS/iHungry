@@ -58,7 +58,7 @@ class LoginManager {
         let network = NetworkManager()
         network.request(urlRequest: URLs.authenticationURL()) { responseJSON in
             if let jsonAuth = responseJSON["auth"] as? NSDictionary,
-                let passCredentials = jsonAuth["passwordCredentials"] as? NSDictionary {
+                let passCredentials = jsonAuth["password-credentials"] as? NSDictionary {
                 if ((user == passCredentials["username"] as? String) &&
                     ((password == passCredentials["password"] as? String))) {
                     if let token = passCredentials["token"] as? String {
