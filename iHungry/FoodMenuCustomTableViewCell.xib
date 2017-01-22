@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="suco1" translatesAutoresizingMaskIntoConstraints="NO" id="wmw-Iz-wcs" userLabel="FoodImage" customClass="RoundedImageView" customModule="iHungry" customModuleProvider="target">
@@ -56,6 +56,7 @@
                         <rect key="frame" x="336.5" y="33" width="25" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="foodMinus"/>
+                        <state key="disabled" image="foodMinusDisabled"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eI7-GT-ADU" userLabel="FoodAmount">
                         <rect key="frame" x="302" y="35" width="20" height="21"/>
@@ -67,9 +68,12 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="addFood" destination="qVt-qo-kE6" id="URp-Cx-ugT"/>
                 <outlet property="foodImage" destination="wmw-Iz-wcs" id="o5s-rb-Ir7"/>
                 <outlet property="foodName" destination="tsC-Wk-rcV" id="QPD-Th-ZSU"/>
                 <outlet property="foodPrice" destination="nyo-79-88k" id="CJ1-KV-Fju"/>
+                <outlet property="foodQuantity" destination="eI7-GT-ADU" id="UsM-hc-b3G"/>
+                <outlet property="removeFood" destination="2JG-5F-2a6" id="rop-tM-aIC"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="54"/>
         </tableViewCell>
@@ -77,6 +81,7 @@
     <resources>
         <image name="foodAdd" width="25" height="24"/>
         <image name="foodMinus" width="25" height="24"/>
+        <image name="foodMinusDisabled" width="25" height="24"/>
         <image name="suco1" width="450" height="340"/>
     </resources>
 </document>

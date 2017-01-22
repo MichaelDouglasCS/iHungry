@@ -28,7 +28,7 @@ typealias FoodDictionary = ([String : Any])
 //
 //**************************************************************************************************
 
-struct FoodVO {
+class FoodVO {
 
 //*************************************************
 // MARK: - Properties
@@ -49,10 +49,10 @@ struct FoodVO {
     }
     
     init(food: FoodDictionary) {
-        self.category = food["category"] as! String?
-        self.name = food["name"] as! String?
-        self.price = food["price"] as! Double?
-        self.image = food["image"] as! String?
+        self.category = food["category"] as? String
+        self.name = food["name"] as? String
+        self.price = food["price"] as? Double
+        self.image = food["image"] as? String
         self.quantity = 0
     }
 

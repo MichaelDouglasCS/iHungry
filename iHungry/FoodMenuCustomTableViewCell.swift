@@ -35,6 +35,9 @@ class FoodMenuCustomTableViewCell: UITableViewCell {
     @IBOutlet weak var foodImage: RoundedImageView!
     @IBOutlet weak var foodName: UILabel!
     @IBOutlet weak var foodPrice: UILabel!
+    @IBOutlet weak var foodQuantity: UILabel!
+    @IBOutlet weak var addFood: UIButton!
+    @IBOutlet weak var removeFood: UIButton!
     
 //*************************************************
 // MARK: - Override Methods

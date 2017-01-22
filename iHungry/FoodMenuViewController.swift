@@ -28,22 +28,22 @@ import UIKit
 
 class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-//*************************************************
-// MARK: - IBOutlet
-//*************************************************
+    //*************************************************
+    // MARK: - IBOutlet
+    //*************************************************
     
     @IBOutlet weak var foodMenuTableView: UITableView!
     
-//*************************************************
-// MARK: - Properties
-//*************************************************
+    //*************************************************
+    // MARK: - Properties
+    //*************************************************
     
     //Variable that storages the Foods that appears in TableView
     var foods = [FoodVO]()
     
-//*************************************************
-// MARK: - Override Public Methods
-//*************************************************
+    //*************************************************
+    // MARK: - Override Public Methods
+    //*************************************************
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,20 +52,26 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(self.foods)
+        
     }
     
-//*************************************************
-// MARK: - Table View Methods
-//*************************************************
+    //*************************************************
+    // MARK: - Table View Methods
+    //*************************************************
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.foods.count
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        //Instantiete Custom Cell
         let cell = Bundle.main.loadNibNamed("FoodMenuCustomTableViewCell", owner: self, options: nil)?.first as! FoodMenuCustomTableViewCell
+        
+        cell.addFood.tag = indexPath.row
+        cell.addFood.addTarget(self, action: #selector(FoodMenuViewController.addFood), for: UIControlEvents.touchUpInside)
+        
+        cell.removeFood.tag = indexPath.row
+        cell.removeFood.addTarget(self, action: #selector(FoodMenuViewController.removeFood), for: UIControlEvents.touchUpInside)
         
         let foodCell = self.foods[indexPath.row]
         
@@ -78,22 +84,44 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         if let foodPrice = foodCell.price {
             cell.foodPrice?.text = foodPrice.toReal()
         }
+        if let foodQuantity = foodCell.quantity {
+            if foodQuantity == 0 {
+                cell.removeFood.isEnabled = false
+            }
+            cell.foodQuantity?.text = foodQuantity.toString()
+        }
         
         return cell
         
     }
     
-//*************************************************
-// MARK: - Constructors
-//*************************************************
+    //*************************************************
+    // MARK: - Private Methods
+    //*************************************************
     
-//*************************************************
-// MARK: - Private Methods
-//*************************************************
+    internal func addFood(button: UIButton) {
+        let foodCell = self.foods[button.tag]
+        if let quantity = foodCell.quantity {
+            foodCell.quantity = (quantity + 1)
+        }
+        self.foodMenuTableView.reloadData()
+    }
     
-//*************************************************
-// MARK: - IBAction
-//*************************************************
+    internal func removeFood(button: UIButton) {
+        let foodCell = self.foods[button.tag]
+        if let quantity = foodCell.quantity {
+            if quantity != 0 {
+            foodCell.quantity = (quantity - 1)
+            } else {
+                button.isEnabled = false
+            }
+        }
+        self.foodMenuTableView.reloadData()
+    }
+    
+    //*************************************************
+    // MARK: - IBAction
+    //*************************************************
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         if let navControlle = self.navigationController {
@@ -114,5 +142,10 @@ extension Double {
         let value = self
         let formatValue = String(format: "%.2f", value)
         return ("R$ \(formatValue)")
+    }
+}
+extension Int {
+    func toString() -> String {
+        return String(self)
     }
 }
