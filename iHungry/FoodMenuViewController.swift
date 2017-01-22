@@ -64,15 +64,23 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = Bundle.main.loadNibNamed("FoodMenuCustomTableViewCell", owner: self, options: nil)?.first as! FoodMenuCustomTableViewCell
         
-        let orderCell = self.foods[indexPath.row]
+        let foodCell = self.foods[indexPath.row]
         
-        cell.foodImage?.image = UIImage(named: orderCell.image!)
-        cell.foodName?.text = orderCell.name
-        cell.foodPrice?.text = String(describing: orderCell.price)
+        if let foodImage = foodCell.image {
+            cell.foodImage?.image = UIImage(named: foodImage)
+        }
+        if let foodName = foodCell.name {
+            cell.foodName?.text = foodName
+        }
+        if let foodPrice = foodCell.price {
+            cell.foodPrice?.text = foodPrice.toReal()
+        }
         
         return cell
+        
     }
     
 //*************************************************
@@ -97,6 +105,14 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
 
 //**************************************************************************************************
 //
-// MARK: - Extension -
+// MARK: - Extension - Double
 //
 //**************************************************************************************************
+
+extension Double {
+    func toReal() -> String {
+        let value = self
+        let formatValue = String(format: "%.2f", value)
+        return ("R$ \(formatValue)")
+    }
+}

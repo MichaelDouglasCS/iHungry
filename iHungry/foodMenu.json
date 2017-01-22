@@ -4,25 +4,25 @@
                   {
                   "category": "food",
                   "name": "Frango Grelhado",
-                  "price": 20,
+                  "price": 20.50,
                   "image": "prato1"
                   },
                   {
                   "category": "food",
                   "name": "Costelinha",
-                  "price": 27.9,
+                  "price": 27.90,
                   "image": "prato2"
                   },
                   {
                   "category": "food",
-                  "name": "Strogonoff de Frango Tradicional",
-                  "price": 35,
+                  "name": "Strogonoff de Frango",
+                  "price": 35.70,
                   "image": "prato3"
                   },
                   {
                   "category": "food",
                   "name": "Picanha e Fritas",
-                  "price": 45.5,
+                  "price": 45.50,
                   "image": "prato4"
                   },
                   {
@@ -34,18 +34,18 @@
                   {
                   "category": "drink",
                   "name": "Coca Cola",
-                  "price": 8,
+                  "price": 8.60,
                   "image": "coca"
                   },
                   {
                   "category": "drink",
                   "name": "Fanta Laranja",
-                  "price": 7,
+                  "price": 7.50,
                   "image": "fanta"
                   },
                   {
                   "category": "drink",
-                  "name": "Suco de Laranja Natural",
+                  "name": "Suco de Laranja",
                   "price": 10,
                   "image": "suco1"
                   },
@@ -58,13 +58,13 @@
                   {
                   "category": "dessert",
                   "name": "Sorvete de Baunilha",
-                  "price": 14.2,
+                  "price": 14.20,
                   "image": "sobremesa1"
                   },
                   {
                   "category": "dessert",
                   "name": "Sorvete de Morango",
-                  "price": 11.5,
+                  "price": 11.50,
                   "image": "sobremesa2"
                   }
                   ]
