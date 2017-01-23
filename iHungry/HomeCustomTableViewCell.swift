@@ -27,23 +27,23 @@ import UIKit
 //**************************************************************************************************
 
 class HomeCustomTableViewCell: UITableViewCell {
-
-//*************************************************
-// MARK: - IBOutlets
-//*************************************************
+    
+    //*************************************************
+    // MARK: - IBOutlets
+    //*************************************************
     
     @IBOutlet weak var orderImage: RoundedImageView!
     @IBOutlet weak var orderName: UILabel!
     @IBOutlet weak var orderPrice: UILabel!
-
-//*************************************************
-// MARK: - Override Methods
-//*************************************************
-
+    
+    //*************************************************
+    // MARK: - Override Methods
+    //*************************************************
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

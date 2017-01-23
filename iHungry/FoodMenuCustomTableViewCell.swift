@@ -28,10 +28,10 @@ import UIKit
 
 class FoodMenuCustomTableViewCell: UITableViewCell {
     
-//*************************************************
-// MARK: - IBOutlets
-//*************************************************
-
+    //*************************************************
+    // MARK: - IBOutlets
+    //*************************************************
+    
     @IBOutlet weak var foodImage: RoundedImageView!
     @IBOutlet weak var foodName: UILabel!
     @IBOutlet weak var foodPrice: UILabel!
@@ -39,9 +39,9 @@ class FoodMenuCustomTableViewCell: UITableViewCell {
     @IBOutlet weak var addFood: UIButton!
     @IBOutlet weak var removeFood: UIButton!
     
-//*************************************************
-// MARK: - Override Methods
-//*************************************************
+    //*************************************************
+    // MARK: - Override Methods
+    //*************************************************
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

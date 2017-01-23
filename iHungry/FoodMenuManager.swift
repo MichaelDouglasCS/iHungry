@@ -43,7 +43,7 @@ class FoodMenuManager {
             if let jsonMenu = responseJSON["food-menu"] as? NSDictionary,
                 let jsonFoods = jsonMenu["foods"] as? [NSDictionary]{
                 for food in jsonFoods {
-                    foodArray.append(FoodVO(food: food as! FoodDictionary))
+                    foodArray.append(FoodVO(foodFromJSON: food as! FoodDictionary))
                 }
                 foods(foodArray)
             }

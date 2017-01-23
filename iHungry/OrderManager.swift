@@ -47,20 +47,19 @@ class OrderManager {
                     }
                 }
                 
-                if let foods = orderVO.foods {
-                    let order = Order(context: CoreDataManager.context)
-                    order.id = String(id)
-                    order.name = foods[0].name
-                    order.image = foods[0].image
-                    if let price = orderVO.orderPrice{
-                        order.orderPrice = price
-                    }
-                    for food in foods {
-                        order.addToFoods(food.toObject())
-                    }
-                    print(order)
-                    CoreDataManager.saveContext()
+                let orderObject = Order(context: CoreDataManager.context)
+                orderObject.id = String(id)
+                orderObject.name = orderVO.name
+                orderObject.image = orderVO.image
+                if let price = orderVO.orderPrice{
+                    orderObject.orderPrice = price
                 }
+                if let foods = orderVO.foods {
+                    for food in foods {
+                        orderObject.addToFoods(food.toObject())
+                    }
+                }
+                CoreDataManager.saveContext()
             }
         } catch {
             print("Error: Could not posible Insert Order")
@@ -72,18 +71,17 @@ class OrderManager {
         var resultOrders = [OrderVO]()
         do {
             if let ordersFetched = try CoreDataManager.context.fetch(Order.fetchRequest()) as? [Order] {
-                for order in ordersFetched {
-                    let orderFood = order
-                    print(String(describing: orderFood))
-                    //Como pegar os dados de Food?
-                    
-                    resultOrders.append(OrderVO(order: order.getDictionary()))
+                for orderObject in ordersFetched {
+                    var orderResult = OrderVO(orderFromObject: orderObject.getDictionary())
+                    for food in ((orderObject.foods?.allObjects)! as? [Food])!{
+                        orderResult.foods?.append(FoodVO(foodFromObject: food.getDictionary()))
+                    }
+                  resultOrders.append(orderResult)
                 }
             }
         } catch {
             print("Erro: Not was posible Get All Orders")
         }
-        print(resultOrders)
         return  resultOrders
     }
     
@@ -111,7 +109,7 @@ class OrderManager {
 
 extension NSManagedObject {
     //Convert NSManagedObject into Dictionary
-    func getDictionary() -> [String : Any] {
+    func getDictionary() -> OrderDictionary {
         var dictionary = [String : Any]()
         for key in self.entity.attributesByName.keys {
             if let value = self.value(forKey: key) {
@@ -126,11 +124,14 @@ extension FoodVO {
     func toObject() -> Food {
         let foodManagedObject = Food(context: CoreDataManager.context)
         foodManagedObject.category = self.category
+        foodManagedObject.image = self.image
         foodManagedObject.name = self.name
         if let price = self.price {
             foodManagedObject.price = price
         }
-        foodManagedObject.image = self.image
+        if let quantity = self.quantity {
+        foodManagedObject.quantity = Int16(quantity)
+        }
         return foodManagedObject
     }
 }

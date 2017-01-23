@@ -29,70 +29,60 @@ typealias OrderDictionary = [String : Any]
 //**************************************************************************************************
 
 struct OrderVO {
-
-//*************************************************
-// MARK: - Properties
-//*************************************************
+    
+    //*************************************************
+    // MARK: - Properties
+    //*************************************************
     
     var id: String?
     var name: String?
     var image: String?
-    var foods: [FoodVO]?
     var orderPrice: Double?
-
-//*************************************************
-// MARK: - Constructors
-//*************************************************
+    var foods: [FoodVO]?
+    
+    
+    //*************************************************
+    // MARK: - Constructors
+    //*************************************************
     
     init() {
         
     }
     
-    init(order: OrderDictionary) {
-        self.id = order["id"] as? String
-        self.name = order["name"] as? String
-        self.image = order["image"] as? String
-        self.foods = order["foods"] as? [FoodVO]
-        self.orderPrice = order["orderPrice"] as? Double
+    init(orderFromObject: OrderDictionary) {
+        self.id = orderFromObject["id"] as? String
+        self.name = orderFromObject["name"] as? String
+        self.image = orderFromObject["image"] as? String
+        self.foods = [FoodVO]()
+        self.orderPrice = orderFromObject["orderPrice"] as? Double
     }
     
-    init(foodOrder: [FoodVO]) {
-        self.name = foodOrder[0].name
-        self.image = foodOrder[0].image
-        self.foods = foodOrder
-        self.orderPrice = self.calculateOrderPrice(foods: foodOrder)
+    init(orderFromFood: [FoodVO]) {
+        self.name = orderFromFood[0].name
+        self.image = orderFromFood[0].image
+        self.foods = orderFromFood
+        self.orderPrice = self.calculateOrderPrice(foods: orderFromFood)
     }
-
-//*************************************************
-// MARK: - Private Methods
-//*************************************************
+    
+    //*************************************************
+    // MARK: - Private Methods
+    //*************************************************
     
     private func calculateOrderPrice(foods: [FoodVO]) -> Double {
         var result = Double()
         for food in foods {
-            if let price = food.price {
-                result = (result + price)
+            if let quantity = food.quantity {
+                if let price = food.price {
+                    result = (result + (price * Double(quantity)))
+                }
             }
         }
         return result
     }
-
-//*************************************************
-// MARK: - Internal Methods
-//*************************************************
-    
-//*************************************************
-// MARK: - Self Public Methods
-//*************************************************
-
-//*************************************************
-// MARK: - Override Public Methods
-//*************************************************
+}
 
 //**************************************************************************************************
 //
 // MARK: - Extension -
 //
 //**************************************************************************************************
-
-}

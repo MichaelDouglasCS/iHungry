@@ -65,53 +65,49 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Instantiete Custom Cell
-        let cell = Bundle.main.loadNibNamed("FoodMenuCustomTableViewCell", owner: self, options: nil)?.first as! FoodMenuCustomTableViewCell
+        let customCell = Bundle.main.loadNibNamed("FoodMenuCustomTableViewCell", owner: self, options: nil)?.first as! FoodMenuCustomTableViewCell
         
-        cell.addFood.tag = indexPath.row
-        cell.addFood.addTarget(self, action: #selector(FoodMenuViewController.addFood), for: UIControlEvents.touchUpInside)
+        customCell.addFood.tag = indexPath.row
+        customCell.addFood.addTarget(self, action: #selector(FoodMenuViewController.addFood), for: UIControlEvents.touchUpInside)
         
-        cell.removeFood.tag = indexPath.row
-        cell.removeFood.addTarget(self, action: #selector(FoodMenuViewController.removeFood), for: UIControlEvents.touchUpInside)
+        customCell.removeFood.tag = indexPath.row
+        customCell.removeFood.addTarget(self, action: #selector(FoodMenuViewController.removeFood), for: UIControlEvents.touchUpInside)
         
-        let foodCell = self.foods[indexPath.row]
-        
-        if let foodImage = foodCell.image {
-            cell.foodImage?.image = UIImage(named: foodImage)
+        if let foodImage = self.foods[indexPath.row].image {
+            customCell.foodImage?.image = UIImage(named: foodImage)
         }
-        if let foodName = foodCell.name {
-            cell.foodName?.text = foodName
+        if let foodName = self.foods[indexPath.row].name {
+            customCell.foodName?.text = foodName
         }
-        if let foodPrice = foodCell.price {
-            cell.foodPrice?.text = foodPrice.toReal()
+        if let foodPrice = self.foods[indexPath.row].price {
+            customCell.foodPrice?.text = foodPrice.toReal()
         }
-        if let foodQuantity = foodCell.quantity {
+        if let foodQuantity = self.foods[indexPath.row].quantity {
             if foodQuantity == 0 {
-                cell.removeFood.isEnabled = false
+                customCell.removeFood.isEnabled = false
             }
-            cell.foodQuantity?.text = foodQuantity.toString()
+            customCell.foodQuantity?.text = foodQuantity.toString()
         }
         
-        return cell
+        return customCell
         
     }
     
     //*************************************************
-    // MARK: - Private Methods
+    // MARK: - Internal Methods
     //*************************************************
     
     internal func addFood(button: UIButton) {
-        let foodCell = self.foods[button.tag]
-        if let quantity = foodCell.quantity {
-            foodCell.quantity = (quantity + 1)
+        if let quantity = self.foods[button.tag].quantity {
+            self.foods[button.tag].quantity = (quantity + 1)
         }
         self.foodMenuTableView.reloadData()
     }
     
     internal func removeFood(button: UIButton) {
-        let foodCell = self.foods[button.tag]
-        if let quantity = foodCell.quantity {
+        if let quantity = self.foods[button.tag].quantity {
             if quantity != 0 {
-            foodCell.quantity = (quantity - 1)
+                self.foods[button.tag].quantity = (quantity - 1)
             } else {
                 button.isEnabled = false
             }
@@ -127,11 +123,14 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         var foodOrder = [FoodVO]()
         for food in self.foods {
             if food.quantity != 0 {
-            foodOrder.append(food)
+                foodOrder.append(food)
             }
         }
-        let myOrder = OrderVO(foodOrder: foodOrder)
+        let myOrder = OrderVO(orderFromFood: foodOrder)
         OrderManager.insertOrder(orderVO: myOrder)
+        if let navControlle = self.navigationController {
+            navControlle.popViewController(animated: true)
+        }
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
@@ -150,9 +149,9 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
 
 extension Double {
     func toReal() -> String {
-        let value = self
-        let formatValue = String(format: "%.2f", value)
-        return ("R$ \(formatValue)")
+        let currencyValue = NumberFormatter.localizedString(from: self as NSNumber, number: NumberFormatter.Style.currency)
+        let formatValue = currencyValue.replacingOccurrences(of: "R$", with: "R$ ")
+        return ("\(formatValue)")
     }
 }
 extension Int {

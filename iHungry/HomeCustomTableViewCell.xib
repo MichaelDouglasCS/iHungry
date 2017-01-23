@@ -34,14 +34,14 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mae-tH-IpM" userLabel="OrderName">
-                        <rect key="frame" x="103" y="18" width="93" height="22"/>
+                        <rect key="frame" x="103" y="18" width="242" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 100,00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kva-E0-GA9" userLabel="OrderPrice">
-                        <rect key="frame" x="103" y="47" width="72" height="22"/>
+                        <rect key="frame" x="103" y="47" width="118" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,7 +58,7 @@
                 <outlet property="orderName" destination="mae-tH-IpM" id="0zL-UI-iGG"/>
                 <outlet property="orderPrice" destination="kva-E0-GA9" id="bs6-yY-3kk"/>
             </connections>
-            <point key="canvasLocation" x="-103.5" y="13.5"/>
+            <point key="canvasLocation" x="-103.5" y="13"/>
         </tableViewCell>
     </objects>
     <resources>

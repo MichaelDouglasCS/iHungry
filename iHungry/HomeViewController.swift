@@ -27,25 +27,25 @@ import UIKit
 //**************************************************************************************************
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-//*************************************************
-// MARK: - IBOutlets
-//*************************************************
+    
+    //*************************************************
+    // MARK: - IBOutlets
+    //*************************************************
     
     @IBOutlet weak var myOrdersTableView: UITableView!
     @IBOutlet weak var noOrdersView: UIView!
     
-//*************************************************
-// MARK: - Properties
-//*************************************************
+    //*************************************************
+    // MARK: - Properties
+    //*************************************************
     
     //Variable that storages the Orders that appears in TableView
     private var orders = [OrderVO]()
     
-//*************************************************
-// MARK: - Override Public Methods
-//*************************************************
-
+    //*************************************************
+    // MARK: - Override Public Methods
+    //*************************************************
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Set NavigationBarTransparent
@@ -74,9 +74,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
-//*************************************************
-// MARK: - Private Methods
-//*************************************************
+    //*************************************************
+    // MARK: - Private Methods
+    //*************************************************
+    
+    private func setNavigationBarTransparent() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+    }
     
     //Verify if the user has been already logged in
     private func userIsLogged() {
@@ -87,33 +93,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-//*************************************************
-// MARK: - Internal Methods
-//*************************************************
+    //*************************************************
+    // MARK: - Table View Methods
+    //*************************************************
     
-    private func setNavigationBarTransparent() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-    }
-    
-//*************************************************
-// MARK: - Table View Methods
-//*************************************************
-        
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.orders.count
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = Bundle.main.loadNibNamed("HomeCustomTableViewCell", owner: self, options: nil)?.first as! HomeCustomTableViewCell
+        let customCell = Bundle.main.loadNibNamed("HomeCustomTableViewCell", owner: self, options: nil)?.first as! HomeCustomTableViewCell
         
-        let orderCell = self.orders[indexPath.row]
+        let orderDataAtPosition = self.orders[indexPath.row]
         
-        cell.orderName?.text = orderCell.name
-        
-        return cell
+        if let image = orderDataAtPosition.image {
+            customCell.orderImage.image = UIImage(named: image)
+        }
+        customCell.orderName.text = orderDataAtPosition.name
+        customCell.orderPrice.text = orderDataAtPosition.orderPrice?.toReal()
+        return customCell
     }
     
     internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -122,6 +121,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             OrderManager.deleteOrder(orderVO: orderCell)
             self.orders = OrderManager.getAllOrders()
         }
+        //ReloadOrders
         myOrdersTableView.reloadData()
         //Verify if ordes is empty to hidden noOrdersView
         if !(orders.isEmpty) {
@@ -133,9 +133,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-//*************************************************
-// MARK: - IBActions
-//*************************************************
+    //*************************************************
+    // MARK: - IBActions
+    //*************************************************
     
     @IBAction func addOrder(_ sender: UIButton) {
         FoodMenuManager.getMenu() { foods in

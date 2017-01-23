@@ -28,20 +28,19 @@ import OHHTTPStubs
 //**************************************************************************************************
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
-//*************************************************
-// MARK: - Properties
-//*************************************************
+    
+    //*************************************************
+    // MARK: - IBOutlet
+    //*************************************************
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
-
     
-//*************************************************
-// MARK: - Override Public Methods
-//*************************************************
+    //*************************************************
+    // MARK: - Override Public Methods
+    //*************************************************
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,17 +48,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.signInButton.isEnabled = false
     }
     
-//*************************************************
-// MARK: - Constructors
-//*************************************************
-    
-//*************************************************
-// MARK: - Private Methods
-//*************************************************
-    
-//*************************************************
-// MARK: - Internal Methods
-//*************************************************
+    //*************************************************
+    // MARK: - Internal Methods
+    //*************************************************
     
     @IBAction func signIn(_ button: RoundedButton) {
         LoginManager.authenticate(user: self.userTextField.text!, password: self.passwordTextField.text!) { authStatus in
@@ -79,9 +70,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-//*************************************************
-// MARK: - Self Public Methods
-//*************************************************
+    //*************************************************
+    // MARK: - TextField Methods
+    //*************************************************
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
@@ -117,9 +108,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-//*************************************************
-// MARK: - Self Alerts
-//*************************************************
+    //*************************************************
+    // MARK: - Alerts
+    //*************************************************
     
     func failedAuthAlert() {
         let alert = UIAlertController(title: "Authentication Failed", message: "Are you sure entered the right username and password?", preferredStyle: .alert)
