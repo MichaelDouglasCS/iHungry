@@ -237,7 +237,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="nextButton:" destination="yPO-ce-oVw" eventType="touchUpInside" id="mn8-go-tLP"/>
+                                            <action selector="touchNextButton:" destination="yPO-ce-oVw" eventType="touchUpInside" id="rDh-7t-cWP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -256,6 +256,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="foodMenuTableView" destination="KeI-li-aog" id="1xZ-BL-xwT"/>
+                        <outlet property="nextButton" destination="iRP-Ja-FmP" id="jia-VL-icI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nko-ws-bNx" userLabel="First Responder" sceneMemberID="firstResponder"/>

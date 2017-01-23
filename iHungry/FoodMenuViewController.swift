@@ -33,6 +33,7 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     //*************************************************
     
     @IBOutlet weak var foodMenuTableView: UITableView!
+    @IBOutlet weak var nextButton: UIButton!
     
     //*************************************************
     // MARK: - Properties
@@ -119,7 +120,7 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - IBAction
     //*************************************************
     
-    @IBAction func nextButton(_ sender: UIButton) {
+    @IBAction func touchNextButton(_ sender: UIButton) {
         var foodOrder = [FoodVO]()
         for food in self.foods {
             if food.quantity != 0 {
