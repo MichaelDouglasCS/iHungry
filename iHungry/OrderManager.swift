@@ -40,7 +40,8 @@ class OrderManager {
                 var id: Int {
                     get{
                         if ordersArray.isEmpty != true {
-                            return ((Int((ordersArray.last?.id)!)!) + 1)
+                            let resultOrdered = ordersArray.sorted(by: {$0.0.id! < $0.1.id!})
+                            return ((Int((resultOrdered.last?.id)!)!) + 1)
                         } else {
                             return 0
                         }
@@ -82,7 +83,7 @@ class OrderManager {
         } catch {
             print("Erro: Not was posible Get All Orders")
         }
-        return  resultOrders
+        return resultOrders.sorted(by: {$0.0.id! < $0.1.id!})
     }
     
     // MARK - Delete Order

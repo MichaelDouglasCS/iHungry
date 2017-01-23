@@ -17,6 +17,6 @@
     </entity>
     <elements>
         <element name="Food" positionX="187" positionY="-18" width="128" height="135"/>
-        <element name="Order" positionX="-38" positionY="-19" width="128" height="118"/>
+        <element name="Order" positionX="-38" positionY="-19" width="128" height="120"/>
     </elements>
 </model>
