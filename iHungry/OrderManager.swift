@@ -29,9 +29,9 @@ import CoreData
 
 class OrderManager {
     
-//*************************************************
-// MARK: - Public Methods
-//*************************************************
+    //*************************************************
+    // MARK: - Public Methods
+    //*************************************************
     
     // MARK - Insert Order
     class func insertOrder(orderVO: OrderVO) {
@@ -47,12 +47,20 @@ class OrderManager {
                     }
                 }
                 
-                let order = Order(context: CoreDataManager.context)
-                
-                order.id = String(id)
-                order.name = orderVO.name
-                
-                CoreDataManager.saveContext()
+                if let foods = orderVO.foods {
+                    let order = Order(context: CoreDataManager.context)
+                    order.id = String(id)
+                    order.name = foods[0].name
+                    order.image = foods[0].image
+                    if let price = orderVO.orderPrice{
+                        order.orderPrice = price
+                    }
+                    for food in foods {
+                        order.addToFoods(food.toObject())
+                    }
+                    print(order)
+                    CoreDataManager.saveContext()
+                }
             }
         } catch {
             print("Error: Could not posible Insert Order")
@@ -65,12 +73,17 @@ class OrderManager {
         do {
             if let ordersFetched = try CoreDataManager.context.fetch(Order.fetchRequest()) as? [Order] {
                 for order in ordersFetched {
+                    let orderFood = order
+                    print(String(describing: orderFood))
+                    //Como pegar os dados de Food?
+                    
                     resultOrders.append(OrderVO(order: order.getDictionary()))
                 }
             }
         } catch {
             print("Erro: Not was posible Get All Orders")
         }
+        print(resultOrders)
         return  resultOrders
     }
     
@@ -101,9 +114,23 @@ extension NSManagedObject {
     func getDictionary() -> [String : Any] {
         var dictionary = [String : Any]()
         for key in self.entity.attributesByName.keys {
-            let value = self.value(forKey: key)!
-            dictionary.updateValue(value, forKey: key)
+            if let value = self.value(forKey: key) {
+                dictionary.updateValue(value, forKey: key)
+            }
         }
         return dictionary
+    }
+}
+
+extension FoodVO {
+    func toObject() -> Food {
+        let foodManagedObject = Food(context: CoreDataManager.context)
+        foodManagedObject.category = self.category
+        foodManagedObject.name = self.name
+        if let price = self.price {
+            foodManagedObject.price = price
+        }
+        foodManagedObject.image = self.image
+        return foodManagedObject
     }
 }

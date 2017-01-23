@@ -36,6 +36,9 @@ struct OrderVO {
     
     var id: String?
     var name: String?
+    var image: String?
+    var foods: [FoodVO]?
+    var orderPrice: Double?
 
 //*************************************************
 // MARK: - Constructors
@@ -46,21 +49,37 @@ struct OrderVO {
     }
     
     init(order: OrderDictionary) {
-        self.id = order["id"] as! String?
-        self.name = order["name"] as! String?
+        self.id = order["id"] as? String
+        self.name = order["name"] as? String
+        self.image = order["image"] as? String
+        self.foods = order["foods"] as? [FoodVO]
+        self.orderPrice = order["orderPrice"] as? Double
+    }
+    
+    init(foodOrder: [FoodVO]) {
+        self.name = foodOrder[0].name
+        self.image = foodOrder[0].image
+        self.foods = foodOrder
+        self.orderPrice = self.calculateOrderPrice(foods: foodOrder)
     }
 
 //*************************************************
 // MARK: - Private Methods
 //*************************************************
+    
+    private func calculateOrderPrice(foods: [FoodVO]) -> Double {
+        var result = Double()
+        for food in foods {
+            if let price = food.price {
+                result = (result + price)
+            }
+        }
+        return result
+    }
 
 //*************************************************
 // MARK: - Internal Methods
 //*************************************************
-    
-    func getAll() -> [OrderVO] {
-        return []
-    }
     
 //*************************************************
 // MARK: - Self Public Methods

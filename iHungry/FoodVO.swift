@@ -48,12 +48,20 @@ class FoodVO {
         
     }
     
-    init(food: FoodDictionary) {
-        self.category = food["category"] as? String
-        self.name = food["name"] as? String
-        self.price = food["price"] as? Double
-        self.image = food["image"] as? String
+    init(foodFromJSON: FoodDictionary) {
+        self.category = foodFromJSON["category"] as? String
+        self.name = foodFromJSON["name"] as? String
+        self.price = foodFromJSON["price"] as? Double
+        self.image = foodFromJSON["image"] as? String
         self.quantity = 0
+    }
+    
+    init(foodFromObject: FoodDictionary) {
+        self.category = foodFromObject["category"] as? String
+        self.name = foodFromObject["name"] as? String
+        self.price = foodFromObject["price"] as? Double
+        self.image = foodFromObject["image"] as? String
+        self.quantity = foodFromObject["quantity"] as? Int
     }
 
 //*************************************************

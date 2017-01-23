@@ -123,6 +123,17 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - IBAction
     //*************************************************
     
+    @IBAction func nextButton(_ sender: UIButton) {
+        var foodOrder = [FoodVO]()
+        for food in self.foods {
+            if food.quantity != 0 {
+            foodOrder.append(food)
+            }
+        }
+        let myOrder = OrderVO(foodOrder: foodOrder)
+        OrderManager.insertOrder(orderVO: myOrder)
+    }
+    
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         if let navControlle = self.navigationController {
             navControlle.popViewController(animated: true)

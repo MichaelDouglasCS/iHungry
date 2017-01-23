@@ -236,6 +236,9 @@
                                         <state key="normal" title="Next" backgroundImage="buttonNext">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="nextButton:" destination="yPO-ce-oVw" eventType="touchUpInside" id="mn8-go-tLP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
