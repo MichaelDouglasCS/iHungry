@@ -37,6 +37,7 @@ class OrderManager {
     class func insertOrder(orderVO: OrderVO) {
         do {
             if let ordersArray = try CoreDataManager.context.fetch(Order.fetchRequest()) as? [Order] {
+                
                 var id: Int {
                     get{
                         if ordersArray.isEmpty != true {
@@ -47,7 +48,7 @@ class OrderManager {
                         }
                     }
                 }
-                
+
                 let orderObject = Order(context: CoreDataManager.context)
                 orderObject.id = String(id)
                 orderObject.name = orderVO.name
