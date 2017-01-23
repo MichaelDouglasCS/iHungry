@@ -84,24 +84,36 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             customCell.foodPrice?.text = foodPrice.toReal()
         }
         if let foodQuantity = self.foods[indexPath.row].quantity {
+            self.hasSomeFood()
             if foodQuantity == 0 {
                 customCell.removeFood.isEnabled = false
             }
             customCell.foodQuantity?.text = foodQuantity.toString()
         }
-        
         return customCell
-        
     }
     
     //*************************************************
     // MARK: - Internal Methods
     //*************************************************
     
+    internal func hasSomeFood() {
+        var quantity = Int()
+        for food in self.foods {
+            quantity = quantity + food.quantity!
+        }
+        if quantity != 0 {
+            self.nextButton.isEnabled = true
+        } else {
+            self.nextButton.isEnabled = false
+        }
+    }
+    
     internal func addFood(button: UIButton) {
         if let quantity = self.foods[button.tag].quantity {
             self.foods[button.tag].quantity = (quantity + 1)
         }
+        self.hasSomeFood()
         self.foodMenuTableView.reloadData()
     }
     
@@ -113,6 +125,7 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                 button.isEnabled = false
             }
         }
+        self.hasSomeFood()
         self.foodMenuTableView.reloadData()
     }
     
