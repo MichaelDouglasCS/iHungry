@@ -8,28 +8,50 @@
 
 import UIKit
 
-class ConfirmOrderViewController: UIViewController {
+//**************************************************************************************************
+//
+// MARK: - Constants -
+//
+//**************************************************************************************************
 
+//**************************************************************************************************
+//
+// MARK: - Definitions -
+//
+//**************************************************************************************************
+
+//**************************************************************************************************
+//
+// MARK: - Class -
+//
+//**************************************************************************************************
+
+class ConfirmOrderViewController: UIViewController {
+    
+    //*************************************************
+    // MARK: - IBOutlet
+    //*************************************************
+    
+    //*************************************************
+    // MARK: - Override Public Methods
+    //*************************************************
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    //*************************************************
+    // MARK: - IBActions
+    //*************************************************
+    
+    @IBAction func cancelConfirmation(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
 }
