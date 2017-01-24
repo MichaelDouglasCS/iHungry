@@ -147,6 +147,8 @@ class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITab
             //ConfirmButtonCell
         else {
             let confirmButtonCell = Bundle.main.loadNibNamed("ConfirmButtonCell", owner: self, options: nil)?.first as! ConfirmButtonCell
+            confirmButtonCell.confirmOrderButton.tag = indexPath.row
+            confirmButtonCell.confirmOrderButton.addTarget(self, action: #selector(ConfirmOrderViewController.confirmAndSaveOrder), for: UIControlEvents.touchUpInside)
             return confirmButtonCell
         }
     }
@@ -172,6 +174,19 @@ class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITab
             //ConfirmButtonCell
         else {
             return 51.5
+        }
+    }
+    
+    //*************************************************
+    // MARK: - Action Methods
+    //*************************************************
+    
+    internal func confirmAndSaveOrder() {
+        let myOrder = OrderVO(orderFromFood: self.foodsOfOrder)
+        OrderManager.insertOrder(orderVO: myOrder)
+        let presentingViewController = self.presentingViewController as! UINavigationController
+        self.dismiss(animated: true) {
+            presentingViewController.popViewController(animated: true)
         }
     }
     

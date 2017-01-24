@@ -143,24 +143,10 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                 foodOrder.append(food)
             }
         }
-        
         confirmOrderVC.foodsOfOrder = foodOrder
-        
         let modalViewController = confirmOrderVC
         modalViewController.modalPresentationStyle = .overFullScreen
         present(modalViewController, animated: true, completion: nil)
-        
-        //        var foodOrder = [FoodVO]()
-        //        for food in self.foods {
-        //            if food.quantity != 0 {
-        //                foodOrder.append(food)
-        //            }
-        //        }
-        //        let myOrder = OrderVO(orderFromFood: foodOrder)
-        //        OrderManager.insertOrder(orderVO: myOrder)
-        //        if let navControlle = self.navigationController {
-        //            navControlle.popViewController(animated: true)
-        //        }
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
