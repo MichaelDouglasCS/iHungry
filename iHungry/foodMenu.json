@@ -9,7 +9,7 @@
                   },
                   {
                   "category": "food",
-                  "name": "Costelinha",
+                  "name": "Costela de Porco",
                   "price": 27.90,
                   "image": "prato2"
                   },
@@ -57,7 +57,7 @@
                   },
                   {
                   "category": "dessert",
-                  "name": "Sorvete de Baunilha",
+                  "name": "Petit Gâteau",
                   "price": 14.20,
                   "image": "sobremesa1"
                   },
