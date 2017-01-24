@@ -8,12 +8,38 @@
 
 import UIKit
 
+//**************************************************************************************************
+//
+// MARK: - Constants -
+//
+//**************************************************************************************************
+
+//**************************************************************************************************
+//
+// MARK: - Definitions -
+//
+//**************************************************************************************************
+
+//**************************************************************************************************
+//
+// MARK: - Class -
+//
+//**************************************************************************************************
+
 class ConfirmOrderCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    //*************************************************
+    // MARK: - IBOutlet
+    //*************************************************
+    
+    @IBOutlet weak var foodImage: RoundedImageView!
+    @IBOutlet weak var foodName: UILabel!
+    @IBOutlet weak var foodPrice: UILabel!
+    @IBOutlet weak var foodQuantity: UILabel!
+    
+    //*************************************************
+    // MARK: - Override Public Methods
+    //*************************************************
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

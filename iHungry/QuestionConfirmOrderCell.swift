@@ -1,5 +1,5 @@
 //
-//  QuestionConfirmOrderTableViewCell.swift
+//  QuestionConfirmOrderCell.swift
 //  iHungry
 //
 //  Created by Michael Douglas on 24/01/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionConfirmOrderTableViewCell: UITableViewCell {
+class QuestionConfirmOrderCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
