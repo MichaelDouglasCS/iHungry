@@ -39,6 +39,7 @@ class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITab
     //*************************************************
     
     var foodsOfOrder = [FoodVO]()
+    var observationOrder = String()
     
     var questionCellPosition: Int {
         get{
@@ -93,6 +94,7 @@ class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITab
     func textViewDidEndEditing(_ textView: UITextView) {
         self.orderDetailsTableView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
         self.orderDetailsTableView.isScrollEnabled = true
+        self.observationOrder = textView.text
     }
     
     //*************************************************
@@ -182,7 +184,10 @@ class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITab
     //*************************************************
     
     internal func confirmAndSaveOrder() {
-        let myOrder = OrderVO(orderFromFood: self.foodsOfOrder)
+        var myOrder = OrderVO(orderFromFood: self.foodsOfOrder)
+        if self.observationOrder.isEmpty != true {
+            myOrder.observation = self.observationOrder
+        }
         OrderManager.insertOrder(orderVO: myOrder)
         let presentingViewController = self.presentingViewController as! UINavigationController
         self.dismiss(animated: true) {

@@ -12,11 +12,12 @@
         <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="image" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="observation" attributeType="String" syncable="YES"/>
         <attribute name="orderPrice" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="foods" toMany="YES" deletionRule="Cascade" destinationEntity="Food" inverseName="orders" inverseEntity="Food" syncable="YES"/>
     </entity>
     <elements>
         <element name="Food" positionX="187" positionY="-18" width="128" height="135"/>
-        <element name="Order" positionX="-38" positionY="-19" width="128" height="120"/>
+        <element name="Order" positionX="-38" positionY="-19" width="128" height="135"/>
     </elements>
 </model>

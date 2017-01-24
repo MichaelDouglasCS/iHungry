@@ -37,6 +37,7 @@ struct OrderVO {
     var id: String?
     var name: String?
     var image: String?
+    var observation: String?
     var orderPrice: Double?
     var foods: [FoodVO]?
     
@@ -53,6 +54,7 @@ struct OrderVO {
         self.id = orderFromObject["id"] as? String
         self.name = orderFromObject["name"] as? String
         self.image = orderFromObject["image"] as? String
+        self.observation = orderFromObject["observation"] as? String
         self.foods = [FoodVO]()
         self.orderPrice = orderFromObject["orderPrice"] as? Double
     }
