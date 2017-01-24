@@ -87,12 +87,12 @@ class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITab
     //*************************************************
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        self.orderDetailsTableView.setContentOffset(CGPoint.init(x: 0, y: 100), animated: true)
+        self.orderDetailsTableView.setContentOffset(CGPoint.init(x: 0, y: (100 * self.foodsOfOrder.count)), animated: true)
         self.orderDetailsTableView.isScrollEnabled = false
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        self.orderDetailsTableView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
+        self.orderDetailsTableView.setContentOffset(CGPoint.init(x: 0, y: ((100 * self.foodsOfOrder.count) - 100)), animated: true)
         self.orderDetailsTableView.isScrollEnabled = true
         self.observationOrder = textView.text
     }
@@ -135,6 +135,7 @@ class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITab
             let anyObservationCell = Bundle.main.loadNibNamed("AnyObservationCell", owner: self, options: nil)?.first as! AnyObservationCell
             anyObservationCell.tag = self.anyObservationCellPosition
             anyObservationCell.observationTextView.delegate = self
+            
             return anyObservationCell
         }
             //TotalPriceOrder Cell
