@@ -26,7 +26,7 @@ import UIKit
 //
 //**************************************************************************************************
 
-class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
     
     //*************************************************
     // MARK: - IBOutlet
@@ -72,12 +72,27 @@ class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         //Remove UITableViewCell separator for empty cells
         self.orderDetailsTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+    }
+    
+    //*************************************************
+    // MARK: - Text View Delegate
+    //*************************************************
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        self.orderDetailsTableView.setContentOffset(CGPoint.init(x: 0, y: 100), animated: true)
+        self.orderDetailsTableView.isScrollEnabled = false
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.orderDetailsTableView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
+        self.orderDetailsTableView.isScrollEnabled = true
     }
     
     //*************************************************
@@ -116,6 +131,8 @@ class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITab
             //AnyObservation Cell
         else if indexPath.row == self.anyObservationCellPosition {
             let anyObservationCell = Bundle.main.loadNibNamed("AnyObservationCell", owner: self, options: nil)?.first as! AnyObservationCell
+            anyObservationCell.tag = self.anyObservationCellPosition
+            anyObservationCell.observationTextView.delegate = self
             return anyObservationCell
         }
             //TotalPriceOrder Cell
