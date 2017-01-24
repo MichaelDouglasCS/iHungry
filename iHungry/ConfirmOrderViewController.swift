@@ -135,7 +135,7 @@ class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITab
             let anyObservationCell = Bundle.main.loadNibNamed("AnyObservationCell", owner: self, options: nil)?.first as! AnyObservationCell
             anyObservationCell.tag = self.anyObservationCellPosition
             anyObservationCell.observationTextView.delegate = self
-            
+            anyObservationCell.observationTextView.text = self.observationOrder
             return anyObservationCell
         }
             //TotalPriceOrder Cell
