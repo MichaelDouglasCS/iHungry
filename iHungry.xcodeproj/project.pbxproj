@@ -25,6 +25,7 @@
 		6122BE831E2FD627000B6DF6 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6122BE821E2FD627000B6DF6 /* OrderManager.swift */; };
 		612F095C1E2EDEF60008750D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612F095B1E2EDEF60008750D /* NetworkManager.swift */; };
 		616733CF1E3123D20092E3EA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616733CE1E3123D20092E3EA /* CoreDataManager.swift */; };
+		6180424F1E378BF0001EEDB9 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180424E1E378BF0001EEDB9 /* OrderDetailViewController.swift */; };
 		619A4A291E3297DC007045DA /* HomeCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A4A271E3297DC007045DA /* HomeCustomTableViewCell.swift */; };
 		619A4A2A1E3297DC007045DA /* HomeCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619A4A281E3297DC007045DA /* HomeCustomTableViewCell.xib */; };
 		619A4A2C1E329DB5007045DA /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A4A2B1E329DB5007045DA /* RoundedImageView.swift */; };
@@ -88,6 +89,7 @@
 		6122BE821E2FD627000B6DF6 /* OrderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
 		612F095B1E2EDEF60008750D /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		616733CE1E3123D20092E3EA /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		6180424E1E378BF0001EEDB9 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		619A4A271E3297DC007045DA /* HomeCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCustomTableViewCell.swift; sourceTree = "<group>"; };
 		619A4A281E3297DC007045DA /* HomeCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCustomTableViewCell.xib; sourceTree = "<group>"; };
 		619A4A2B1E329DB5007045DA /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			children = (
 				6122BE841E2FE6B9000B6DF6 /* Login */,
 				6122BE851E2FE6C1000B6DF6 /* Home */,
+				6180424D1E378B92001EEDB9 /* OrderDetail */,
 				61F396801E30122F0074AA47 /* FoodMenu */,
 				61A1DB871E36C1F0009339EE /* ConfirmOrder */,
 			);
@@ -379,6 +382,14 @@
 				61E0799B1E33094F005C7B05 /* FoodVO.swift */,
 			);
 			name = ModelVO;
+			sourceTree = "<group>";
+		};
+		6180424D1E378B92001EEDB9 /* OrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6180424E1E378BF0001EEDB9 /* OrderDetailViewController.swift */,
+			);
+			name = OrderDetail;
 			sourceTree = "<group>";
 		};
 		61A1DB871E36C1F0009339EE /* ConfirmOrder */ = {
@@ -776,6 +787,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6180424F1E378BF0001EEDB9 /* OrderDetailViewController.swift in Sources */,
 				612F095C1E2EDEF60008750D /* NetworkManager.swift in Sources */,
 				61E077391E2ED1CC00EFDF39 /* NetworkHelpers.swift in Sources */,
 				619A4A291E3297DC007045DA /* HomeCustomTableViewCell.swift in Sources */,

@@ -33,6 +33,7 @@ class AnyObservationCell: UITableViewCell {
     //*************************************************
     
     @IBOutlet weak var observationTextView: RoundedTextView!
+    @IBOutlet weak var observationLabel: UILabel!
 
     //*************************************************
     // MARK: - Override Public Methods

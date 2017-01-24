@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="324" height="168"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="324" height="167.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="324" height="167"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BOZ-V9-PcR" customClass="RoundedTextView" customModule="iHungry" customModuleProvider="target">
@@ -46,6 +46,7 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="observationLabel" destination="qcH-kV-omC" id="SDH-yp-bN7"/>
                 <outlet property="observationTextView" destination="BOZ-V9-PcR" id="YOa-CS-NHR"/>
             </connections>
             <point key="canvasLocation" x="34" y="54.5"/>

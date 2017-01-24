@@ -53,6 +53,7 @@ class OrderManager {
                 orderObject.id = String(id)
                 orderObject.name = orderVO.name
                 orderObject.image = orderVO.image
+                print(orderVO.observation!)
                 orderObject.observation = orderVO.observation
                 if let price = orderVO.orderPrice{
                     orderObject.orderPrice = price

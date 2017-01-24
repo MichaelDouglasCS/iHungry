@@ -63,6 +63,6 @@
     </objects>
     <resources>
         <image name="Back Chevron" width="11" height="16"/>
-        <image name="prato2" width="605" height="403"/>
+        <image name="prato2" width="640" height="611"/>
     </resources>
 </document>

@@ -115,6 +115,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return customCell
     }
     
+    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let orderDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailViewController") as! OrderDetailViewController
+        
+        orderDetailVC.order = self.orders[indexPath.row]
+        
+        let modalViewController = orderDetailVC
+        modalViewController.modalPresentationStyle = .overFullScreen
+        present(modalViewController, animated: true, completion: nil)
+    }
+    
+    internal func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let orderCell = orders[indexPath.row]

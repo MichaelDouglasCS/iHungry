@@ -10,11 +10,16 @@ import UIKit
 
 class QuestionConfirmOrderCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+    //*************************************************
+    // MARK: - IBOutlet
+    //*************************************************
+   
+    @IBOutlet weak var questionConfirmOrder: UILabel!
+    
+    //*************************************************
+    // MARK: - Override Public Methods
+    //*************************************************
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
