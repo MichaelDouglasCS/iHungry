@@ -69,9 +69,6 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        if let observation = self.order.observation {
-            print(observation)
-        }
         if let foods = self.order.foods {
             self.foodsOfOrder = foods
         }
