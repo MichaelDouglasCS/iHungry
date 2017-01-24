@@ -67,7 +67,13 @@ struct FoodVO {
 //*************************************************
 // MARK: - Private Methods
 //*************************************************
-
+    
+    func getTotalPrice() -> Double? {
+        var result = Double()
+        result = (self.price! * Double(self.quantity!))
+        return result
+    }
+    
 //*************************************************
 // MARK: - Internal Methods
 //*************************************************

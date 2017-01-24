@@ -79,6 +79,23 @@ struct OrderVO {
         }
         return result
     }
+    
+    //*************************************************
+    // MARK: - Public Methods
+    //*************************************************
+ 
+    static func getOrderPrice(foods: [FoodVO]) -> Double? {
+        var result = Double()
+        for food in foods {
+            if let quantity = food.quantity {
+                if let price = food.price {
+                    result = (result + (price * Double(quantity)))
+                }
+            }
+        }
+        return result
+    }
+    
 }
 
 //**************************************************************************************************

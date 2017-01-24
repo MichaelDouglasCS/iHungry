@@ -95,22 +95,39 @@ class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITab
             let questionConfirmCell = Bundle.main.loadNibNamed("QuestionConfirmOrderCell", owner: self, options: nil)?.first as! QuestionConfirmOrderCell
             return questionConfirmCell
         }
-        //FoodsCell
+            //FoodsCell
         else if indexPath.row <= self.rangeOfFoodEndPosition {
             let confirmFoodsCell = Bundle.main.loadNibNamed("ConfirmOrderCell", owner: self, options: nil)?.first as! ConfirmOrderCell
+            let positionCell = (indexPath.row - 1)
+            if let image = self.foodsOfOrder[positionCell].image {
+                confirmFoodsCell.foodImage.image = UIImage(named: image)
+            }
+            if let name = self.foodsOfOrder[positionCell].name {
+                confirmFoodsCell.foodName.text = name
+            }
+            if let totalPrice = self.foodsOfOrder[positionCell].getTotalPrice() {
+                confirmFoodsCell.foodPrice.text = totalPrice.toReal()
+            }
+            if let quantity = self.foodsOfOrder[positionCell].quantity {
+                confirmFoodsCell.foodQuantity.text = quantity.toString()
+            }
             return confirmFoodsCell
         }
-        //AnyObservation Cell
+            //AnyObservation Cell
         else if indexPath.row == self.anyObservationCellPosition {
             let anyObservationCell = Bundle.main.loadNibNamed("AnyObservationCell", owner: self, options: nil)?.first as! AnyObservationCell
             return anyObservationCell
         }
-        //TotalPriceOrder Cell
+            //TotalPriceOrder Cell
         else if indexPath.row == self.totalPriceCelPosition {
             let totalPriceOrderCell = Bundle.main.loadNibNamed("TotalPriceOrderCell", owner: self, options: nil)?.first as! TotalPriceOrderCell
+            
+            if let totalPriceOrder = OrderVO.getOrderPrice(foods: self.foodsOfOrder) {
+                totalPriceOrderCell.foodPriceTotal.text = totalPriceOrder.toReal()
+            }
             return totalPriceOrderCell
         }
-        //ConfirmButtonCell
+            //ConfirmButtonCell
         else {
             let confirmButtonCell = Bundle.main.loadNibNamed("ConfirmButtonCell", owner: self, options: nil)?.first as! ConfirmButtonCell
             return confirmButtonCell
@@ -123,19 +140,19 @@ class ConfirmOrderViewController: UIViewController, UITableViewDataSource, UITab
         if indexPath.row == self.questionCellPosition {
             return 61
         }
-        //FoodsCell
+            //FoodsCell
         else if indexPath.row <= self.rangeOfFoodEndPosition {
             return 98.5
         }
-        //AnyObservation Cell
+            //AnyObservation Cell
         else if indexPath.row == self.anyObservationCellPosition {
-            return 167
+            return 168
         }
-        //TotalPriceOrder Cell
+            //TotalPriceOrder Cell
         else if indexPath.row == self.totalPriceCelPosition {
             return 82
         }
-        //ConfirmButtonCell
+            //ConfirmButtonCell
         else {
             return 51.5
         }
