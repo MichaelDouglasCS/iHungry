@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,21 +19,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="324" height="81"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 200,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDR-uo-NTU" userLabel="foodPriceTotal">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 200,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDR-uo-NTU" userLabel="foodPriceTotal">
                         <rect key="frame" x="180" y="26" width="128" height="28"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="Bws-Ov-Ir7"/>
+                            <constraint firstAttribute="width" constant="128" id="ZUp-7Q-tea"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                         <color key="textColor" red="0.45490196078431372" green="0.73333333333333328" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqM-S4-iKh" userLabel="LabelTotal">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqM-S4-iKh" userLabel="LabelTotal">
                         <rect key="frame" x="127" y="28" width="61" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="4ha-6t-ns7"/>
+                            <constraint firstAttribute="width" constant="61" id="oli-BJ-BLZ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="eDR-uo-NTU" secondAttribute="bottom" constant="19" id="29X-PJ-bdh"/>
+                    <constraint firstItem="eDR-uo-NTU" firstAttribute="leading" secondItem="WqM-S4-iKh" secondAttribute="trailing" constant="-8" id="3oY-e3-YbS"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="eDR-uo-NTU" secondAttribute="trailing" constant="8" id="e7x-x3-PBW"/>
+                    <constraint firstItem="WqM-S4-iKh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="e8u-f6-1KI"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="foodPriceTotal" destination="eDR-uo-NTU" id="0j4-Du-PRJ"/>

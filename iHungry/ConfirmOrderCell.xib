@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,9 +19,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="324" height="97.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="suco1" translatesAutoresizingMaskIntoConstraints="NO" id="PsN-Td-jIS" userLabel="foodImage" customClass="RoundedImageView" customModule="iHungry" customModuleProvider="target">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="suco1" translatesAutoresizingMaskIntoConstraints="NO" id="PsN-Td-jIS" userLabel="foodImage" customClass="RoundedImageView" customModule="iHungry" customModuleProvider="target">
                         <rect key="frame" x="23" y="13.5" width="70" height="70"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="0H4-Ue-3yg"/>
+                            <constraint firstAttribute="height" constant="70" id="grY-n6-jJT"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="36"/>
@@ -33,28 +37,49 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 100,00" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdb-VP-0Mj" userLabel="FoodPriceTotal">
-                        <rect key="frame" x="105" y="54" width="152" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 100,00" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdb-VP-0Mj" userLabel="FoodPriceTotal">
+                        <rect key="frame" x="105" y="54" width="168" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="PKM-lm-xIG"/>
+                            <constraint firstAttribute="width" constant="168" id="g0j-hN-MsO"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                         <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHs-up-pLX" userLabel="FoodQuantity">
-                        <rect key="frame" x="281" y="38" width="20" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHs-up-pLX" userLabel="FoodQuantity">
+                        <rect key="frame" x="277" y="38" width="30" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="7SE-oL-g8a"/>
+                            <constraint firstAttribute="width" constant="30" id="xjr-84-VK8"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                         <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lorem Ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2x5-eu-QSs" userLabel="foodName">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2x5-eu-QSs" userLabel="foodName">
                         <rect key="frame" x="105" y="18" width="202" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="202" id="RzD-ck-0IM"/>
+                            <constraint firstAttribute="height" constant="24" id="WaS-PW-NAP"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="iHs-up-pLX" secondAttribute="bottom" constant="30.5" id="39S-ri-tlS"/>
+                    <constraint firstItem="PsN-Td-jIS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="3jO-NC-7FK"/>
+                    <constraint firstItem="2x5-eu-QSs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="AFr-p1-Qof"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="iHs-up-pLX" secondAttribute="trailing" constant="9" id="DGw-r8-1PM"/>
+                    <constraint firstItem="PsN-Td-jIS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5.5" id="a92-OG-DqZ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Cdb-VP-0Mj" secondAttribute="bottom" constant="13.5" id="kdG-43-0sq"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="PsN-Td-jIS" secondAttribute="bottom" constant="6" id="mpg-Bo-QXJ"/>
+                    <constraint firstItem="2x5-eu-QSs" firstAttribute="leading" secondItem="PsN-Td-jIS" secondAttribute="trailing" constant="12" id="qsd-fA-adu"/>
+                    <constraint firstItem="Cdb-VP-0Mj" firstAttribute="leading" secondItem="PsN-Td-jIS" secondAttribute="trailing" constant="12" id="vkK-kt-3U0"/>
+                    <constraint firstItem="iHs-up-pLX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="30" id="zF6-tc-PA2"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="foodImage" destination="PsN-Td-jIS" id="KaD-LT-jP2"/>
@@ -66,6 +91,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="suco1" width="450" height="340"/>
+        <image name="suco1" width="320" height="374"/>
     </resources>
 </document>

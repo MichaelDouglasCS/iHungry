@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,10 +19,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="324" height="167"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BOZ-V9-PcR" customClass="RoundedTextView" customModule="iHungry" customModuleProvider="target">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BOZ-V9-PcR" customClass="RoundedTextView" customModule="iHungry" customModuleProvider="target">
                         <rect key="frame" x="23" y="51" width="277.5" height="100"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.3803921569" blue="0.0" alpha="0.02" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="Hy4-mq-yQ1"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         <userDefinedRuntimeAttributes>
@@ -36,14 +39,24 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Any Observations?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcH-kV-omC" userLabel="Any Observations">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any Observations?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcH-kV-omC" userLabel="Any Observations">
                         <rect key="frame" x="23" y="17" width="202" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Jpo-Bj-6oS"/>
+                            <constraint firstAttribute="width" constant="202" id="p4w-mF-Pu9"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="qcH-kV-omC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="ZQ6-Wc-WrX"/>
+                    <constraint firstItem="qcH-kV-omC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="c09-Jh-Toi"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BOZ-V9-PcR" secondAttribute="bottom" constant="8" id="oIm-sv-vT7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BOZ-V9-PcR" secondAttribute="trailing" constant="15.5" id="qOc-AY-j2z"/>
+                    <constraint firstItem="BOZ-V9-PcR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="zL7-fk-aR0"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="observationLabel" destination="qcH-kV-omC" id="SDH-yp-bN7"/>

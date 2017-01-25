@@ -149,12 +149,5 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
             return 82
         }
     }
-    
-    //*************************************************
-    // MARK: - IBActions
-    //*************************************************
-    
-    @IBAction func cancelConfirmation(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
+
 }

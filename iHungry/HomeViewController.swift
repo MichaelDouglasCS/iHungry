@@ -121,11 +121,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         orderDetailVC.order = self.orders[indexPath.row]
         
-        let modalViewController = orderDetailVC
-        modalViewController.modalPresentationStyle = .overFullScreen
-        present(modalViewController, animated: true) {
-            self.myOrdersTableView.deselectRow(at: indexPath, animated: true)
-        }
+        self.navigationController?.pushViewController(orderDetailVC, animated: true)
+
     }
     
     internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
