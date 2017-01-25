@@ -219,6 +219,9 @@
                                         <state key="normal" title="Promo Code">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buttonsMenuAction:" destination="XQU-7b-oGm" eventType="touchUpInside" id="cv2-gW-tQc"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="promo code" translatesAutoresizingMaskIntoConstraints="NO" id="Va4-9e-PY0">
                                         <rect key="frame" x="35" y="232" width="34" height="34"/>
@@ -231,6 +234,9 @@
                                         <state key="normal" title="Settings">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buttonsMenuAction:" destination="XQU-7b-oGm" eventType="touchUpInside" id="EvF-P4-dNy"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="Ksp-94-sFF">
                                         <rect key="frame" x="35" y="302" width="34" height="34"/>
@@ -258,6 +264,9 @@
                                         <state key="normal" title="Contact Us">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buttonsMenuAction:" destination="XQU-7b-oGm" eventType="touchUpInside" id="QOK-Nh-26F"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="YLI-dz-FU5">
                                         <rect key="frame" x="35" y="372" width="34" height="34"/>
@@ -270,16 +279,33 @@
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="0Ne-fS-FTX">
-                                <rect key="frame" x="17.5" y="-100" width="340" height="44"/>
+                                <rect key="frame" x="18" y="-100" width="340" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="340" id="0Sk-Fa-UIs"/>
                                     <constraint firstAttribute="height" constant="44" id="Xyp-j8-Aj5"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="XQU-7b-oGm" id="dZd-ID-kEA"/>
                                 </connections>
                             </searchBar>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NjB-Mz-S8q" userLabel="No Orders Found">
+                                <rect key="frame" x="68" y="280" width="240" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sad orange" translatesAutoresizingMaskIntoConstraints="NO" id="sIR-0f-BpE">
+                                        <rect key="frame" x="90" y="10" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Orders Found !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPs-gw-3GF">
+                                        <rect key="frame" x="35" y="84" width="170" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="20"/>
+                                        <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -308,6 +334,7 @@
                         <outlet property="menuOpaqueButton" destination="f8J-Eb-wn8" id="Y0h-x0-Vmj"/>
                         <outlet property="menuView" destination="JHs-hz-sVi" id="d4h-R5-CyO"/>
                         <outlet property="myOrdersTableView" destination="4JY-DF-jWC" id="sPr-R9-ILt"/>
+                        <outlet property="noOrderFound" destination="NjB-Mz-S8q" id="g9h-qV-ELW"/>
                         <outlet property="noOrdersView" destination="y4b-Tc-2el" id="xlX-dH-2E8"/>
                         <outlet property="searchBar" destination="0Ne-fS-FTX" id="bMU-Ui-yga"/>
                         <outlet property="searchConstraint" destination="oRS-Vv-jRp" id="v1l-wd-YNF"/>
@@ -524,6 +551,7 @@
         <image name="password" width="22" height="23"/>
         <image name="phone" width="28" height="39"/>
         <image name="promo code" width="34" height="28"/>
+        <image name="sad orange" width="512" height="512"/>
         <image name="search" width="32" height="31"/>
         <image name="settings" width="28" height="29"/>
         <image name="signIn" width="326" height="56"/>

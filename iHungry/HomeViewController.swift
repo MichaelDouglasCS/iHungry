@@ -32,6 +32,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - IBOutlets
     //*************************************************
     
+    @IBOutlet weak var noOrderFound: UIView!
     @IBOutlet weak var searchConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var menuOpaqueButton: UIButton!
@@ -44,6 +45,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - Properties
     //*************************************************
     
+    private var searchActive: Bool = false
+    private var ordersFiltered = [OrderVO]()
     //Variable that storages the Orders that appears in TableView
     private var orders = [OrderVO]()
     
@@ -89,8 +92,47 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - Search View Methods
     //*************************************************
     
+    internal func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchActive = true;
+    }
+    
     internal func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.searchActive = false;
         self.searchHidden()
+        self.myOrdersTableView.reloadData()
+    }
+    
+    internal func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchActive = false;
+        self.searchHidden()
+        self.myOrdersTableView.reloadData()
+    }
+    
+    internal func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        self.ordersFiltered = self.orders.filter({ (order) -> Bool in
+            var tmp = NSString()
+            if let orderName = order.name{
+                tmp = orderName as NSString
+            }
+            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+            return range.location != NSNotFound
+        })
+        
+        if (((self.ordersFiltered.count != 0) && (searchText.isEmpty != true)) && self.orders.count != 0) {
+            searchActive = true
+            self.myOrdersTableView.isHidden = false
+            self.noOrderFound.isHidden = true
+        } else if (((self.ordersFiltered.count == 0) && (searchText.isEmpty != true)) && self.orders.count != 0) {
+            searchActive = false
+            self.myOrdersTableView.isHidden = true
+            self.noOrderFound.isHidden = false
+        } else if (((self.ordersFiltered.count == 0) && (searchText.isEmpty == true)) && self.orders.count != 0){
+            self.searchActive = false
+            self.myOrdersTableView.isHidden = false
+            self.noOrderFound.isHidden = true
+        }
+        self.myOrdersTableView.reloadData()
     }
     
     //*************************************************
@@ -105,6 +147,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.searchBar.alpha = 0.6
         self.searchBar.layer.cornerRadius = 21
         self.searchBar.clipsToBounds = true
+        self.searchBar.returnKeyType = .done
     }
     
     private func searchAppears() {
@@ -120,6 +163,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     private func searchHidden() {
         self.searchConstraint.constant = -100
+        self.myOrdersTableView.isHidden = false
+        self.noOrderFound.isHidden = true
+        self.searchBar.resignFirstResponder()
+        self.searchBar.text = ""
         UIView.animate(withDuration: 0.2, animations: {
             self.view.layer.layoutIfNeeded()
             self.navigationController?.navigationBar.isHidden = false
@@ -167,13 +214,22 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //*************************************************
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (self.searchActive) {
+            return self.ordersFiltered.count
+        }
         return self.orders.count
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let homeCell = Bundle.main.loadNibNamed("HomeCustomTableViewCell", owner: self, options: nil)?.first as! HomeCustomTableViewCell
         
-        let orderDataAtPosition = self.orders[indexPath.row]
+        var orderDataAtPosition = OrderVO()
+        
+        if (self.searchActive) {
+            orderDataAtPosition = self.ordersFiltered[indexPath.row]
+        } else {
+            orderDataAtPosition = self.orders[indexPath.row]
+        }
         
         if let image = orderDataAtPosition.image {
             homeCell.orderImage.image = UIImage(named: image)
@@ -184,12 +240,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.searchHidden()
         let orderDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailViewController") as! OrderDetailViewController
-        
         orderDetailVC.order = self.orders[indexPath.row]
-        
         self.navigationController?.pushViewController(orderDetailVC, animated: true)
-
     }
     
     internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -211,6 +265,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     //*************************************************
+    // MARK: - Alerts
+    //*************************************************
+    
+    private func functionalityNotImplementedAert() {
+        let alert = UIAlertController(title: "Not implemented yet", message: "It will be available soon", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    //*************************************************
     // MARK: - IBActions
     //*************************************************
     
@@ -219,6 +284,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let foodMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "FoodMenuViewController") as! FoodMenuViewController
             foodMenuVC.receivedFoods = foods
             DispatchQueue.main.async {
+                self.searchHidden()
                 if let navControlle = self.navigationController {
                     navControlle.pushViewController(foodMenuVC, animated: true)
                 }
@@ -228,6 +294,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func openMenu(_ sender: UIBarButtonItem) {
         self.showMenu()
+    }
+    
+    @IBAction func buttonsMenuAction(_ sender: UIButton) {
+        self.functionalityNotImplementedAert()
     }
     
     @IBAction func closeMenu(_ sender: UIButton) {
