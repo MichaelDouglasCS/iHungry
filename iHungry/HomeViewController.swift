@@ -49,7 +49,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         //Set NavigationBarTransparent
-        self.setNavigationBarTransparent()
+        self.setupNavigationBarStyle()
         //Verify if the user has been already logged in
         self.userIsLogged()
         //Remove UITableViewCell separator for empty cells
@@ -78,10 +78,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - Private Methods
     //*************************************************
     
-    private func setNavigationBarTransparent() {
+    private func setupNavigationBarStyle() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     //Verify if the user has been already logged in
@@ -152,7 +153,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func addOrder(_ sender: UIButton) {
         FoodMenuManager.getMenu() { foods in
             let foodMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "FoodMenuViewController") as! FoodMenuViewController
-            foodMenuVC.foods = foods
+            foodMenuVC.receivedFoods = foods
             DispatchQueue.main.async {
                 if let navControlle = self.navigationController {
                     navControlle.pushViewController(foodMenuVC, animated: true)

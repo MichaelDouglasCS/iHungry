@@ -82,6 +82,6 @@
         <image name="foodAdd" width="25" height="24"/>
         <image name="foodMinus" width="25" height="24"/>
         <image name="foodMinusDisabled" width="25" height="24"/>
-        <image name="suco1" width="450" height="340"/>
+        <image name="suco1" width="320" height="374"/>
     </resources>
 </document>
