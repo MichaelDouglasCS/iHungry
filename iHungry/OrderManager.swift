@@ -21,6 +21,11 @@ import CoreData
 //
 //**************************************************************************************************
 
+enum PersistenceResponse: String {
+    case SUCCESS = "SUCCESS"
+    case FAILED = "FAILED"
+}
+
 //**************************************************************************************************
 //
 // MARK: - Class -
@@ -34,7 +39,8 @@ class OrderManager {
     //*************************************************
     
     // MARK - Insert Order
-    class func insertOrder(orderVO: OrderVO) {
+    class func insertOrder(orderVO: OrderVO) -> PersistenceResponse {
+        var responseStatus: PersistenceResponse?
         do {
             if let ordersArray = try CoreDataManager.context.fetch(Order.fetchRequest()) as? [Order] {
                 
@@ -63,10 +69,13 @@ class OrderManager {
                     }
                 }
                 CoreDataManager.saveContext()
+                responseStatus = .SUCCESS
             }
         } catch {
             print("Error: Could not posible Insert Order")
+            responseStatus = .FAILED
         }
+        return responseStatus!
     }
     
     // MARK - Get All Orders

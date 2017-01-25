@@ -20,18 +20,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMI-XX-GWP" userLabel="ConfirmOrderButton">
-                        <rect key="frame" x="118" y="10" width="88" height="30"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="50.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="K5A-fE-QJQ"/>
-                            <constraint firstAttribute="width" constant="88" id="m2d-Hn-Tj0"/>
+                            <constraint firstAttribute="height" constant="50.5" id="K5A-fE-QJQ"/>
+                            <constraint firstAttribute="width" constant="324" id="m2d-Hn-Tj0"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <state key="normal" title="Confirm"/>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="KMI-XX-GWP" secondAttribute="trailing" constant="110" id="4tE-1b-7cX"/>
-                    <constraint firstItem="KMI-XX-GWP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="gqQ-SJ-Cga"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="KMI-XX-GWP" secondAttribute="trailing" constant="-8" id="4tE-1b-7cX"/>
+                    <constraint firstItem="KMI-XX-GWP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="gqQ-SJ-Cga"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

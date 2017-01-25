@@ -32,6 +32,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - IBOutlets
     //*************************************************
     
+    @IBOutlet weak var menuOpaqueButton: UIButton!
+    @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var constraintMenu: NSLayoutConstraint!
     @IBOutlet weak var myOrdersTableView: UITableView!
     @IBOutlet weak var noOrdersView: UIView!
     
@@ -54,6 +57,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.userIsLogged()
         //Remove UITableViewCell separator for empty cells
         self.myOrdersTableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.menuView.layer.shadowOpacity = 1
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,13 +74,32 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         //ReloadData from My Orders Table View
-        myOrdersTableView.reloadData()
-        
+        self.myOrdersTableView.reloadData()
     }
     
     //*************************************************
     // MARK: - Private Methods
     //*************************************************
+    
+    private func showMenu() {
+        self.constraintMenu.constant = 55
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+            self.view.layer.layoutIfNeeded()
+        }, completion: nil)
+        UIView.animate(withDuration: 0.3, animations: {
+            self.menuOpaqueButton.alpha = 0.5
+            self.navigationController?.navigationBar.isHidden = true
+        })
+    }
+    
+    private func hiddenMenu() {
+        self.constraintMenu.constant = 380
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layer.layoutIfNeeded()
+            self.menuOpaqueButton.alpha = 0
+            self.navigationController?.navigationBar.isHidden = false
+        })
+    }
     
     private func setupNavigationBarStyle() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -103,17 +126,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let customCell = Bundle.main.loadNibNamed("HomeCustomTableViewCell", owner: self, options: nil)?.first as! HomeCustomTableViewCell
+        let homeCell = Bundle.main.loadNibNamed("HomeCustomTableViewCell", owner: self, options: nil)?.first as! HomeCustomTableViewCell
         
         let orderDataAtPosition = self.orders[indexPath.row]
         
         if let image = orderDataAtPosition.image {
-            customCell.orderImage.image = UIImage(named: image)
+            homeCell.orderImage.image = UIImage(named: image)
         }
-        customCell.orderName.text = orderDataAtPosition.name
-        customCell.orderPrice.text = orderDataAtPosition.orderPrice?.toReal()
-        return customCell
+        homeCell.orderName.text = orderDataAtPosition.name
+        homeCell.orderPrice.text = orderDataAtPosition.orderPrice?.toReal()
+        return homeCell
     }
     
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -159,10 +181,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    @IBAction func openMenu(_ sender: UIBarButtonItem) {
+    @IBAction func logout(_ sender: UIButton) {
         LoginManager.logout()
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let loginView = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
+        self.hiddenMenu()
         self.present(loginView, animated: true, completion: nil)
+    }
+    
+    @IBAction func closeMenu(_ sender: UIButton) {
+        self.hiddenMenu()
+    }
+    
+    @IBAction func openMenu(_ sender: UIBarButtonItem) {
+        self.showMenu()
     }
 }

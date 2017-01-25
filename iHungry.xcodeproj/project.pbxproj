@@ -316,8 +316,8 @@
 			children = (
 				6122BE841E2FE6B9000B6DF6 /* Login */,
 				6122BE851E2FE6C1000B6DF6 /* Home */,
-				6180424D1E378B92001EEDB9 /* OrderDetail */,
 				61F396801E30122F0074AA47 /* FoodMenu */,
+				6180424D1E378B92001EEDB9 /* OrderDetail */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

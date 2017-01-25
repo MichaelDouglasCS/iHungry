@@ -253,7 +253,7 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     private func closeOrderDetails() {
         self.centerOrderDetail.constant = 700
-        UIView.animate(withDuration: 0.2, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
           self.view.layoutIfNeeded()
             self.backgroundOrderDetail.alpha = 0
             self.navigationController?.navigationBar.isHidden = false
@@ -305,13 +305,13 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         if self.observationOrder.isEmpty != true {
             myOrder.observation = self.observationOrder
         }
-        OrderManager.insertOrder(orderVO: myOrder)
-        if let navControlle = self.navigationController {
-            navControlle.popViewController(animated: true)
-        }
-        self.closeOrderDetails()
-        if let navControlle = self.navigationController {
-            navControlle.popViewController(animated: true)
+        if OrderManager.insertOrder(orderVO: myOrder) == .SUCCESS {
+            self.closeOrderDetails()
+            if let navControlle = self.navigationController {
+                navControlle.popViewController(animated: true)
+            }
+        } else {
+            self.failedInsertOrderAlert()
         }
     }
     
@@ -335,6 +335,17 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         if let navControlle = self.navigationController {
             navControlle.popViewController(animated: true)
         }
+    }
+    
+    //*************************************************
+    // MARK: - Alert
+    //*************************************************
+    
+    func failedInsertOrderAlert() {
+        let alert = UIAlertController(title: "Error", message: "Not was posible request order!", preferredStyle: .alert)
+        let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+        alert.addAction(tryAgainAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

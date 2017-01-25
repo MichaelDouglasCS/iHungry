@@ -112,7 +112,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Alerts
     //*************************************************
     
-    func failedAuthAlert() {
+    private func failedAuthAlert() {
         let alert = UIAlertController(title: "Authentication Failed", message: "Are you sure entered the right username and password?", preferredStyle: .alert)
         let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
         alert.addAction(tryAgainAction)

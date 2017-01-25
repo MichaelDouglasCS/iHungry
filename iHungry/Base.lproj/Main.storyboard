@@ -171,8 +171,110 @@
                                     </label>
                                 </subviews>
                             </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8J-Eb-wn8" userLabel="menuOpaqueButton">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <action selector="closeMenu:" destination="XQU-7b-oGm" eventType="touchUpInside" id="yTl-Cf-fLF"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHs-hz-sVi" userLabel="BackgroundMenu">
+                                <rect key="frame" x="-325" y="0.0" width="320" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background side menu" translatesAutoresizingMaskIntoConstraints="NO" id="lFa-WS-x3G">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone" translatesAutoresizingMaskIntoConstraints="NO" id="1h7-dU-rEx">
+                                        <rect key="frame" x="21" y="43" width="94" height="94"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iHungry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBu-Ig-zdw">
+                                        <rect key="frame" x="133" y="61" width="164" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="39"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BH8-0L-AMc">
+                                        <rect key="frame" x="0.0" y="145" width="320" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
+                                        <state key="normal" title="My Orders">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeMenu:" destination="XQU-7b-oGm" eventType="touchUpInside" id="XfK-3C-NNU"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="my orders" translatesAutoresizingMaskIntoConstraints="NO" id="aye-Z7-s6Q">
+                                        <rect key="frame" x="35" y="162" width="34" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62B-PC-AS9">
+                                        <rect key="frame" x="0.0" y="215" width="320" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
+                                        <state key="normal" title="Promo Code">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="promo code" translatesAutoresizingMaskIntoConstraints="NO" id="Va4-9e-PY0">
+                                        <rect key="frame" x="35" y="232" width="34" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTW-YH-SAN">
+                                        <rect key="frame" x="0.0" y="285" width="320" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
+                                        <state key="normal" title="Settings">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="Ksp-94-sFF">
+                                        <rect key="frame" x="35" y="302" width="34" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egr-7Z-i2B">
+                                        <rect key="frame" x="0.0" y="598" width="320" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logout:" destination="XQU-7b-oGm" eventType="touchUpInside" id="E2a-Fm-bCP"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logout" translatesAutoresizingMaskIntoConstraints="NO" id="sXN-2X-Ut1">
+                                        <rect key="frame" x="35" y="615" width="34" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N76-xV-0U8">
+                                        <rect key="frame" x="0.0" y="355" width="320" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
+                                        <state key="normal" title="Contact Us">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="YLI-dz-FU5">
+                                        <rect key="frame" x="35" y="372" width="34" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="BfS-N7-kl5"/>
+                                    <constraint firstAttribute="height" constant="667" id="Q2j-Ky-fuZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JHs-hz-sVi" firstAttribute="top" secondItem="Ge7-Xb-1J9" secondAttribute="top" id="0d6-ew-mre"/>
+                            <constraint firstAttribute="trailing" secondItem="JHs-hz-sVi" secondAttribute="trailing" constant="380" id="a2T-lW-7np"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0y9-lU-8fv">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="aE9-oa-0bW" userLabel="Menu Bar Button">
@@ -186,13 +288,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="constraintMenu" destination="a2T-lW-7np" id="R6J-v0-bsT"/>
+                        <outlet property="menuOpaqueButton" destination="f8J-Eb-wn8" id="Y0h-x0-Vmj"/>
+                        <outlet property="menuView" destination="JHs-hz-sVi" id="d4h-R5-CyO"/>
                         <outlet property="myOrdersTableView" destination="4JY-DF-jWC" id="sPr-R9-ILt"/>
                         <outlet property="noOrdersView" destination="y4b-Tc-2el" id="xlX-dH-2E8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dd0-gU-KMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1534" y="545"/>
+            <point key="canvasLocation" x="1533.5999999999999" y="544.67766116941539"/>
         </scene>
         <!--Food Menu View Controller-->
         <scene sceneID="Vkj-uT-9xd">
@@ -385,6 +490,7 @@
     </scenes>
     <resources>
         <image name="Line" width="198" height="162"/>
+        <image name="background side menu" width="310" height="667"/>
         <image name="btn_add" width="65" height="65"/>
         <image name="btn_cancel" width="42" height="43"/>
         <image name="buttonNext" width="335" height="54"/>
@@ -394,9 +500,14 @@
         <image name="header login bg" width="375" height="258"/>
         <image name="icone" width="110" height="108"/>
         <image name="line" width="357" height="3"/>
+        <image name="logout" width="41" height="34"/>
         <image name="menu" width="32" height="25"/>
+        <image name="my orders" width="33" height="22"/>
         <image name="password" width="22" height="23"/>
+        <image name="phone" width="28" height="39"/>
+        <image name="promo code" width="34" height="28"/>
         <image name="search" width="32" height="31"/>
+        <image name="settings" width="28" height="29"/>
         <image name="signIn" width="326" height="56"/>
         <image name="username" width="24" height="23"/>
     </resources>
