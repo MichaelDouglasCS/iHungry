@@ -26,12 +26,14 @@ import UIKit
 //
 //**************************************************************************************************
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     //*************************************************
     // MARK: - IBOutlets
     //*************************************************
     
+    @IBOutlet weak var searchConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var menuOpaqueButton: UIButton!
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var constraintMenu: NSLayoutConstraint!
@@ -53,6 +55,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         //Set NavigationBarTransparent
         self.setupNavigationBarStyle()
+        //Setup Search Bar Style
+        self.setupSearchBar()
         //Verify if the user has been already logged in
         self.userIsLogged()
         //Remove UITableViewCell separator for empty cells
@@ -77,16 +81,57 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.myOrdersTableView.reloadData()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.searchBar.endEditing(true)
+    }
+    
+    //*************************************************
+    // MARK: - Search View Methods
+    //*************************************************
+    
+    internal func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.searchHidden()
+    }
+    
     //*************************************************
     // MARK: - Private Methods
     //*************************************************
+    
+    private func setupSearchBar() {
+        self.searchBar.backgroundImage = UIImage()
+        self.searchBar.backgroundColor = UIColor.white
+        self.searchBar.layer.borderColor = UIColor.white.cgColor
+        self.searchBar.layer.borderWidth = 1
+        self.searchBar.alpha = 0.6
+        self.searchBar.layer.cornerRadius = 21
+        self.searchBar.clipsToBounds = true
+    }
+    
+    private func searchAppears() {
+        //Set hidden keyboard
+        self.searchConstraint.constant = 35
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+            self.view.layer.layoutIfNeeded()
+        }, completion: nil)
+        UIView.animate(withDuration: 0.3, animations: {
+            self.navigationController?.navigationBar.isHidden = true
+        })
+    }
+    
+    private func searchHidden() {
+        self.searchConstraint.constant = -100
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layer.layoutIfNeeded()
+            self.navigationController?.navigationBar.isHidden = false
+        })
+    }
     
     private func showMenu() {
         self.constraintMenu.constant = 55
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
             self.view.layer.layoutIfNeeded()
         }, completion: nil)
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
             self.menuOpaqueButton.alpha = 0.5
             self.navigationController?.navigationBar.isHidden = true
         })
@@ -181,6 +226,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    @IBAction func openMenu(_ sender: UIBarButtonItem) {
+        self.showMenu()
+    }
+    
+    @IBAction func closeMenu(_ sender: UIButton) {
+        self.hiddenMenu()
+    }
+    
+    @IBAction func search(_ sender: UIBarButtonItem) {
+        self.searchAppears()
+        self.searchBar.becomeFirstResponder()
+    }
+    
     @IBAction func logout(_ sender: UIButton) {
         LoginManager.logout()
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -189,11 +247,4 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.present(loginView, animated: true, completion: nil)
     }
     
-    @IBAction func closeMenu(_ sender: UIButton) {
-        self.hiddenMenu()
-    }
-    
-    @IBAction func openMenu(_ sender: UIBarButtonItem) {
-        self.showMenu()
-    }
 }

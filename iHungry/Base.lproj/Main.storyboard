@@ -269,11 +269,24 @@
                                     <constraint firstAttribute="height" constant="667" id="Q2j-Ky-fuZ"/>
                                 </constraints>
                             </view>
+                            <searchBar contentMode="redraw" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="0Ne-fS-FTX">
+                                <rect key="frame" x="17.5" y="-100" width="340" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="0Sk-Fa-UIs"/>
+                                    <constraint firstAttribute="height" constant="44" id="Xyp-j8-Aj5"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XQU-7b-oGm" id="dZd-ID-kEA"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JHs-hz-sVi" firstAttribute="top" secondItem="Ge7-Xb-1J9" secondAttribute="top" id="0d6-ew-mre"/>
                             <constraint firstAttribute="trailing" secondItem="JHs-hz-sVi" secondAttribute="trailing" constant="380" id="a2T-lW-7np"/>
+                            <constraint firstItem="0Ne-fS-FTX" firstAttribute="centerX" secondItem="Ge7-Xb-1J9" secondAttribute="centerX" id="j1B-Ik-hKu"/>
+                            <constraint firstItem="0Ne-fS-FTX" firstAttribute="top" secondItem="Ge7-Xb-1J9" secondAttribute="top" constant="-100" id="oRS-Vv-jRp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0y9-lU-8fv">
@@ -285,6 +298,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="search" id="3ME-df-GGz" userLabel="Search Bar Button">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="search:" destination="XQU-7b-oGm" id="gTX-Xx-QQv"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -293,6 +309,8 @@
                         <outlet property="menuView" destination="JHs-hz-sVi" id="d4h-R5-CyO"/>
                         <outlet property="myOrdersTableView" destination="4JY-DF-jWC" id="sPr-R9-ILt"/>
                         <outlet property="noOrdersView" destination="y4b-Tc-2el" id="xlX-dH-2E8"/>
+                        <outlet property="searchBar" destination="0Ne-fS-FTX" id="bMU-Ui-yga"/>
+                        <outlet property="searchConstraint" destination="oRS-Vv-jRp" id="v1l-wd-YNF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dd0-gU-KMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
