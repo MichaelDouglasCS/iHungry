@@ -88,7 +88,33 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     //*************************************************
-    // MARK: - Text View Delegate
+    // MARK: - IBAction
+    //*************************************************
+    
+    @IBAction func touchNextButton(_ sender: UIButton) {
+        var foodsSelected = [FoodVO]()
+        for food in self.receivedFoods {
+            if food.quantity != 0 {
+                foodsSelected.append(food)
+            }
+        }
+        self.foodsOfOrder = foodsSelected
+        self.orderDetailTableView.reloadData()
+        self.showOrderDetails()
+    }
+    
+    @IBAction func cancelConfirmation(_ sender: UIButton) {
+        self.closeOrderDetails()
+    }
+    
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+        if let navControlle = self.navigationController {
+            navControlle.popViewController(animated: true)
+        }
+    }
+    
+    //*************************************************
+    // MARK: - Text View Methods
     //*************************************************
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -169,7 +195,7 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                 if let name = self.foodsOfOrder[positionCell].name {
                     confirmFoodsCell.foodName.text = name
                 }
-                if let totalPrice = self.foodsOfOrder[positionCell].getTotalPrice() {
+                if let totalPrice = self.foodsOfOrder[positionCell].getFoodTotalPrice() {
                     confirmFoodsCell.foodPrice.text = totalPrice.toReal()
                 }
                 if let quantity = self.foodsOfOrder[positionCell].quantity {
@@ -292,14 +318,6 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         self.foodMenuTableView.reloadData()
     }
     
-    //*************************************************
-    // MARK: - Action Methods
-    //*************************************************
-    
-    @IBAction func cancelConfirmation(_ sender: UIButton) {
-        self.closeOrderDetails()
-    }
-    
     internal func confirmAndSaveOrder() {
         var myOrder = OrderVO(orderFromFood: self.foodsOfOrder)
         if self.observationOrder.isEmpty != true {
@@ -312,28 +330,6 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         } else {
             self.failedInsertOrderAlert()
-        }
-    }
-    
-    //*************************************************
-    // MARK: - IBAction
-    //*************************************************
-    
-    @IBAction func touchNextButton(_ sender: UIButton) {
-        var foodsSelected = [FoodVO]()
-        for food in self.receivedFoods {
-            if food.quantity != 0 {
-                foodsSelected.append(food)
-            }
-        }
-        self.foodsOfOrder = foodsSelected
-        self.orderDetailTableView.reloadData()
-        self.showOrderDetails()
-    }
-    
-    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        if let navControlle = self.navigationController {
-            navControlle.popViewController(animated: true)
         }
     }
     

@@ -89,6 +89,48 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     //*************************************************
+    // MARK: - IBActions
+    //*************************************************
+    
+    @IBAction func addOrder(_ sender: UIButton) {
+        FoodMenuManager.getMenu() { foods in
+            let foodMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "FoodMenuViewController") as! FoodMenuViewController
+            foodMenuVC.receivedFoods = foods
+            DispatchQueue.main.async {
+                self.searchHidden()
+                if let navControlle = self.navigationController {
+                    navControlle.pushViewController(foodMenuVC, animated: true)
+                }
+            }
+        }
+    }
+    
+    @IBAction func openMenu(_ sender: UIBarButtonItem) {
+        self.showMenu()
+    }
+    
+    @IBAction func buttonsMenuAction(_ sender: UIButton) {
+        self.functionalityNotImplementedAert()
+    }
+    
+    @IBAction func closeMenu(_ sender: UIButton) {
+        self.hiddenMenu()
+    }
+    
+    @IBAction func search(_ sender: UIBarButtonItem) {
+        self.searchAppears()
+        self.searchBar.becomeFirstResponder()
+    }
+    
+    @IBAction func logout(_ sender: UIButton) {
+        LoginManager.logout()
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let loginView = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
+        self.hiddenMenu()
+        self.present(loginView, animated: true, completion: nil)
+    }
+    
+    //*************************************************
     // MARK: - Search View Methods
     //*************************************************
     
@@ -274,47 +316,4 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
-    
-    //*************************************************
-    // MARK: - IBActions
-    //*************************************************
-    
-    @IBAction func addOrder(_ sender: UIButton) {
-        FoodMenuManager.getMenu() { foods in
-            let foodMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "FoodMenuViewController") as! FoodMenuViewController
-            foodMenuVC.receivedFoods = foods
-            DispatchQueue.main.async {
-                self.searchHidden()
-                if let navControlle = self.navigationController {
-                    navControlle.pushViewController(foodMenuVC, animated: true)
-                }
-            }
-        }
-    }
-    
-    @IBAction func openMenu(_ sender: UIBarButtonItem) {
-        self.showMenu()
-    }
-    
-    @IBAction func buttonsMenuAction(_ sender: UIButton) {
-        self.functionalityNotImplementedAert()
-    }
-    
-    @IBAction func closeMenu(_ sender: UIButton) {
-        self.hiddenMenu()
-    }
-    
-    @IBAction func search(_ sender: UIBarButtonItem) {
-        self.searchAppears()
-        self.searchBar.becomeFirstResponder()
-    }
-    
-    @IBAction func logout(_ sender: UIButton) {
-        LoginManager.logout()
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let loginView = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
-        self.hiddenMenu()
-        self.present(loginView, animated: true, completion: nil)
-    }
-    
 }

@@ -102,7 +102,7 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
             if let name = self.foodsOfOrder[positionCell].name {
                 confirmFoodsCell.foodName.text = name
             }
-            if let totalPrice = self.foodsOfOrder[positionCell].getTotalPrice() {
+            if let totalPrice = self.foodsOfOrder[positionCell].getFoodTotalPrice() {
                 confirmFoodsCell.foodPrice.text = totalPrice.toReal()
             }
             if let quantity = self.foodsOfOrder[positionCell].quantity {

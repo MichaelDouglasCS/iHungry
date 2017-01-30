@@ -83,7 +83,7 @@ struct OrderVO {
     }
     
     //*************************************************
-    // MARK: - Public Methods
+    // MARK: - Static Methods
     //*************************************************
  
     static func getOrderPrice(foods: [FoodVO]) -> Double? {

@@ -49,7 +49,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     //*************************************************
-    // MARK: - Internal Methods
+    // MARK: - IBAction Methods
     //*************************************************
     
     @IBAction func signIn(_ button: RoundedButton) {
