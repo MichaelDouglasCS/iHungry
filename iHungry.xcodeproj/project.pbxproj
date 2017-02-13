@@ -20,7 +20,6 @@
 		610394EF1E36F3DB00548797 /* ConfirmButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 610394ED1E36F3DB00548797 /* ConfirmButtonCell.xib */; };
 		610394F51E36F53B00548797 /* QuestionConfirmOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610394F31E36F53B00548797 /* QuestionConfirmOrderCell.swift */; };
 		610394F61E36F53B00548797 /* QuestionConfirmOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 610394F41E36F53B00548797 /* QuestionConfirmOrderCell.xib */; };
-		610394F81E36F9E500548797 /* RoundedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610394F71E36F9E500548797 /* RoundedTextView.swift */; };
 		61221B641E2EC59400268502 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61221B631E2EC59400268502 /* HomeViewController.swift */; };
 		6122BE831E2FD627000B6DF6 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6122BE821E2FD627000B6DF6 /* OrderManager.swift */; };
 		612F095C1E2EDEF60008750D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612F095B1E2EDEF60008750D /* NetworkManager.swift */; };
@@ -28,12 +27,9 @@
 		6180424F1E378BF0001EEDB9 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180424E1E378BF0001EEDB9 /* OrderDetailViewController.swift */; };
 		619A4A291E3297DC007045DA /* HomeCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A4A271E3297DC007045DA /* HomeCustomTableViewCell.swift */; };
 		619A4A2A1E3297DC007045DA /* HomeCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619A4A281E3297DC007045DA /* HomeCustomTableViewCell.xib */; };
-		619A4A2C1E329DB5007045DA /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A4A2B1E329DB5007045DA /* RoundedImageView.swift */; };
 		61A2916A1E32EAB200464095 /* FoodMenuCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A291681E32EAB200464095 /* FoodMenuCustomTableViewCell.swift */; };
 		61A2916B1E32EAB200464095 /* FoodMenuCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61A291691E32EAB200464095 /* FoodMenuCustomTableViewCell.xib */; };
-		61AC752A1E2C264A00E13F92 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75271E2C264A00E13F92 /* RoundedView.swift */; };
-		61AC752B1E2C264A00E13F92 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75281E2C264A00E13F92 /* RoundedButton.swift */; };
-		61AC752C1E2C264A00E13F92 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75291E2C264A00E13F92 /* RoundedTextField.swift */; };
+		61AC752A1E2C264A00E13F92 /* IBDesignableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC75271E2C264A00E13F92 /* IBDesignableClass.swift */; };
 		61C0EBE91E30542B004643B1 /* FoodMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C0EBE81E30542B004643B1 /* FoodMenuViewController.swift */; };
 		61E077351E2ED06800EFDF39 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E077341E2ED06800EFDF39 /* LoginManager.swift */; };
 		61E077371E2ED17C00EFDF39 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E077361E2ED17C00EFDF39 /* URLs.swift */; };
@@ -83,7 +79,6 @@
 		610394ED1E36F3DB00548797 /* ConfirmButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmButtonCell.xib; sourceTree = "<group>"; };
 		610394F31E36F53B00548797 /* QuestionConfirmOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionConfirmOrderCell.swift; sourceTree = "<group>"; };
 		610394F41E36F53B00548797 /* QuestionConfirmOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionConfirmOrderCell.xib; sourceTree = "<group>"; };
-		610394F71E36F9E500548797 /* RoundedTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedTextView.swift; sourceTree = "<group>"; };
 		61221B631E2EC59400268502 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6122BE821E2FD627000B6DF6 /* OrderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
 		612F095B1E2EDEF60008750D /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -91,12 +86,9 @@
 		6180424E1E378BF0001EEDB9 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		619A4A271E3297DC007045DA /* HomeCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCustomTableViewCell.swift; sourceTree = "<group>"; };
 		619A4A281E3297DC007045DA /* HomeCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCustomTableViewCell.xib; sourceTree = "<group>"; };
-		619A4A2B1E329DB5007045DA /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		61A291681E32EAB200464095 /* FoodMenuCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodMenuCustomTableViewCell.swift; sourceTree = "<group>"; };
 		61A291691E32EAB200464095 /* FoodMenuCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodMenuCustomTableViewCell.xib; sourceTree = "<group>"; };
-		61AC75271E2C264A00E13F92 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
-		61AC75281E2C264A00E13F92 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
-		61AC75291E2C264A00E13F92 /* RoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		61AC75271E2C264A00E13F92 /* IBDesignableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignableClass.swift; sourceTree = "<group>"; };
 		61C0EBE81E30542B004643B1 /* FoodMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodMenuViewController.swift; sourceTree = "<group>"; };
 		61E077341E2ED06800EFDF39 /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		61E077361E2ED17C00EFDF39 /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
@@ -332,11 +324,7 @@
 		617A9C881E2BF15D00448986 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				61AC75271E2C264A00E13F92 /* RoundedView.swift */,
-				619A4A2B1E329DB5007045DA /* RoundedImageView.swift */,
-				61AC75281E2C264A00E13F92 /* RoundedButton.swift */,
-				61AC75291E2C264A00E13F92 /* RoundedTextField.swift */,
-				610394F71E36F9E500548797 /* RoundedTextView.swift */,
+				61AC75271E2C264A00E13F92 /* IBDesignableClass.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -784,13 +772,9 @@
 				61F3967F1E3007F40074AA47 /* OrderVO.swift in Sources */,
 				616733CF1E3123D20092E3EA /* CoreDataManager.swift in Sources */,
 				61C0EBE91E30542B004643B1 /* FoodMenuViewController.swift in Sources */,
-				61AC752A1E2C264A00E13F92 /* RoundedView.swift in Sources */,
-				61AC752C1E2C264A00E13F92 /* RoundedTextField.swift in Sources */,
+				61AC752A1E2C264A00E13F92 /* IBDesignableClass.swift in Sources */,
 				6122BE831E2FD627000B6DF6 /* OrderManager.swift in Sources */,
 				610394EE1E36F3DB00548797 /* ConfirmButtonCell.swift in Sources */,
-				619A4A2C1E329DB5007045DA /* RoundedImageView.swift in Sources */,
-				610394F81E36F9E500548797 /* RoundedTextView.swift in Sources */,
-				61AC752B1E2C264A00E13F92 /* RoundedButton.swift in Sources */,
 				61E079A01E33170B005C7B05 /* FoodMenuManager.swift in Sources */,
 				61A2916A1E32EAB200464095 /* FoodMenuCustomTableViewCell.swift in Sources */,
 				610394EA1E36F3C800548797 /* TotalPriceOrderCell.swift in Sources */,
