@@ -12,7 +12,6 @@
         <!--Login View Controller-->
         <scene sceneID="HPT-FZ-it1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7jz-v3-w4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LoginViewController" id="FEF-K0-PbY" customClass="LoginViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZeQ-op-TMU"/>
@@ -97,6 +96,7 @@
                         <outlet property="userTextField" destination="dtz-jq-hrK" id="Qg4-tf-aNl"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7jz-v3-w4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="671" y="-161"/>
         </scene>
@@ -461,7 +461,6 @@
         <!--Navigation Controller-->
         <scene sceneID="ODr-sE-Tfq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iCZ-kV-Jv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="HomeNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="LIz-v4-Tir" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yhE-Yv-PGO">
@@ -477,6 +476,7 @@
                         <segue destination="XQU-7b-oGm" kind="relationship" relationship="rootViewController" id="w9J-9o-LaQ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iCZ-kV-Jv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1534" y="-161"/>
         </scene>
