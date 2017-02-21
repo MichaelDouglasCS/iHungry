@@ -29,10 +29,6 @@ import Foundation
 class FoodMenuManager {
 
 //*************************************************
-// MARK: - Properties
-//*************************************************
-
-//*************************************************
 // MARK: - Public Methods
 //*************************************************
     
@@ -43,33 +39,11 @@ class FoodMenuManager {
             if let jsonMenu = responseJSON["food-menu"] as? NSDictionary,
                 let jsonFoods = jsonMenu["foods"] as? [NSDictionary]{
                 for food in jsonFoods {
-                    foodArray.append(FoodVO(foodFromJSON: food as! FoodDictionary))
+                    foodArray.append(FoodVO(foodFromJSON: food as! JSONDictionary))
                 }
                 foods(foodArray)
             }
         }
     }
 
-//*************************************************
-// MARK: - Private Methods
-//*************************************************
-
-//*************************************************
-// MARK: - Internal Methods
-//*************************************************
-
-//*************************************************
-// MARK: - Self Public Methods
-//*************************************************
-
-//*************************************************
-// MARK: - Override Public Methods
-//*************************************************
-
 }
-
-//**************************************************************************************************
-//
-// MARK: - Extension -
-//
-//**************************************************************************************************

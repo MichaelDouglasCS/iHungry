@@ -21,9 +21,6 @@ import OHHTTPStubs
 //
 //**************************************************************************************************
 
-typealias JSONDictionaryCompletion = (([String : Any]) -> Void)
-typealias JSON = ([String : Any])
-
 //**************************************************************************************************
 //
 // MARK: - Class -
@@ -32,13 +29,9 @@ typealias JSON = ([String : Any])
 
 class NetworkManager {
     
-//*************************************************
-// MARK: - Properties
-//*************************************************
-    
-//*************************************************
-// MARK: - Constructors
-//*************************************************
+    //*************************************************
+    // MARK: - Constructors
+    //*************************************************
     
     init() {
         //Authentication Stub
@@ -61,9 +54,9 @@ class NetworkManager {
         }
     }
     
-//*************************************************
-// MARK: - Internal Methods
-//*************************************************
+    //*************************************************
+    // MARK: - Public Methods
+    //*************************************************
     
     func request(urlRequest: String, responseJSON: @escaping JSONDictionaryCompletion) {
         //Configuring request
@@ -81,7 +74,7 @@ class NetworkManager {
             switch(httpResponse.statusCode) {
             case 200:
                 do {
-                    let parsedJSON = try JSONSerialization.jsonObject(with: receivedData, options: []) as! JSON
+                    let parsedJSON = try JSONSerialization.jsonObject(with: receivedData, options: []) as! JSONDictionary
                     //Completion of JSON Parsed
                     print(parsedJSON)
                     responseJSON(parsedJSON)
@@ -96,9 +89,5 @@ class NetworkManager {
         }
         task.resume()
     }
-
-//*************************************************
-// MARK: - Self Public Methods
-//*************************************************
     
 }

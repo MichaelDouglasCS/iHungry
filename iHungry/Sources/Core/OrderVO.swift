@@ -20,8 +20,6 @@ import Foundation
 //
 //**************************************************************************************************
 
-typealias OrderDictionary = [String : Any]
-
 //**************************************************************************************************
 //
 // MARK: - Struct -
@@ -50,7 +48,7 @@ struct OrderVO {
         
     }
     
-    init(orderFromObject: OrderDictionary) {
+    init(orderFromObject: JSONDictionary) {
         self.id = orderFromObject["id"] as? String
         self.name = orderFromObject["name"] as? String
         self.image = orderFromObject["image"] as? String
@@ -99,9 +97,3 @@ struct OrderVO {
     }
     
 }
-
-//**************************************************************************************************
-//
-// MARK: - Extension -
-//
-//**************************************************************************************************

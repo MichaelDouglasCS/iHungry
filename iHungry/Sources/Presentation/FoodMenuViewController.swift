@@ -26,7 +26,7 @@ import UIKit
 //
 //**************************************************************************************************
 
-class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
+class FoodMenuViewController: UIViewController {
     
     //*************************************************
     // MARK: - IBOutlet
@@ -82,9 +82,8 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        //Remove UITableViewCell separator for empty cells
-        self.foodMenuTableView.tableFooterView = UIView(frame: CGRect.zero)
-        self.orderDetailTableView.tableFooterView = UIView(frame: CGRect.zero)
+        //Setup TableViews
+        self.setupTableView()
     }
     
     //*************************************************
@@ -114,19 +113,106 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     //*************************************************
-    // MARK: - Text View Methods
+    // MARK: - UI Methods
     //*************************************************
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        self.orderDetailTableView.setContentOffset(CGPoint.init(x: 0, y: (100 * self.foodsOfOrder.count)), animated: true)
-        self.orderDetailTableView.isScrollEnabled = false
+    private func setupTableView() {
+        self.foodMenuTableView.contentInset = UIEdgeInsets(top: 45, left: 0, bottom: 70, right: 0)
+        self.foodMenuTableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.orderDetailTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        self.orderDetailTableView.setContentOffset(CGPoint.init(x: 0, y: ((100 * self.foodsOfOrder.count) - 100)), animated: true)
-        self.orderDetailTableView.isScrollEnabled = true
-        self.observationOrder = textView.text
+    private func showOrderDetails() {
+        self.centerOrderDetail.constant = 17.5
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil )
+        UIView.animate(withDuration: 0.3, animations: {
+            self.backgroundOrderDetail.alpha = 0.5
+            self.navigationController?.navigationBar.isHidden = true
+        })
     }
+    
+    private func closeOrderDetails() {
+        self.centerOrderDetail.constant = 700
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+            self.backgroundOrderDetail.alpha = 0
+            self.navigationController?.navigationBar.isHidden = false
+        })
+    }
+    
+    //*************************************************
+    // MARK: - Private Methods
+    //*************************************************
+    
+    internal func hasSomeFood() {
+        var quantity = Int()
+        for food in self.receivedFoods {
+            quantity = quantity + food.quantity!
+        }
+        if quantity != 0 {
+            self.nextButton.isEnabled = true
+        } else {
+            self.nextButton.isEnabled = false
+        }
+    }
+    
+    internal func addFood(button: UIButton) {
+        if let quantity = self.receivedFoods[button.tag].quantity {
+            self.receivedFoods[button.tag].quantity = (quantity + 1)
+        }
+        self.hasSomeFood()
+        self.foodMenuTableView.reloadData()
+    }
+    
+    internal func removeFood(button: UIButton) {
+        if let quantity = self.receivedFoods[button.tag].quantity {
+            if quantity != 0 {
+                self.receivedFoods[button.tag].quantity = (quantity - 1)
+            } else {
+                button.isEnabled = false
+            }
+        }
+        self.hasSomeFood()
+        self.foodMenuTableView.reloadData()
+    }
+    
+    internal func confirmAndSaveOrder() {
+        var myOrder = OrderVO(orderFromFood: self.foodsOfOrder)
+        if self.observationOrder.isEmpty != true {
+            myOrder.observation = self.observationOrder
+        }
+        if OrderManager.insertOrder(orderVO: myOrder) == .SUCCESS {
+            self.closeOrderDetails()
+            if let navControlle = self.navigationController {
+                navControlle.popViewController(animated: true)
+            }
+        } else {
+            self.failedInsertOrderAlert()
+        }
+    }
+    
+    //*************************************************
+    // MARK: - Alert
+    //*************************************************
+    
+    internal func failedInsertOrderAlert() {
+        let alert = UIAlertController(title: "Error", message: "Not was posible request order!", preferredStyle: .alert)
+        let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+        alert.addAction(tryAgainAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+}
+
+//**************************************************************************************************
+//
+// MARK: - Extension - FoodMenuViewController - UITableViewDataSource + UITableViewDelegate
+//
+//**************************************************************************************************
+
+extension FoodMenuViewController: UITableViewDataSource, UITableViewDelegate {
     
     //*************************************************
     // MARK: - Table View Methods
@@ -262,86 +348,29 @@ class FoodMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         return heightForRow
     }
     
-    //*************************************************
-    // MARK: - Internal Methods
-    //*************************************************
-    
-    private func showOrderDetails() {
-        self.centerOrderDetail.constant = 17.5
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil )
-        UIView.animate(withDuration: 0.3, animations: {
-            self.backgroundOrderDetail.alpha = 0.5
-            self.navigationController?.navigationBar.isHidden = true
-        })
-    }
-    
-    private func closeOrderDetails() {
-        self.centerOrderDetail.constant = 700
-        UIView.animate(withDuration: 0.3, animations: {
-          self.view.layoutIfNeeded()
-            self.backgroundOrderDetail.alpha = 0
-            self.navigationController?.navigationBar.isHidden = false
-        })
-    }
-    
-    internal func hasSomeFood() {
-        var quantity = Int()
-        for food in self.receivedFoods {
-            quantity = quantity + food.quantity!
-        }
-        if quantity != 0 {
-            self.nextButton.isEnabled = true
-        } else {
-            self.nextButton.isEnabled = false
-        }
-    }
-    
-    internal func addFood(button: UIButton) {
-        if let quantity = self.receivedFoods[button.tag].quantity {
-            self.receivedFoods[button.tag].quantity = (quantity + 1)
-        }
-        self.hasSomeFood()
-        self.foodMenuTableView.reloadData()
-    }
-    
-    internal func removeFood(button: UIButton) {
-        if let quantity = self.receivedFoods[button.tag].quantity {
-            if quantity != 0 {
-                self.receivedFoods[button.tag].quantity = (quantity - 1)
-            } else {
-                button.isEnabled = false
-            }
-        }
-        self.hasSomeFood()
-        self.foodMenuTableView.reloadData()
-    }
-    
-    internal func confirmAndSaveOrder() {
-        var myOrder = OrderVO(orderFromFood: self.foodsOfOrder)
-        if self.observationOrder.isEmpty != true {
-            myOrder.observation = self.observationOrder
-        }
-        if OrderManager.insertOrder(orderVO: myOrder) == .SUCCESS {
-            self.closeOrderDetails()
-            if let navControlle = self.navigationController {
-                navControlle.popViewController(animated: true)
-            }
-        } else {
-            self.failedInsertOrderAlert()
-        }
-    }
+}
+
+//**************************************************************************************************
+//
+// MARK: - Extension - FoodMenuViewController - UITextViewDelegate
+//
+//**************************************************************************************************
+
+extension FoodMenuViewController: UITextViewDelegate {
     
     //*************************************************
-    // MARK: - Alert
+    // MARK: - Text View Methods
     //*************************************************
     
-    func failedInsertOrderAlert() {
-        let alert = UIAlertController(title: "Error", message: "Not was posible request order!", preferredStyle: .alert)
-        let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
-        alert.addAction(tryAgainAction)
-        self.present(alert, animated: true, completion: nil)
+    internal func textViewDidBeginEditing(_ textView: UITextView) {
+        self.orderDetailTableView.setContentOffset(CGPoint.init(x: 0, y: (100 * self.foodsOfOrder.count)), animated: true)
+        self.orderDetailTableView.isScrollEnabled = false
+    }
+    
+    internal func textViewDidEndEditing(_ textView: UITextView) {
+        self.orderDetailTableView.setContentOffset(CGPoint.init(x: 0, y: ((100 * self.foodsOfOrder.count) - 100)), animated: true)
+        self.orderDetailTableView.isScrollEnabled = true
+        self.observationOrder = textView.text
     }
     
 }
@@ -359,6 +388,13 @@ extension Double {
         return ("\(formatValue)")
     }
 }
+
+//**************************************************************************************************
+//
+// MARK: - Extension - Int
+//
+//**************************************************************************************************
+
 extension Int {
     func toString() -> String {
         return String(self)

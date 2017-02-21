@@ -27,7 +27,7 @@ import OHHTTPStubs
 //
 //**************************************************************************************************
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
     
     //*************************************************
     // MARK: - IBOutlet
@@ -57,7 +57,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             switch(authStatus) {
             case .SUCCESS:
                 DispatchQueue.main.async {
-                    //QUAL A UTILIZADE DO COMPLETION DO DISMISS?*******
                     self.dismiss(animated: true, completion: nil)
                 }
                 break
@@ -71,20 +70,41 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     //*************************************************
+    // MARK: - Alerts
+    //*************************************************
+    
+    private func failedAuthAlert() {
+        let alert = UIAlertController(title: "Authentication Failed", message: "Are you sure entered the right username and password?", preferredStyle: .alert)
+        let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
+        alert.addAction(tryAgainAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+}
+
+//**************************************************************************************************
+//
+// MARK: - Extension - LoginViewController - UITextFieldDelegate
+//
+//**************************************************************************************************
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    //*************************************************
     // MARK: - TextField Methods
     //*************************************************
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let textFill = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         if textField == self.userTextField {
-            if ((!textFill.isEmpty) && (!(self.passwordTextField.text?.isEmpty)!)){
+            if ((!textFill.isEmpty) && (!(self.passwordTextField.text!.isEmpty))){
                 signInButton.isEnabled = true
             } else {
                 signInButton.isEnabled = false
             }
         }
         else if textField == self.passwordTextField {
-            if ((!textFill.isEmpty) && (!(self.userTextField.text?.isEmpty)!)){
+            if ((!textFill.isEmpty) && (!(self.userTextField.text!.isEmpty))){
                 signInButton.isEnabled = true
             } else {
                 signInButton.isEnabled = false
@@ -108,26 +128,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    //*************************************************
-    // MARK: - Alerts
-    //*************************************************
-    
-    private func failedAuthAlert() {
-        let alert = UIAlertController(title: "Authentication Failed", message: "Are you sure entered the right username and password?", preferredStyle: .alert)
-        let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: nil)
-        alert.addAction(tryAgainAction)
-        self.present(alert, animated: true, completion: nil)
-    }
-    
 }
 
 //**************************************************************************************************
 //
-// MARK: - Extension - Keyboard
+// MARK: - Extension - UIViewController - Keyboard
 //
 //**************************************************************************************************
 
 extension UIViewController {
+    
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -136,4 +146,5 @@ extension UIViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
+    
 }

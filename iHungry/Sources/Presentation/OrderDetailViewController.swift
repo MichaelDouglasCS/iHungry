@@ -26,7 +26,7 @@ import UIKit
 //
 //**************************************************************************************************
 
-class OrderDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class OrderDetailViewController: UIViewController {
     
     //*************************************************
     // MARK: - IBOutlet
@@ -39,7 +39,7 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
     //*************************************************
     
     var order = OrderVO()
-    private var foodsOfOrder = [FoodVO]()
+    fileprivate var foodsOfOrder = [FoodVO]()
     
     var questionCellPosition: Int {
         get{
@@ -75,6 +75,16 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
         //Remove UITableViewCell separator for empty cells
         self.orderDetailsTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
+
+}
+
+//**************************************************************************************************
+//
+// MARK: - Extension - OrderDetailViewController - UITableViewDataSource + UITableViewDelegate
+//
+//**************************************************************************************************
+
+extension OrderDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     //*************************************************
     // MARK: - Table View Methods
@@ -149,5 +159,5 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
             return 82
         }
     }
-
+    
 }

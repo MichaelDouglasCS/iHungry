@@ -12,6 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="HPT-FZ-it1">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7jz-v3-w4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LoginViewController" id="FEF-K0-PbY" customClass="LoginViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZeQ-op-TMU"/>
@@ -58,20 +59,12 @@
                                         <rect key="frame" x="19" y="474.5" width="357" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AJ-df-H4P" customClass="RoundedButton" customModule="iHungry" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AJ-df-H4P" userLabel="signInButton">
                                         <rect key="frame" x="24" y="552" width="326" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Sign In" backgroundImage="signIn"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="28"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.96078431369999995" green="0.3803921569" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="signIn:" destination="FEF-K0-PbY" eventType="touchUpInside" id="ngl-c3-Gwi"/>
                                         </connections>
@@ -104,14 +97,13 @@
                         <outlet property="userTextField" destination="dtz-jq-hrK" id="Qg4-tf-aNl"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7jz-v3-w4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="671" y="-161"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="hkv-O6-MWR">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="XQU-7b-oGm" customClass="HomeViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" automaticallyAdjustsScrollViewInsets="NO" id="XQU-7b-oGm" customClass="HomeViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nNN-fD-tLT"/>
                         <viewControllerLayoutGuide type="bottom" id="6hQ-ar-tbc"/>
@@ -120,6 +112,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="4JY-DF-jWC" userLabel="OrderTableView">
+                                <rect key="frame" x="0.0" y="198" width="375" height="469"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XQU-7b-oGm" id="JXj-mB-sJb"/>
+                                    <outlet property="delegate" destination="XQU-7b-oGm" id="MIH-CQ-Htl"/>
+                                </connections>
+                            </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="header home bg" translatesAutoresizingMaskIntoConstraints="NO" id="ytk-bh-Bq1" userLabel="Home Background">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -132,21 +134,6 @@
                                     <action selector="addOrder:" destination="XQU-7b-oGm" eventType="touchUpInside" id="OJa-cF-iOx"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="4JY-DF-jWC" userLabel="OrderTableView">
-                                <rect key="frame" x="0.0" y="255" width="375" height="412"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="ezH-Cw-0pU" userLabel="footer">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
-                                <connections>
-                                    <outlet property="dataSource" destination="XQU-7b-oGm" id="JXj-mB-sJb"/>
-                                    <outlet property="delegate" destination="XQU-7b-oGm" id="MIH-CQ-Htl"/>
-                                </connections>
-                            </tableView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y4b-Tc-2el" userLabel="NoOrdersView">
                                 <rect key="frame" x="30" y="236" width="316" height="284"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -347,7 +334,7 @@
         <!--Food Menu View Controller-->
         <scene sceneID="Vkj-uT-9xd">
             <objects>
-                <viewController storyboardIdentifier="FoodMenuViewController" id="yPO-ce-oVw" customClass="FoodMenuViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoodMenuViewController" automaticallyAdjustsScrollViewInsets="NO" id="yPO-ce-oVw" customClass="FoodMenuViewController" customModule="iHungry" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yxv-65-0DS"/>
                         <viewControllerLayoutGuide type="bottom" id="LNT-Jl-Vfe"/>
@@ -356,26 +343,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food menu header bg" translatesAutoresizingMaskIntoConstraints="NO" id="Idg-pJ-nOV" userLabel="Menu Background">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="90" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="KeI-li-aog" userLabel="MenuTableView">
-                                <rect key="frame" x="0.0" y="255" width="375" height="343"/>
+                                <rect key="frame" x="0.0" y="204" width="375" height="463"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="cfV-FJ-MTW" userLabel="footer">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
                                 <connections>
                                     <outlet property="dataSource" destination="yPO-ce-oVw" id="Zgh-Ap-4wX"/>
                                     <outlet property="delegate" destination="yPO-ce-oVw" id="TSf-c1-wCM"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsH-pE-MoU" userLabel="ButtonNextView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food menu header bg" translatesAutoresizingMaskIntoConstraints="NO" id="Idg-pJ-nOV" userLabel="Menu Background">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsH-pE-MoU" userLabel="ButtonNextView" customClass="RoundedView" customModule="iHungry" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="596" width="375" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -392,6 +374,14 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.81189587429999999" green="0.81768480219999995" blue="0.83505158570000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3YQ-NV-x4z" userLabel="BackgroundOrderDetails">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -466,11 +456,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nko-ws-bNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2369" y="545"/>
+            <point key="canvasLocation" x="2368.8000000000002" y="544.67766116941539"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ODr-sE-Tfq">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iCZ-kV-Jv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="HomeNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="LIz-v4-Tir" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yhE-Yv-PGO">
@@ -486,7 +477,6 @@
                         <segue destination="XQU-7b-oGm" kind="relationship" relationship="rootViewController" id="w9J-9o-LaQ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iCZ-kV-Jv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1534" y="-161"/>
         </scene>

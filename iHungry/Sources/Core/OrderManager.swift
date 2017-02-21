@@ -21,11 +21,6 @@ import CoreData
 //
 //**************************************************************************************************
 
-enum PersistenceResponse: String {
-    case SUCCESS = "SUCCESS"
-    case FAILED = "FAILED"
-}
-
 //**************************************************************************************************
 //
 // MARK: - Class -
@@ -35,7 +30,7 @@ enum PersistenceResponse: String {
 class OrderManager {
     
     //*************************************************
-    // MARK: - Public Methods
+    // MARK: - Class Methods
     //*************************************************
     
     // MARK - Insert Order
@@ -43,7 +38,6 @@ class OrderManager {
         var responseStatus: PersistenceResponse?
         do {
             if let ordersArray = try CoreDataManager.context.fetch(Order.fetchRequest()) as? [Order] {
-                
                 var id: Int {
                     get{
                         if ordersArray.isEmpty != true {
@@ -54,7 +48,6 @@ class OrderManager {
                         }
                     }
                 }
-
                 let orderObject = Order(context: CoreDataManager.context)
                 orderObject.id = String(id)
                 orderObject.name = orderVO.name
@@ -88,7 +81,7 @@ class OrderManager {
                     for food in ((orderObject.foods?.allObjects)! as? [Food])!{
                         orderResult.foods?.append(FoodVO(foodFromObject: food.getDictionary()))
                     }
-                  resultOrders.append(orderResult)
+                    resultOrders.append(orderResult)
                 }
             }
         } catch {
@@ -111,6 +104,16 @@ class OrderManager {
             print("Erro: Not was posible Delete Orders")
         }
     }
+    
+    //*************************************************
+    // MARK: - Properties
+    //*************************************************
+    
+    enum PersistenceResponse: String {
+        case SUCCESS = "SUCCESS"
+        case FAILED = "FAILED"
+    }
+    
 }
 
 //**************************************************************************************************
@@ -121,7 +124,7 @@ class OrderManager {
 
 extension NSManagedObject {
     //Convert NSManagedObject into Dictionary
-    func getDictionary() -> OrderDictionary {
+    func getDictionary() -> JSONDictionary {
         var dictionary = [String : Any]()
         for key in self.entity.attributesByName.keys {
             if let value = self.value(forKey: key) {
@@ -142,7 +145,7 @@ extension FoodVO {
             foodManagedObject.price = price
         }
         if let quantity = self.quantity {
-        foodManagedObject.quantity = Int16(quantity)
+            foodManagedObject.quantity = Int16(quantity)
         }
         return foodManagedObject
     }

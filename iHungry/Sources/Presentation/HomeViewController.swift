@@ -26,7 +26,7 @@ import UIKit
 //
 //**************************************************************************************************
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class HomeViewController: UIViewController {
     
     //*************************************************
     // MARK: - IBOutlets
@@ -45,10 +45,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - Properties
     //*************************************************
     
-    private var searchActive: Bool = false
-    private var ordersFiltered = [OrderVO]()
+    fileprivate var searchActive: Bool = false
+    fileprivate var ordersFiltered = [OrderVO]()
     //Variable that storages the Orders that appears in TableView
-    private var orders = [OrderVO]()
+    fileprivate var orders = [OrderVO]()
     
     //*************************************************
     // MARK: - Override Public Methods
@@ -62,9 +62,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.setupSearchBar()
         //Verify if the user has been already logged in
         self.userIsLogged()
-        //Remove UITableViewCell separator for empty cells
-        self.myOrdersTableView.tableFooterView = UIView(frame: CGRect.zero)
-        self.menuView.layer.shadowOpacity = 1
+        //Setup TableView + MenuView Opacity
+        self.setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,55 +130,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     //*************************************************
-    // MARK: - Search View Methods
+    // MARK: - UI Methods
     //*************************************************
     
-    internal func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.searchActive = true;
+    private func setupTableView() {
+        self.myOrdersTableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        self.myOrdersTableView.tableFooterView = UIView(frame: CGRect.zero)
+        //Setup Menu View Opacity
+        self.menuView.layer.shadowOpacity = 1
     }
-    
-    internal func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        self.searchActive = false;
-        self.searchHidden()
-        self.myOrdersTableView.reloadData()
-    }
-    
-    internal func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchActive = false;
-        self.searchHidden()
-        self.myOrdersTableView.reloadData()
-    }
-    
-    internal func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        self.ordersFiltered = self.orders.filter({ (order) -> Bool in
-            var tmp = NSString()
-            if let orderName = order.name{
-                tmp = orderName as NSString
-            }
-            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-            return range.location != NSNotFound
-        })
-        
-        if (((self.ordersFiltered.count != 0) && (searchText.isEmpty != true)) && self.orders.count != 0) {
-            searchActive = true
-            self.myOrdersTableView.isHidden = false
-            self.noOrderFound.isHidden = true
-        } else if (((self.ordersFiltered.count == 0) && (searchText.isEmpty != true)) && self.orders.count != 0) {
-            searchActive = false
-            self.myOrdersTableView.isHidden = true
-            self.noOrderFound.isHidden = false
-        } else if (((self.ordersFiltered.count == 0) && (searchText.isEmpty == true)) && self.orders.count != 0){
-            self.searchActive = false
-            self.myOrdersTableView.isHidden = false
-            self.noOrderFound.isHidden = true
-        }
-        self.myOrdersTableView.reloadData()
-    }
-    
-    //*************************************************
-    // MARK: - Private Methods
-    //*************************************************
     
     private func setupSearchBar() {
         self.searchBar.backgroundImage = UIImage()
@@ -203,7 +162,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         })
     }
     
-    private func searchHidden() {
+    fileprivate func searchHidden() {
         self.searchConstraint.constant = -100
         self.myOrdersTableView.isHidden = false
         self.noOrderFound.isHidden = true
@@ -242,6 +201,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
+    //*************************************************
+    // MARK: - Private Methods
+    //*************************************************
+    
     //Verify if the user has been already logged in
     private func userIsLogged() {
         if !LoginManager.isLogged {
@@ -250,6 +213,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.present(loginView, animated: false, completion: nil)
         }
     }
+    
+    //*************************************************
+    // MARK: - Alerts
+    //*************************************************
+    
+    private func functionalityNotImplementedAert() {
+        let alert = UIAlertController(title: "Not implemented yet", message: "It will be available soon", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+//**************************************************************************************************
+//
+// MARK: - Extension - HomeViewController - UITableViewDataSource + UITableViewDelegate
+//
+//**************************************************************************************************
+
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     //*************************************************
     // MARK: - Table View Methods
@@ -306,14 +289,61 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+}
+
+//**************************************************************************************************
+//
+// MARK: - Extension - HomeViewController - UISearchBarDelegate
+//
+//**************************************************************************************************
+
+extension HomeViewController: UISearchBarDelegate {
+    
     //*************************************************
-    // MARK: - Alerts
+    // MARK: - Search View Methods
     //*************************************************
     
-    private func functionalityNotImplementedAert() {
-        let alert = UIAlertController(title: "Not implemented yet", message: "It will be available soon", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+    internal func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchActive = true;
     }
+    
+    internal func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.searchActive = false;
+        self.searchHidden()
+        self.myOrdersTableView.reloadData()
+    }
+    
+    internal func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchActive = false;
+        self.searchHidden()
+        self.myOrdersTableView.reloadData()
+    }
+    
+    internal func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        self.ordersFiltered = self.orders.filter({ (order) -> Bool in
+            var tmp = NSString()
+            if let orderName = order.name{
+                tmp = orderName as NSString
+            }
+            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+            return range.location != NSNotFound
+        })
+        
+        if (((self.ordersFiltered.count != 0) && (searchText.isEmpty != true)) && self.orders.count != 0) {
+            searchActive = true
+            self.myOrdersTableView.isHidden = false
+            self.noOrderFound.isHidden = true
+        } else if (((self.ordersFiltered.count == 0) && (searchText.isEmpty != true)) && self.orders.count != 0) {
+            searchActive = false
+            self.myOrdersTableView.isHidden = true
+            self.noOrderFound.isHidden = false
+        } else if (((self.ordersFiltered.count == 0) && (searchText.isEmpty == true)) && self.orders.count != 0){
+            self.searchActive = false
+            self.myOrdersTableView.isHidden = false
+            self.noOrderFound.isHidden = true
+        }
+        self.myOrdersTableView.reloadData()
+    }
+    
 }

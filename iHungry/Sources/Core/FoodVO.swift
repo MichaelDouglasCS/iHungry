@@ -20,8 +20,6 @@ import Foundation
 //
 //**************************************************************************************************
 
-typealias FoodDictionary = ([String : Any])
-
 //**************************************************************************************************
 //
 // MARK: - Struct -
@@ -48,7 +46,7 @@ struct FoodVO {
         
     }
     
-    init(foodFromJSON: FoodDictionary) {
+    init(foodFromJSON: JSONDictionary) {
         self.category = foodFromJSON["category"] as? String
         self.name = foodFromJSON["name"] as? String
         self.price = foodFromJSON["price"] as? Double
@@ -56,7 +54,7 @@ struct FoodVO {
         self.quantity = 0
     }
     
-    init(foodFromObject: FoodDictionary) {
+    init(foodFromObject: JSONDictionary) {
         self.category = foodFromObject["category"] as? String
         self.name = foodFromObject["name"] as? String
         self.price = foodFromObject["price"] as? Double
@@ -74,22 +72,4 @@ struct FoodVO {
         return result
     }
     
-    //*************************************************
-    // MARK: - Internal Methods
-    //*************************************************
-    
-    //*************************************************
-    // MARK: - Self Public Methods
-    //*************************************************
-    
-    //*************************************************
-    // MARK: - Override Public Methods
-    //*************************************************
-    
 }
-
-//**************************************************************************************************
-//
-// MARK: - Extension -
-//
-//**************************************************************************************************

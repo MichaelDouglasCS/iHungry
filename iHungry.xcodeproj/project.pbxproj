@@ -222,6 +222,20 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
+		615F319F1E5C6E800039E4E2 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				619A4A281E3297DC007045DA /* HomeCustomTableViewCell.xib */,
+				61A291691E32EAB200464095 /* FoodMenuCustomTableViewCell.xib */,
+				610394F41E36F53B00548797 /* QuestionConfirmOrderCell.xib */,
+				610394E11E36F33600548797 /* ConfirmOrderCell.xib */,
+				610394E51E36F37D00548797 /* AnyObservationCell.xib */,
+				610394E91E36F3C800548797 /* TotalPriceOrderCell.xib */,
+				610394ED1E36F3DB00548797 /* ConfirmButtonCell.xib */,
+			);
+			name = XIBs;
+			sourceTree = "<group>";
+		};
 		616733CD1E3123A20092E3EA /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,14 +267,8 @@
 			children = (
 				61F5DF771E2BED6D002F18B0 /* Assets.xcassets */,
 				61F5DF711E2BED6D002F18B0 /* Main.storyboard */,
-				619A4A281E3297DC007045DA /* HomeCustomTableViewCell.xib */,
-				61A291691E32EAB200464095 /* FoodMenuCustomTableViewCell.xib */,
-				610394F41E36F53B00548797 /* QuestionConfirmOrderCell.xib */,
-				610394E11E36F33600548797 /* ConfirmOrderCell.xib */,
-				610394E51E36F37D00548797 /* AnyObservationCell.xib */,
-				610394E91E36F3C800548797 /* TotalPriceOrderCell.xib */,
-				610394ED1E36F3DB00548797 /* ConfirmButtonCell.xib */,
 				61F5DF791E2BED6D002F18B0 /* LaunchScreen.storyboard */,
+				615F319F1E5C6E800039E4E2 /* XIBs */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
