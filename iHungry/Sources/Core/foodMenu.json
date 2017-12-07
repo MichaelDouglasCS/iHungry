@@ -1,0 +1,72 @@
+{
+    "food-menu": {
+        "foods": [
+                  {
+                  "category": "food",
+                  "name": "Frango Grelhado",
+                  "price": 20.50,
+                  "image": "prato1"
+                  },
+                  {
+                  "category": "food",
+                  "name": "Costela de Porco",
+                  "price": 27.90,
+                  "image": "prato2"
+                  },
+                  {
+                  "category": "food",
+                  "name": "Strogonoff de Frango",
+                  "price": 35.70,
+                  "image": "prato3"
+                  },
+                  {
+                  "category": "food",
+                  "name": "Picanha e Fritas",
+                  "price": 45.50,
+                  "image": "prato4"
+                  },
+                  {
+                  "category": "food",
+                  "name": "Camarão",
+                  "price": 58,
+                  "image": "prato5"
+                  },
+                  {
+                  "category": "drink",
+                  "name": "Coca Cola",
+                  "price": 8.60,
+                  "image": "coca"
+                  },
+                  {
+                  "category": "drink",
+                  "name": "Fanta Laranja",
+                  "price": 7.50,
+                  "image": "fanta"
+                  },
+                  {
+                  "category": "drink",
+                  "name": "Suco de Laranja",
+                  "price": 10,
+                  "image": "suco1"
+                  },
+                  {
+                  "category": "drink",
+                  "name": "Suco Detox",
+                  "price": 15,
+                  "image": "suco2"
+                  },
+                  {
+                  "category": "dessert",
+                  "name": "Petit Gâteau",
+                  "price": 14.20,
+                  "image": "sobremesa1"
+                  },
+                  {
+                  "category": "dessert",
+                  "name": "Sorvete de Morango",
+                  "price": 11.50,
+                  "image": "sobremesa2"
+                  }
+                  ]
+    }
+}

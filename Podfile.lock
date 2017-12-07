@@ -1,0 +1,30 @@
+PODS:
+  - KeychainSwift (7.0.0)
+  - OHHTTPStubs (5.2.3):
+    - OHHTTPStubs/Default (= 5.2.3)
+  - OHHTTPStubs/Core (5.2.3)
+  - OHHTTPStubs/Default (5.2.3):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (5.2.3):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (5.2.3):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (5.2.3)
+  - OHHTTPStubs/Swift (5.2.3):
+    - OHHTTPStubs/Core
+
+DEPENDENCIES:
+  - KeychainSwift (~> 7.0)
+  - OHHTTPStubs
+  - OHHTTPStubs/Swift
+
+SPEC CHECKSUMS:
+  KeychainSwift: b6947435dd78cc442c64a84ae648dd0e871cf448
+  OHHTTPStubs: e238cd5b66d8efa51c861db45895de8fe079f4a7
+
+PODFILE CHECKSUM: 04d9c848616c1c40ffe9b438adef0c90677238f0
+
+COCOAPODS: 1.1.1

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>KeychainSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>OHHTTPStubs.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iHungry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iHungryTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iHungryUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>38ACA430605AFB4229712A18BDDF5086</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>748F1C7F61D88F3FB355A8E829489671</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EE37B28F44BB518D986BD3753FE8C84</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DECFDE76A72E68F5FBBC8DBFEF9881AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EDC0ABE4BDEC37CBACF4A316DA3DB5BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
