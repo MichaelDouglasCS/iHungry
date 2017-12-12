@@ -1,6 +1,6 @@
 # iHungry
 
-This project is a Simple Food App, that i create to understand better some concepts of the Swift and to learn more about his technologies.
+This repository is a simple iOS Application developed using Swift 3.0, XIB's, Navigation Controllers, Core Data and others technologies. This app aims to help people that are starting in Swift, to understand some basic concepts of the language.
 
 ## Getting Started
 
