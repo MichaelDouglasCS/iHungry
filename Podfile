@@ -6,9 +6,12 @@ target 'iHungry' do
   use_frameworks!
 
   # Pods for iHungry
+  pod 'Alamofire'
+  pod 'ObjectMapper'
+  pod 'SwiftyJSON'
   pod 'OHHTTPStubs'
   pod 'OHHTTPStubs/Swift'
-  pod 'KeychainSwift', '~> 7.0'
+  pod 'KeychainSwift'
 
   target 'iHungryTests' do
     inherit! :search_paths
