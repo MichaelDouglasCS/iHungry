@@ -158,7 +158,7 @@ class FoodMenuViewController: UIViewController {
         }
     }
     
-    internal func addFood(button: UIButton) {
+    @objc internal func addFood(button: UIButton) {
         if let quantity = self.receivedFoods[button.tag].quantity {
             self.receivedFoods[button.tag].quantity = (quantity + 1)
         }
@@ -166,7 +166,7 @@ class FoodMenuViewController: UIViewController {
         self.foodMenuTableView.reloadData()
     }
     
-    internal func removeFood(button: UIButton) {
+    @objc internal func removeFood(button: UIButton) {
         if let quantity = self.receivedFoods[button.tag].quantity {
             if quantity != 0 {
                 self.receivedFoods[button.tag].quantity = (quantity - 1)
@@ -178,7 +178,7 @@ class FoodMenuViewController: UIViewController {
         self.foodMenuTableView.reloadData()
     }
     
-    internal func confirmAndSaveOrder() {
+    @objc internal func confirmAndSaveOrder() {
         var myOrder = OrderVO(orderFromFood: self.foodsOfOrder)
         if self.observationOrder.isEmpty != true {
             myOrder.observation = self.observationOrder
