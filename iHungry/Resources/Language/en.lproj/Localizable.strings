@@ -1,0 +1,19 @@
+/*
+ Localizable.strings
+ iHungry
+ 
+ Created by Michael Douglas on 09/08/18.
+ Copyright © 2018 Michael Douglas. All rights reserved.
+ */
+
+//*************************
+// Network
+//*************************
+
+"ST_NO_CONNECTION" = "Sem conexão disponível. Por favor, verifique sua conectividade e tente novamente.";
+"ST_SERVICE_UNAVAILABLE" = "Serviço Indisponível. Por favor, tente novamente mais tarde.";
+"ST_SERVER_ERROR" = "Erro no servidor não tratado. Por favor, tente novamente mais tarde.";
+
+
+
+
