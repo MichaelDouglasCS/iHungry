@@ -23,6 +23,7 @@
 		61221B641E2EC59400268502 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61221B631E2EC59400268502 /* HomeViewController.swift */; };
 		6122BE831E2FD627000B6DF6 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6122BE821E2FD627000B6DF6 /* OrderManager.swift */; };
 		612F095C1E2EDEF60008750D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612F095B1E2EDEF60008750D /* NetworkManager.swift */; };
+		61478530211D2FEC004DC89A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6147852F211D2FEC004DC89A /* .swiftlint.yml */; };
 		615CD4B7211D1DD800AB8045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 615CD4B6211D1DD800AB8045 /* LaunchScreen.storyboard */; };
 		616733CF1E3123D20092E3EA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616733CE1E3123D20092E3EA /* CoreDataManager.swift */; };
 		6180424F1E378BF0001EEDB9 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180424E1E378BF0001EEDB9 /* OrderDetailViewController.swift */; };
@@ -87,6 +88,7 @@
 		61221B631E2EC59400268502 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6122BE821E2FD627000B6DF6 /* OrderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
 		612F095B1E2EDEF60008750D /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		6147852F211D2FEC004DC89A /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .swiftlint.yml; path = iHungry/Resources/.swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		615CD4B6211D1DD800AB8045 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		616733CE1E3123D20092E3EA /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6180424E1E378BF0001EEDB9 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
@@ -212,18 +214,27 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
-		615F319F1E5C6E800039E4E2 /* XIBs */ = {
+		6147852D211D2F2C004DC89A /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				619A4A281E3297DC007045DA /* HomeCustomTableViewCell.xib */,
-				61A291691E32EAB200464095 /* FoodMenuCustomTableViewCell.xib */,
-				610394F41E36F53B00548797 /* QuestionConfirmOrderCell.xib */,
-				610394E11E36F33600548797 /* ConfirmOrderCell.xib */,
 				610394E51E36F37D00548797 /* AnyObservationCell.xib */,
-				610394E91E36F3C800548797 /* TotalPriceOrderCell.xib */,
 				610394ED1E36F3DB00548797 /* ConfirmButtonCell.xib */,
+				610394E11E36F33600548797 /* ConfirmOrderCell.xib */,
+				61A291691E32EAB200464095 /* FoodMenuCustomTableViewCell.xib */,
+				619A4A281E3297DC007045DA /* HomeCustomTableViewCell.xib */,
+				610394F41E36F53B00548797 /* QuestionConfirmOrderCell.xib */,
+				610394E91E36F3C800548797 /* TotalPriceOrderCell.xib */,
 			);
-			name = XIBs;
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		6147852E211D2F9A004DC89A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6147852F211D2FEC004DC89A /* .swiftlint.yml */,
+				61F5DF7C1E2BED6D002F18B0 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		616733CD1E3123A20092E3EA /* Manager */ = {
@@ -242,26 +253,10 @@
 				615CD4B6211D1DD800AB8045 /* LaunchScreen.storyboard */,
 				6110573C211D2B1F0027EC67 /* Main.storyboard */,
 				61AACDE3211D143100522432 /* Language */,
-				617A9C801E2BF0D300448986 /* Interfaces */,
-				617A9C7F1E2BF0C100448986 /* Supporting Files */,
+				6147852E211D2F9A004DC89A /* Supporting Files */,
+				6147852D211D2F2C004DC89A /* XIBs */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		617A9C7F1E2BF0C100448986 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				61F5DF7C1E2BED6D002F18B0 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		617A9C801E2BF0D300448986 /* Interfaces */ = {
-			isa = PBXGroup;
-			children = (
-				615F319F1E5C6E800039E4E2 /* XIBs */,
-			);
-			name = Interfaces;
 			sourceTree = "<group>";
 		};
 		617A9C821E2BF11400448986 /* Sources */ = {
@@ -618,6 +613,7 @@
 				6110573D211D2B1F0027EC67 /* Main.storyboard in Resources */,
 				61E0799E1E330ED8005C7B05 /* foodMenu.json in Resources */,
 				61115CD0211D2D920046BE6D /* Localizable.strings in Resources */,
+				61478530211D2FEC004DC89A /* .swiftlint.yml in Resources */,
 				615CD4B7211D1DD800AB8045 /* LaunchScreen.storyboard in Resources */,
 				619A4A2A1E3297DC007045DA /* HomeCustomTableViewCell.xib in Resources */,
 				61E0773C1E2ED60400EFDF39 /* auth.json in Resources */,
