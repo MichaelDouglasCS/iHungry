@@ -17,6 +17,7 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (6.1.0)
   - OHHTTPStubs/Swift (6.1.0):
     - OHHTTPStubs/Default
+  - SwiftLint (0.27.0)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - ObjectMapper
   - OHHTTPStubs
   - OHHTTPStubs/Swift
+  - SwiftLint
   - SwiftyJSON
 
 SPEC REPOS:
@@ -33,6 +35,7 @@ SPEC REPOS:
     - KeychainSwift
     - ObjectMapper
     - OHHTTPStubs
+    - SwiftLint
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -40,8 +43,9 @@ SPEC CHECKSUMS:
   KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 3abb5a8bf37894f0c8eb1f1cbb3d5b45753174c3
+PODFILE CHECKSUM: 0eb19735c7e7e3b0845a12b72eba46e15f92271b
 
 COCOAPODS: 1.5.3

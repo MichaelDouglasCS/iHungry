@@ -12,6 +12,7 @@ target 'iHungry' do
   pod 'OHHTTPStubs'
   pod 'OHHTTPStubs/Swift'
   pod 'KeychainSwift'
+  pod 'SwiftLint'
 
   target 'iHungryTests' do
     inherit! :search_paths
