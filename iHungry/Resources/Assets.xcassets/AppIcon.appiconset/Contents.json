@@ -117,15 +117,14 @@
       "scale" : "1x"
     },
     {
-      "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "iTunesArtwork@1x.png",
+      "size" : "512x512",
       "scale" : "1x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "iTunesArtwork@2x.png",
+      "filename" : "ItunesArtwork@2x.png",
       "scale" : "2x"
     }
   ],
